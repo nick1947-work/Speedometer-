@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tourOverlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3000000"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Dashed pointer line connecting to top GPS chip -->
+    <View
+        android:id="@+id/tourPointerLine"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF" />
+
+    <!-- Tour Tooltip Card matching screenshot -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/bg_tour_card"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvTourTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/tour_gps_title"
+            android:textColor="@color/bg_black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvTourDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/tour_gps_desc"
+            android:textColor="#3C4043"
+            android:textSize="15sp" />
+
+        <!-- Black Rounded NEXT Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTourNext"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_tour_next"
+            android:fontFamily="sans-serif-black"
+            android:paddingHorizontal="32dp"
+            android:text="@string/btn_next"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

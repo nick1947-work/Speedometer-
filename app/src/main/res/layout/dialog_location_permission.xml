@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/bg_dialog_dark"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <!-- Location Pin with Folded Map Graphic -->
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_loc_dialog_pin" />
+
+    <!-- Bold Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/loc_dialog_title"
+        android:textColor="@color/text_white"
+        android:textSize="22sp" />
+
+    <!-- Subtitle with Cyan highlighted text -->
+    <TextView
+        android:id="@+id/tvLocationSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:text="@string/loc_dialog_subtitle"
+        android:textColor="@color/text_white"
+        android:textSize="15sp" />
+
+    <!-- Explanation Paragraph -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="3dp"
+        android:text="@string/loc_dialog_bullets_intro"
+        android:textColor="@color/text_gray"
+        android:textSize="14sp" />
+
+    <!-- Bullets -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="3dp"
+            android:fontFamily="sans-serif"
+            android:text="• Calculate your speed"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="3dp"
+            android:fontFamily="sans-serif"
+            android:text="• Track your route in real-time"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="3dp"
+            android:fontFamily="sans-serif"
+            android:text="• Show your speed in Floating Window and Widget"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Cyan 'Grant now' Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGrantNow"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_continue"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/btn_grant_now"
+        android:textColor="@color/bg_black"
+        android:textSize="15sp" />
+
+    <!-- 'Later' text button -->
+    <TextView
+        android:id="@+id/btnLater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:padding="8dp"
+        android:text="@string/btn_later"
+        android:textColor="@color/text_gray"
+        android:textSize="14sp" />
+
+</LinearLayout>

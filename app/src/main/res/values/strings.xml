@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Speedometer</string>
+    <string name="splash_title">SPEEDOMETER</string>
+    <string name="splash_subtitle">Measure your speed with ease,\nat any time.</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Welcome to the\nSpeedometer App</string>
+    <string name="onboarding_desc_1">Get real-time, accurate tracking of your speed.</string>
+    <string name="onboarding_title_2">Trip History Review</string>
+    <string name="onboarding_desc_2">Easily log and review your past trips and mileage.</string>
+    <string name="onboarding_title_3">Speed Limit Alerts</string>
+    <string name="onboarding_desc_3">Set a speed limit and get alerted if you exceed it.</string>
+    <string name="btn_continue">CONTINUE</string>
+
+    <!-- Location Permission Dialog -->
+    <string name="loc_dialog_title">Location Permission</string>
+    <string name="loc_dialog_subtitle">To track your speed, allow our app to get your <font color="#00F5FF">Location Permission</font> all the time.</string>
+    <string name="loc_dialog_bullets_intro">Speedometer will be able to run in the background using location data to</string>
+    <string name="loc_bullet_1">• Calculate your speed</string>
+    <string name="loc_bullet_2">• Track your route in real-time</string>
+    <string name="loc_bullet_3">• Show your speed in Floating Window and Widget</string>
+    <string name="btn_grant_now">Grant now</string>
+    <string name="btn_later">Later</string>
+
+    <!-- Background Battery / Permission Required Dialog -->
+    <string name="perm_required_title">Permission Required</string>
+    <string name="perm_battery_title">Battery Limit Free</string>
+    <string name="perm_battery_desc">Prevent the app from being killed by the system</string>
+    <string name="perm_autostart_title">Auto Start</string>
+    <string name="perm_autostart_desc">Battery Optimization &amp; Auto Start</string>
+    <string name="btn_allow">Allow</string>
+
+    <!-- Guide Screens -->
+    <string name="guide_battery_title">Select No restrictions</string>
+    <string name="guide_autostart_title">Find Speedometer and turn the button on</string>
+    <string name="btn_go_to_set">GO TO SET</string>
+
+    <!-- First Time Feature Tour -->
+    <string name="tour_gps_title">GPS Signal</string>
+    <string name="tour_gps_desc">Check your current GPS signal here. For best results, ensure you\'re outdoors in an open area.</string>
+    <string name="btn_next">NEXT</string>
+
+    <!-- Dashboard Tabs -->
+    <string name="tab_gauge">Gauge</string>
+    <string name="tab_digital">Digital</string>
+    <string name="tab_map">Map</string>
+    <string name="tab_nav">Nav</string>
+
+    <string name="speed_unit_kmh">km/h</string>
+    <string name="speed_unit_mph">mph</string>
+    <string name="speed_unit_knots">knot</string>
+    <string name="hud_mode">HUD Mode</string>
+    <string name="start_trip">START</string>
+    <string name="stop_trip">STOP</string>
+    <string name="reset_trip">RESET</string>
+    <string name="odometer_label">Odometer</string>
+    <string name="max_speed">Max speed</string>
+    <string name="avg_speed">Avg speed</string>
+    <string name="distance">Distance</string>
+    <string name="duration">Duration</string>
+    <string name="gps_status_excellent">GPS: Excellent (37/45 Satellites)</string>
+    <string name="gps_status_no">GPS: No (0/0 Satellites)</string>
+    <string name="gps_locked">GPS Active</string>
+    <string name="gps_searching">GPS: Searching...</string>
+    <string name="overspeed_alert">SPEED LIMIT EXCEEDED!</string>
+    <string name="trip_saved_message">Trip Summary Saved</string>
+</resources>

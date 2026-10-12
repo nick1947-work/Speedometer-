@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="290dp"
+    android:height="290dp"
+    android:viewportWidth="290"
+    android:viewportHeight="290">
+
+    <!-- Outer Dial Rim Circle (Dark) -->
+    <path
+        android:strokeColor="#1E232B"
+        android:strokeWidth="16"
+        android:pathData="M 50,225 A 115,115 0 1,1 240,225" />
+
+    <!-- Active Speed Arc in Neon Cyan (left side) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M 52,223 A 115,115 0 0,1 145,30" />
+
+    <!-- Orange / Red Zone Arc (upper-right side) -->
+    <path
+        android:strokeColor="#FF5722"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M 175,37 A 115,115 0 0,1 238,223" />
+
+    <!-- Dial tick marks matching analog gauge -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="4"
+        android:pathData="M 52,223 L 64,213 M 42,160 L 56,160 M 60,100 L 72,108 M 145,30 L 145,45 M 230,100 L 218,108 M 248,160 L 234,160 M 238,223 L 226,213" />
+
+</vector>

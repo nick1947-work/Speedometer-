@@ -1,0 +1,50 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Gradient speed arc segments -->
+    <!-- Green segment (left) -->
+    <path
+        android:strokeColor="#00E676"
+        android:strokeWidth="14"
+        android:strokeLineCap="round"
+        android:pathData="M 22,78 A 46,46 0 0,1 32,38" />
+
+    <!-- Yellow-Green segment -->
+    <path
+        android:strokeColor="#76FF03"
+        android:strokeWidth="14"
+        android:pathData="M 32,38 A 46,46 0 0,1 60,24" />
+
+    <!-- Orange-Yellow segment -->
+    <path
+        android:strokeColor="#FFD600"
+        android:strokeWidth="14"
+        android:pathData="M 60,24 A 46,46 0 0,1 88,38" />
+
+    <!-- Red-Orange segment (right) -->
+    <path
+        android:strokeColor="#FF3D00"
+        android:strokeWidth="14"
+        android:strokeLineCap="round"
+        android:pathData="M 88,38 A 46,46 0 0,1 98,78" />
+
+    <!-- Center Needle Hub Glow -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 60,60 m -10,0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0" />
+
+    <!-- Glowing Cyan Needle pointing up-right -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:pathData="M 60,60 L 80,42" />
+
+    <!-- Center pin -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 60,60 m -4,0 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0" />
+</vector>

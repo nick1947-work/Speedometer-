@@ -1,0 +1,50 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="260dp"
+    android:viewportWidth="260"
+    android:viewportHeight="260">
+
+    <!-- Outer Phone Screen Glow Base -->
+    <path
+        android:fillColor="#151A24"
+        android:pathData="M 30,20 H 230 A 24,24 0 0,1 254,44 V 216 A 24,24 0 0,1 230,240 H 30 A 24,24 0 0,1 6,216 V 44 A 24,24 0 0,1 30,20 Z" />
+
+    <!-- Ambient circular neon glow -->
+    <path
+        android:fillColor="#1A00F5FF"
+        android:pathData="M 130,130 m -70,0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" />
+
+    <!-- Circular speed arc (Blue/Cyan to Orange/Red) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M 70,165 A 70,70 0 1,1 170,175" />
+
+    <!-- Orange/Red zone -->
+    <path
+        android:strokeColor="#FF5722"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M 170,175 A 70,70 0 0,1 190,140" />
+
+    <!-- Cyan Gauge Needle -->
+    <path
+        android:strokeColor="#00F5FF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:pathData="M 130,130 L 85,100" />
+
+    <!-- Center 72 Digits (LED simulation) -->
+    <path
+        android:fillColor="#00F5FF"
+        android:pathData="M 105,95 H 125 V 105 H 115 V 135 H 105 Z" />
+    <path
+        android:fillColor="#00F5FF"
+        android:pathData="M 135,95 H 155 V 110 H 135 V 125 H 155 V 135 H 135 Z" />
+
+    <!-- Unit Label 'mph' -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M 115,148 H 145 V 154 H 115 Z" />
+</vector>

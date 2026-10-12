@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="260dp"
+    android:height="260dp"
+    android:viewportWidth="260"
+    android:viewportHeight="260">
+
+    <!-- Phone mockup background -->
+    <path
+        android:fillColor="#151A24"
+        android:pathData="M 40,20 H 220 A 24,24 0 0,1 244,44 V 216 A 24,24 0 0,1 220,240 H 40 A 24,24 0 0,1 16,216 V 44 A 24,24 0 0,1 40,20 Z" />
+
+    <!-- Big Digital Speed '86 mph' in bright cyan -->
+    <path
+        android:fillColor="#00F5FF"
+        android:pathData="M 75,55 H 125 V 75 H 95 V 95 H 125 V 125 H 75 Z" />
+    <path
+        android:fillColor="#00F5FF"
+        android:pathData="M 135,55 H 185 V 75 H 155 V 95 H 185 V 125 H 135 Z" />
+
+    <!-- Red Alert Card 'Speed Limit 85 mph' -->
+    <path
+        android:fillColor="#D50000"
+        android:pathData="M 50,115 H 230 A 16,16 0 0,1 246,131 V 165 A 16,16 0 0,1 230,181 H 50 A 16,16 0 0,1 34,165 V 131 A 16,16 0 0,1 50,115 Z" />
+
+    <!-- Speed Limit Text in card -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 85,138 H 130 V 144 H 85 Z M 85,152 H 115 V 158 H 85 Z" />
+    <!-- 85 in red card -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 160,130 H 210 V 166 H 160 Z" />
+
+    <!-- 3D Yellow Warning Triangle with Exclamation Badge on left -->
+    <!-- Triangle background -->
+    <path
+        android:fillColor="#FFD600"
+        android:pathData="M 40,95 L 85,175 A 8,8 0 0,1 78,185 H 6 A 8,8 0 0,1 -1,175 L 34,95 A 6,6 0 0,1 40,95 Z" />
+    <!-- Dark border around triangle -->
+    <path
+        android:strokeColor="#212121"
+        android:strokeWidth="5"
+        android:pathData="M 40,95 L 85,175 A 8,8 0 0,1 78,185 H 6 A 8,8 0 0,1 -1,175 L 34,95 A 6,6 0 0,1 40,95 Z" />
+    <!-- Exclamation mark in triangle -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M 36,125 H 44 V 155 H 36 Z M 36,163 H 44 V 171 H 36 Z" />
+</vector>

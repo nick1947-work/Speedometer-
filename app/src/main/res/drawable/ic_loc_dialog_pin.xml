@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Folded map layer in soft gray -->
+    <path
+        android:fillColor="#78909C"
+        android:pathData="M 12,38 L 24,32 L 40,38 L 52,32 L 52,48 L 40,54 L 24,48 L 12,54 Z" />
+
+    <!-- White location pin marker -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 32,10 C 24,10 18,16 18,24 C 18,34 32,46 32,46 C 32,46 46,34 46,24 C 46,16 40,10 32,10 Z" />
+
+    <!-- Dark inner circle of location pin -->
+    <path
+        android:fillColor="#21252D"
+        android:pathData="M 32,24 m -5,0 a 5,5 0 1,0 10,0 a 5,5 0 1,0 -10,0" />
+</vector>
