@@ -38,7 +38,10 @@
     <!-- First Time Feature Tour -->
     <string name="tour_gps_title">GPS Signal</string>
     <string name="tour_gps_desc">Check your current GPS signal here. For best results, ensure you\'re outdoors in an open area.</string>
+    <string name="tour_measure_title">Measure Speed</string>
+    <string name="tour_measure_desc">Click to start measuring your speed!</string>
     <string name="btn_next">NEXT</string>
+    <string name="btn_got_it">GOT IT</string>
 
     <!-- Dashboard Tabs -->
     <string name="tab_gauge">Gauge</string>
@@ -46,13 +49,12 @@
     <string name="tab_map">Map</string>
     <string name="tab_nav">Nav</string>
 
-    <string name="speed_unit_kmh">km/h</string>
-    <string name="speed_unit_mph">mph</string>
-    <string name="speed_unit_knots">knot</string>
-    <string name="hud_mode">HUD Mode</string>
+    <!-- Controls -->
     <string name="start_trip">START</string>
     <string name="stop_trip">STOP</string>
-    <string name="reset_trip">RESET</string>
+    <string name="pause_trip">Pause</string>
+    <string name="resume_trip">Resume</string>
+    <string name="reset_trip">Reset</string>
     <string name="odometer_label">Odometer</string>
     <string name="max_speed">Max speed</string>
     <string name="avg_speed">Avg speed</string>
@@ -64,4 +66,43 @@
     <string name="gps_searching">GPS: Searching...</string>
     <string name="overspeed_alert">SPEED LIMIT EXCEEDED!</string>
     <string name="trip_saved_message">Trip Summary Saved</string>
+
+    <!-- Trip Info Screen -->
+    <string name="from_label">FROM</string>
+    <string name="to_label">TO</string>
+    <string name="map_view_title">Map View</string>
+    <string name="trip_title_default">Trip-1</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings</string>
+    <string name="speed_unit_header">Speed Unit</string>
+    <string name="speed_settings_header">Speed Settings</string>
+    <string name="general_settings_header">General Settings</string>
+    <string name="support_us_header">Support us</string>
+    <string name="speed_unit_kmh">km</string>
+    <string name="speed_unit_mph">mph</string>
+    <string name="speed_unit_knots">knot</string>
+    <string name="mode_walk">Walk</string>
+    <string name="mode_bike">Bike</string>
+    <string name="mode_moto">Moto</string>
+    <string name="mode_car">Car</string>
+    <string name="total_mileage">Total mileage</string>
+    <string name="maximum_mileage">Maximum mileage</string>
+    <string name="warning_when_over">Warning when over</string>
+    <string name="speed_warning">Speed Warning</string>
+    <string name="animation">Animation</string>
+    <string name="sound_effect">Sound effect</string>
+    <string name="vibration">Vibration</string>
+    <string name="route_tracking_on_map">Route Tracking on map</string>
+    <string name="notification_bar">Notification bar</string>
+    <string name="theme_color">Theme color</string>
+    <string name="keep_screen_on">Keep screen on</string>
+    <string name="window_mode">Window mode</string>
+    <string name="language">Language</string>
+    <string name="permission_settings">Permission settings</string>
+    <string name="rate_us">Rate us</string>
+    <string name="feedback">Feedback</string>
+    <string name="share_with_friends">Share with friends</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="app_version_code">Version 1.2.8</string>
 </resources>

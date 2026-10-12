@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black"
+    android:keepScreenOn="true">
+
+    <!-- Top Tabs & Status Bar matching landscape screenshot 5 -->
+    <LinearLayout
+        android:id="@+id/landTopBar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Tabs: Gauge | Digital | Map | Nav -->
+        <TextView
+            android:id="@+id/tvTabGauge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Gauge"
+            android:textColor="@color/neon_cyan"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvTabDigital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Digital"
+            android:textColor="@color/text_gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTabMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Map"
+            android:textColor="@color/text_gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTabNav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Nav"
+            android:textColor="@color/text_gray"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Satellite GPS Status Pill -->
+        <TextView
+            android:id="@+id/tvGpsPillText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="📶 GPS: No (0/0 Satellites)"
+            android:textColor="@color/text_gray"
+            android:textSize="12sp" />
+
+        <!-- Action Icons: Share, Clock/History, Window, Settings -->
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_share"
+            app:tint="@color/text_gray" />
+
+        <ImageView
+            android:id="@+id/ivHistory"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_recent_history"
+            app:tint="@color/text_gray" />
+
+        <ImageView
+            android:id="@+id/ivFloatingWindow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_view"
+            app:tint="@color/text_gray" />
+
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_manage"
+            app:tint="@color/text_gray" />
+    </LinearLayout>
+
+    <!-- Left Vertical Vehicle Selector Column (Walk, Bike, Moto, Car) matching screenshot 5 -->
+    <LinearLayout
+        android:id="@+id/vehicleModeSelectorLand"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/landTopBar">
+
+        <FrameLayout
+            android:id="@+id/ivModeWalkContainer"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_vehicle_selected">
+
+            <ImageView
+                android:id="@+id/ivModeWalk"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_directions"
+                app:tint="@color/neon_cyan" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/ivModeBicycle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_compass"
+            app:tint="@color/text_dark_gray" />
+
+        <ImageView
+            android:id="@+id/ivModeMoto"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            app:tint="@color/text_dark_gray" />
+
+        <ImageView
+            android:id="@+id/ivModeCar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_mapmode"
+            app:tint="@color/text_dark_gray" />
+    </LinearLayout>
+
+    <!-- Cockpit Dial Center (Left-Center) -->
+    <FrameLayout
+        android:id="@+id/dialCenterContainer"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vehicleModeSelectorLand"
+        app:layout_constraintTop_toBottomOf="@id/landTopBar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_analog_dial_gauge" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMainSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="0"
+                android:textColor="@color/neon_cyan"
+                android:textSize="74sp" />
+
+            <TextView
+                android:id="@+id/tvMainUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="knot"
+                android:textColor="@color/neon_cyan"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvOdometerValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="monospace"
+                android:text="000000 nm"
+                android:textColor="@color/text_gray"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Right Side: 2x2 Metrics Grid & Big START Pill Button matching screenshot 5 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dialCenterContainer"
+        app:layout_constraintTop_toBottomOf="@id/landTopBar">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <!-- Duration -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱ Duration"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="00:00:00"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <!-- Distance -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Distance"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 nm"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <!-- Avg speed -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📈 Avg speed"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvAvgSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 knot"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <!-- Max speed -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ Max speed"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvMaxSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 knot"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="22sp" />
+            </LinearLayout>
+        </GridLayout>
+
+        <!-- Landscape Action START Pill Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMainAction"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_button_start_pill"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.08"
+            android:text="▶  START"
+            android:textColor="@color/bg_black"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

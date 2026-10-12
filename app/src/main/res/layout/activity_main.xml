@@ -106,7 +106,7 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!-- 4 Tabs Bar: Gauge | Digital | Map | Nav matching screenshots -->
+    <!-- 4 Tabs Bar: Gauge | Digital | Map | Nav -->
     <LinearLayout
         android:id="@+id/tabsContainer"
         android:layout_width="0dp"
@@ -280,7 +280,6 @@
                 android:textColor="@color/text_dark_gray"
                 android:textSize="11sp" />
 
-            <!-- Retro 6-digit odometer readout 000000 km -->
             <TextView
                 android:id="@+id/tvOdometerValue"
                 android:layout_width="wrap_content"
@@ -305,48 +304,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/ivModeWalk"
-            android:layout_width="40dp"
+        <FrameLayout
+            android:id="@+id/ivModeWalkContainer"
+            android:layout_width="48dp"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="8dp"
-            android:padding="8dp"
-            android:src="@android:drawable/ic_menu_directions"
-            app:tint="@color/text_dark_gray" />
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/bg_vehicle_selected">
 
-        <ImageView
-            android:id="@+id/ivModeBicycle"
-            android:layout_width="40dp"
+            <ImageView
+                android:id="@+id/ivModeWalk"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_directions"
+                app:tint="@color/neon_cyan" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/ivModeBicycleContainer"
+            android:layout_width="48dp"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="8dp"
-            android:padding="8dp"
-            android:src="@android:drawable/ic_menu_compass"
-            app:tint="@color/text_dark_gray" />
+            android:layout_marginHorizontal="6dp">
 
-        <ImageView
-            android:id="@+id/ivModeMoto"
-            android:layout_width="40dp"
+            <ImageView
+                android:id="@+id/ivModeBicycle"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="@color/text_dark_gray" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/ivModeMotoContainer"
+            android:layout_width="48dp"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="8dp"
-            android:padding="8dp"
-            android:src="@android:drawable/ic_menu_agenda"
-            app:tint="@color/text_dark_gray" />
+            android:layout_marginHorizontal="6dp">
 
-        <!-- Selected Vehicle Mode (Car) matching screenshot -->
+            <ImageView
+                android:id="@+id/ivModeMoto"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="@color/text_dark_gray" />
+        </FrameLayout>
+
         <FrameLayout
             android:id="@+id/ivModeCarContainer"
             android:layout_width="48dp"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/bg_vehicle_selected">
+            android:layout_marginHorizontal="6dp">
 
             <ImageView
                 android:id="@+id/ivModeCar"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@android:drawable/ic_menu_mapmode"
-                app:tint="@color/neon_cyan" />
+                app:tint="@color/text_dark_gray" />
         </FrameLayout>
     </LinearLayout>
 
@@ -359,7 +375,7 @@
         android:layout_marginBottom="18dp"
         android:columnCount="2"
         android:rowCount="2"
-        app:layout_constraintBottom_toTopOf="@id/btnMainAction"
+        app:layout_constraintBottom_toTopOf="@id/tripControlBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -473,7 +489,8 @@
 
     </GridLayout>
 
-    <!-- Big Cyan Pill Action Button: ▶ START -->
+    <!-- Controls Row: State 1 (Single Big START Pill) & State 2 (Reset | STOP | Pause) -->
+    <!-- Default Big START Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMainAction"
         android:layout_width="0dp"
@@ -486,9 +503,101 @@
         android:text="▶  START"
         android:textColor="@color/bg_black"
         android:textSize="17sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/adViewContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Active 3-Button Control Bar matching screenshot 1 (Reset | STOP | Pause) -->
+    <LinearLayout
+        android:id="@+id/tripControlBar"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Reset Button Column -->
+        <LinearLayout
+            android:id="@+id/btnResetTripCol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_circle_dark_btn">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_rotate"
+                    app:tint="@color/text_white" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Reset"
+                android:textColor="@color/text_gray"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Center STOP Pill Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnStopTrip"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_stop_pill"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.08"
+            android:text="■  STOP"
+            android:textColor="@color/neon_cyan"
+            android:textSize="16sp" />
+
+        <!-- Pause / Resume Button Column -->
+        <LinearLayout
+            android:id="@+id/btnPauseTripCol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_circle_blue_btn">
+
+                <ImageView
+                    android:id="@+id/ivPauseIcon"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_media_pause"
+                    app:tint="@color/text_white" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvPauseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Pause"
+                android:textColor="@color/text_gray"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <!-- Bottom Banner Ad -->
     <FrameLayout

@@ -51,7 +51,19 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-        <!-- Main Dashboard Multi-Screen Activity -->
+        <!-- Settings Screen Activity -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Trip Information Summary Activity -->
+        <activity
+            android:name=".ui.trip.TripSummaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Main Dashboard Multi-Screen Activity (Portrait & Landscape responsive) -->
         <activity
             android:name=".ui.MainActivity"
             android:exported="false"

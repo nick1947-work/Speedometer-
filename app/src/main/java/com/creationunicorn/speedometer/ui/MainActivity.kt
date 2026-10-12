@@ -2,6 +2,7 @@ package com.creationunicorn.speedometer.ui
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,8 @@ import com.creationunicorn.speedometer.ads.AdManager
 import com.creationunicorn.speedometer.databinding.ActivityMainBinding
 import com.creationunicorn.speedometer.service.TrackingService
 import com.creationunicorn.speedometer.ui.dialog.PermissionDialogHelper
+import com.creationunicorn.speedometer.ui.settings.SettingsActivity
+import com.creationunicorn.speedometer.ui.trip.TripSummaryActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: SpeedometerViewModel by viewModels()
     private var adView: AdView? = null
+    private var isPaused = false
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -38,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         val fineGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
         if (fineGranted) {
             viewModel.startTracking()
-            // After system permission granted, show Battery / Auto Start Optimization dialog
             checkAndShowBatteryDialog()
         } else {
             Toast.makeText(this, "Location permission is required for accurate speed", Toast.LENGTH_SHORT).show()
@@ -66,7 +69,6 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
 
         if (!hasFineLoc && !hasSeenLocationDialog) {
-            // Step 1: Show Custom Location Permission Dialog
             PermissionDialogHelper.showLocationPermissionDialog(
                 this,
                 onGrantClicked = {
@@ -114,73 +116,145 @@ class MainActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
         val hasSeenTour = prefs.getBoolean("seen_feature_tour", false)
         if (!hasSeenTour) {
-            // Show first-time feature tour overlay
-            binding.tourLayout.tourOverlayRoot.visibility = View.VISIBLE
-            binding.tourLayout.btnTourNext.setOnClickListener {
-                binding.tourLayout.tourOverlayRoot.visibility = View.GONE
+            val tourLayout = binding.tourLayout ?: return
+            tourLayout.tourOverlayRoot.visibility = View.VISIBLE
+            tourLayout.tourStep1Container.visibility = View.VISIBLE
+            tourLayout.tourStep2Container.visibility = View.GONE
+
+            tourLayout.btnTourStep1Next.setOnClickListener {
+                tourLayout.tourStep1Container.visibility = View.GONE
+                tourLayout.tourStep2Container.visibility = View.VISIBLE
+            }
+
+            tourLayout.btnTourStep2GotIt.setOnClickListener {
+                tourLayout.tourOverlayRoot.visibility = View.GONE
                 prefs.edit().putBoolean("seen_feature_tour", true).apply()
             }
         }
     }
 
     private fun setupTabs() {
-        binding.tabGauge.setOnClickListener { selectTab(0) }
-        binding.tabDigital.setOnClickListener { selectTab(1) }
-        binding.tabMap.setOnClickListener { selectTab(2) }
-        binding.tabNav.setOnClickListener { selectTab(3) }
+        binding.tabGauge?.setOnClickListener { selectTab(0) }
+        binding.tabDigital?.setOnClickListener { selectTab(1) }
+        binding.tabMap?.setOnClickListener { selectTab(2) }
+        binding.tabNav?.setOnClickListener { selectTab(3) }
     }
 
     private fun selectTab(index: Int) {
-        val tabs = listOf(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
-        val indicators = listOf(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
+        val tabs = listOfNotNull(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
+        val indicators = listOfNotNull(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
 
         for (i in tabs.indices) {
             if (i == index) {
                 tabs[i].setTextColor(ContextCompat.getColor(this, R.color.neon_cyan))
-                indicators[i].visibility = View.VISIBLE
+                if (i < indicators.size) indicators[i].visibility = View.VISIBLE
             } else {
                 tabs[i].setTextColor(ContextCompat.getColor(this, R.color.text_gray))
-                indicators[i].visibility = View.INVISIBLE
+                if (i < indicators.size) indicators[i].visibility = View.INVISIBLE
             }
         }
     }
 
     private fun setupAdBanner() {
-        adView = AdView(this).apply {
-            adUnitId = AdManager.TEST_BANNER_ID
-            setAdSize(AdSize.BANNER)
-            loadAd(AdRequest.Builder().build())
+        binding.adViewContainer?.let { container ->
+            adView = AdView(this).apply {
+                adUnitId = AdManager.TEST_BANNER_ID
+                setAdSize(AdSize.BANNER)
+                loadAd(AdRequest.Builder().build())
+            }
+            container.addView(adView)
         }
-        binding.adViewContainer.addView(adView)
     }
 
     private fun setupListeners() {
+        binding.ivSettings?.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
+        binding.ivHistory?.setOnClickListener {
+            openTripSummary()
+        }
+
         binding.btnMainAction.setOnClickListener {
-            if (viewModel.isTripActive.value) {
-                AdManager.showInterstitial(this) {
-                    viewModel.stopTrip()
-                    TrackingService.stop(this)
-                    Toast.makeText(this, getString(R.string.trip_saved_message), Toast.LENGTH_SHORT).show()
-                }
+            startTripFlow()
+        }
+
+        binding.btnStopTrip?.setOnClickListener {
+            stopTripFlow()
+        }
+
+        binding.btnResetTripCol?.setOnClickListener {
+            viewModel.resetTrip()
+            isPaused = false
+            updateTripControlState(isActive = false)
+        }
+
+        binding.btnPauseTripCol?.setOnClickListener {
+            isPaused = !isPaused
+            if (isPaused) {
+                binding.tvPauseText?.text = "Resume"
+                binding.ivPauseIcon?.setImageResource(android.R.drawable.ic_media_play)
             } else {
-                viewModel.startTrip()
-                TrackingService.start(this)
+                binding.tvPauseText?.text = "Pause"
+                binding.ivPauseIcon?.setImageResource(android.R.drawable.ic_media_pause)
             }
         }
 
-        binding.ivModeWalk.setOnClickListener { selectVehicleMode(0) }
-        binding.ivModeBicycle.setOnClickListener { selectVehicleMode(1) }
-        binding.ivModeMoto.setOnClickListener { selectVehicleMode(2) }
-        binding.ivModeCar.setOnClickListener { selectVehicleMode(3) }
+        binding.ivModeWalk?.setOnClickListener { selectVehicleMode(0) }
+        binding.ivModeBicycle?.setOnClickListener { selectVehicleMode(1) }
+        binding.ivModeMoto?.setOnClickListener { selectVehicleMode(2) }
+        binding.ivModeCar?.setOnClickListener { selectVehicleMode(3) }
+    }
+
+    private fun startTripFlow() {
+        viewModel.startTrip()
+        TrackingService.start(this)
+        isPaused = false
+        updateTripControlState(isActive = true)
+    }
+
+    private fun stopTripFlow() {
+        AdManager.showInterstitial(this) {
+            viewModel.stopTrip()
+            TrackingService.stop(this)
+            updateTripControlState(isActive = false)
+            openTripSummary()
+        }
+    }
+
+    private fun openTripSummary() {
+        val metrics = viewModel.metrics.value
+        val unit = viewModel.unit.value
+        val intent = Intent(this, TripSummaryActivity::class.java).apply {
+            putExtra(TripSummaryActivity.EXTRA_DISTANCE, unit.formatDistance(metrics.totalDistanceMeters))
+            putExtra(TripSummaryActivity.EXTRA_DURATION_MILLIS, metrics.elapsedTimeMillis)
+            putExtra(TripSummaryActivity.EXTRA_AVG_SPEED, String.format("%.0f %s", unit.convert(metrics.averageSpeedMps), unit.displayName))
+            putExtra(TripSummaryActivity.EXTRA_MAX_SPEED, String.format("%.0f %s", unit.convert(metrics.maxSpeedMps), unit.displayName))
+        }
+        startActivity(intent)
+    }
+
+    private fun updateTripControlState(isActive: Boolean) {
+        if (isActive) {
+            binding.btnMainAction.visibility = View.GONE
+            binding.tripControlBar?.visibility = View.VISIBLE
+        } else {
+            binding.btnMainAction.visibility = View.VISIBLE
+            binding.tripControlBar?.visibility = View.GONE
+        }
     }
 
     private fun selectVehicleMode(mode: Int) {
-        val icons = listOf(binding.ivModeWalk, binding.ivModeBicycle, binding.ivModeMoto, binding.ivModeCar)
+        val icons = listOfNotNull(binding.ivModeWalk, binding.ivModeBicycle, binding.ivModeMoto, binding.ivModeCar)
+        val containers = listOfNotNull(binding.ivModeWalkContainer, binding.ivModeBicycleContainer, binding.ivModeMotoContainer, binding.ivModeCarContainer)
+
         for (i in icons.indices) {
             if (i == mode) {
                 icons[i].setColorFilter(ContextCompat.getColor(this, R.color.neon_cyan))
+                if (i < containers.size) containers[i].setBackgroundResource(R.drawable.bg_vehicle_selected)
             } else {
                 icons[i].setColorFilter(ContextCompat.getColor(this, R.color.text_dark_gray))
+                if (i < containers.size) containers[i].background = null
             }
         }
     }
@@ -211,11 +285,11 @@ class MainActivity : AppCompatActivity() {
                         binding.tvOdometerValue.text = String.format("%06d km", odoKm)
 
                         if (metrics.isGpsActive) {
-                            binding.tvGpsPillText.text = getString(R.string.gps_status_excellent)
-                            binding.ivGpsSignalIcon.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.neon_green))
+                            binding.tvGpsPillText?.text = getString(R.string.gps_status_excellent)
+                            binding.ivGpsSignalIcon?.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.neon_green))
                         } else {
-                            binding.tvGpsPillText.text = getString(R.string.gps_status_no)
-                            binding.ivGpsSignalIcon.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.alert_red))
+                            binding.tvGpsPillText?.text = getString(R.string.gps_status_no)
+                            binding.ivGpsSignalIcon?.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.alert_red))
                         }
 
                         if (metrics.isOverSpeedLimit()) {
@@ -229,13 +303,7 @@ class MainActivity : AppCompatActivity() {
 
                 launch {
                     viewModel.isTripActive.collect { isActive ->
-                        if (isActive) {
-                            binding.btnMainAction.text = "■  STOP"
-                            binding.btnMainAction.setBackgroundResource(R.drawable.bg_button_start_pill)
-                        } else {
-                            binding.btnMainAction.text = "▶  START"
-                            binding.btnMainAction.setBackgroundResource(R.drawable.bg_button_start_pill)
-                        }
+                        updateTripControlState(isActive)
                     }
                 }
             }

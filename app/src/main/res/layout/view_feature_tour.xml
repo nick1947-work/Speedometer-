@@ -7,59 +7,122 @@
     android:clickable="true"
     android:focusable="true">
 
-    <!-- Dashed pointer line connecting to top GPS chip -->
-    <View
-        android:id="@+id/tourPointerLine"
-        android:layout_width="2dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="60dp"
-        android:background="#FFFFFF" />
-
-    <!-- Tour Tooltip Card matching screenshot -->
+    <!-- Step 1 Layout: GPS Pointer & Card at top -->
     <LinearLayout
+        android:id="@+id/tourStep1Container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="110dp"
-        android:background="@drawable/bg_tour_card"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:visibility="visible">
 
-        <TextView
-            android:id="@+id/tvTourTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/tour_gps_title"
-            android:textColor="@color/bg_black"
-            android:textSize="20sp" />
+        <!-- Dashed pointer line connecting to top GPS chip -->
+        <View
+            android:layout_width="2dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="115dp"
+            android:layout_marginTop="60dp"
+            android:background="#FFFFFF" />
 
-        <TextView
-            android:id="@+id/tvTourDesc"
+        <!-- Tooltip Card Step 1 -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="sans-serif"
-            android:lineSpacingExtra="3dp"
-            android:text="@string/tour_gps_desc"
-            android:textColor="#3C4043"
-            android:textSize="15sp" />
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_tour_card"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <!-- Black Rounded NEXT Button -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnTourNext"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_button_tour_next"
-            android:fontFamily="sans-serif-black"
-            android:paddingHorizontal="32dp"
-            android:text="@string/btn_next"
-            android:textColor="@color/text_white"
-            android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/tour_gps_title"
+                android:textColor="@color/bg_black"
+                android:textSize="20sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/tour_gps_desc"
+                android:textColor="#3C4043"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTourStep1Next"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_tour_next"
+                android:fontFamily="sans-serif-black"
+                android:paddingHorizontal="32dp"
+                android:text="@string/btn_next"
+                android:textColor="@color/text_white"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Step 2 Layout: Measure Speed Card above START button matching screenshot 2 -->
+    <LinearLayout
+        android:id="@+id/tourStep2Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="110dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Tooltip Card Step 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:background="@drawable/bg_tour_card"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/tour_measure_title"
+                android:textColor="@color/bg_black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/tour_measure_desc"
+                android:textColor="#3C4043"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTourStep2GotIt"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_tour_next"
+                android:fontFamily="sans-serif-black"
+                android:paddingHorizontal="28dp"
+                android:text="@string/btn_got_it"
+                android:textColor="@color/text_white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Dashed pointer line pointing down to START button -->
+        <View
+            android:layout_width="2dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFFFFF" />
     </LinearLayout>
 
 </FrameLayout>
