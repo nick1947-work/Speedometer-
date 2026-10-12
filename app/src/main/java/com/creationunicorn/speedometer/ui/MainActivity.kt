@@ -22,6 +22,7 @@ import com.creationunicorn.speedometer.ads.AdManager
 import com.creationunicorn.speedometer.databinding.ActivityMainBinding
 import com.creationunicorn.speedometer.service.TrackingService
 import com.creationunicorn.speedometer.ui.dialog.PermissionDialogHelper
+import com.creationunicorn.speedometer.ui.history.HistoryActivity
 import com.creationunicorn.speedometer.ui.settings.SettingsActivity
 import com.creationunicorn.speedometer.ui.trip.TripSummaryActivity
 import com.google.android.gms.ads.AdRequest
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: SpeedometerViewModel by viewModels()
     private var adView: AdView? = null
     private var isPaused = false
+    private var currentSelectedTab = 0
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -141,6 +143,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectTab(index: Int) {
+        currentSelectedTab = index
         val tabs = listOfNotNull(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
         val indicators = listOfNotNull(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
 
@@ -151,6 +154,24 @@ class MainActivity : AppCompatActivity() {
             } else {
                 tabs[i].setTextColor(ContextCompat.getColor(this, R.color.text_gray))
                 if (i < indicators.size) indicators[i].visibility = View.INVISIBLE
+            }
+        }
+
+        when (index) {
+            0, 1 -> {
+                binding.gaugeViewContainer?.visibility = View.VISIBLE
+                binding.includedMapTab?.mapScreenRoot?.visibility = View.GONE
+                binding.includedNavTab?.navScreenRoot?.visibility = View.GONE
+            }
+            2 -> {
+                binding.gaugeViewContainer?.visibility = View.GONE
+                binding.includedMapTab?.mapScreenRoot?.visibility = View.VISIBLE
+                binding.includedNavTab?.navScreenRoot?.visibility = View.GONE
+            }
+            3 -> {
+                binding.gaugeViewContainer?.visibility = View.GONE
+                binding.includedMapTab?.mapScreenRoot?.visibility = View.GONE
+                binding.includedNavTab?.navScreenRoot?.visibility = View.VISIBLE
             }
         }
     }
@@ -172,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.ivHistory?.setOnClickListener {
-            openTripSummary()
+            startActivity(Intent(this, HistoryActivity::class.java))
         }
 
         binding.btnMainAction.setOnClickListener {
@@ -181,6 +202,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnStopTrip?.setOnClickListener {
             stopTripFlow()
+        }
+
+        binding.includedMapTab?.btnMapStop?.setOnClickListener {
+            stopTripFlow()
+        }
+
+        binding.includedNavTab?.btnNavStop?.setOnClickListener {
+            stopTripFlow()
+        }
+
+        binding.includedNavTab?.btnNavExit?.setOnClickListener {
+            selectTab(0)
         }
 
         binding.btnResetTripCol?.setOnClickListener {
@@ -269,17 +302,33 @@ class MainActivity : AppCompatActivity() {
                         val maxSpeed = unit.convert(metrics.maxSpeedMps)
                         val avgSpeed = unit.convert(metrics.averageSpeedMps)
 
+                        // Main Gauge Tab
                         binding.tvMainSpeed.text = String.format("%.0f", currentSpeed)
                         binding.tvMainUnit.text = unit.displayName
                         binding.tvMaxSpeed.text = String.format("%.0f %s", maxSpeed, unit.displayName)
                         binding.tvAvgSpeed.text = String.format("%.0f %s", avgSpeed, unit.displayName)
                         binding.tvDistance.text = unit.formatDistance(metrics.totalDistanceMeters)
 
+                        // Map Tab
+                        binding.includedMapTab?.tvMapFloatingSpeed?.text = String.format("%.0f", currentSpeed)
+                        binding.includedMapTab?.tvMapDistance?.text = unit.formatDistance(metrics.totalDistanceMeters)
+                        binding.includedMapTab?.tvMapMaxSpeed?.text = String.format("%.0f %s", maxSpeed, unit.displayName)
+                        binding.includedMapTab?.tvMapAvgSpeed?.text = String.format("%.0f %s", avgSpeed, unit.displayName)
+
+                        // Nav Tab
+                        binding.includedNavTab?.tvNavSpeedVal?.text = String.format("%.0f", currentSpeed)
+                        binding.includedNavTab?.tvNavDistanceVal?.text = unit.formatDistance(metrics.totalDistanceMeters)
+                        binding.includedNavTab?.tvNavAvgVal?.text = String.format("%.0f %s", avgSpeed, unit.displayName)
+
                         val totalSeconds = metrics.elapsedTimeMillis / 1000
                         val hours = totalSeconds / 3600
                         val minutes = (totalSeconds % 3600) / 60
                         val seconds = totalSeconds % 60
-                        binding.tvDuration.text = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+                        val formattedDuration = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+
+                        binding.tvDuration.text = formattedDuration
+                        binding.includedMapTab?.tvMapDuration?.text = formattedDuration
+                        binding.includedNavTab?.tvNavElapsed?.text = formattedDuration
 
                         val odoKm = (metrics.totalDistanceMeters / 1000.0).toInt()
                         binding.tvOdometerValue.text = String.format("%06d km", odoKm)

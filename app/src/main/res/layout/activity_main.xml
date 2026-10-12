@@ -226,271 +226,288 @@
 
     </LinearLayout>
 
-    <!-- Center Content / Speed Dial Cockpit -->
-    <FrameLayout
-        android:id="@+id/dialCenterContainer"
-        android:layout_width="290dp"
-        android:layout_height="290dp"
-        app:layout_constraintBottom_toTopOf="@id/vehicleModeSelector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabsContainer"
-        app:layout_constraintVertical_bias="0.35">
-
-        <!-- Dial Outer Rings & Numbers -->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/bg_analog_dial_gauge" />
-
-        <!-- Center Digital Readout & Unit -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvMainSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:includeFontPadding="false"
-                android:text="0"
-                android:textColor="@color/neon_cyan"
-                android:textSize="82sp"
-                tools:text="72" />
-
-            <TextView
-                android:id="@+id/tvMainUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="km/h"
-                android:textColor="@color/neon_cyan"
-                android:textSize="17sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:fontFamily="sans-serif"
-                android:text="Odometer"
-                android:textColor="@color/text_dark_gray"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/tvOdometerValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:letterSpacing="0.1"
-                android:text="000000 km"
-                android:textColor="@color/text_gray"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- Vehicle Mode Selector: Walking | Bicycle | Motorcycle | Car -->
+    <!-- TAB 1 & 2 CONTAINER: Gauge & Digital Cockpit -->
     <LinearLayout
-        android:id="@+id/vehicleModeSelector"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/dashboardMetricsGrid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <FrameLayout
-            android:id="@+id/ivModeWalkContainer"
-            android:layout_width="48dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="6dp"
-            android:background="@drawable/bg_vehicle_selected">
-
-            <ImageView
-                android:id="@+id/ivModeWalk"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@android:drawable/ic_menu_directions"
-                app:tint="@color/neon_cyan" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ivModeBicycleContainer"
-            android:layout_width="48dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="6dp">
-
-            <ImageView
-                android:id="@+id/ivModeBicycle"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@android:drawable/ic_menu_compass"
-                app:tint="@color/text_dark_gray" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ivModeMotoContainer"
-            android:layout_width="48dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="6dp">
-
-            <ImageView
-                android:id="@+id/ivModeMoto"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@android:drawable/ic_menu_agenda"
-                app:tint="@color/text_dark_gray" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/ivModeCarContainer"
-            android:layout_width="48dp"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="6dp">
-
-            <ImageView
-                android:id="@+id/ivModeCar"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@android:drawable/ic_menu_mapmode"
-                app:tint="@color/text_dark_gray" />
-        </FrameLayout>
-    </LinearLayout>
-
-    <!-- Dashboard Metrics Grid (2x2 matching exact screenshot) -->
-    <GridLayout
-        android:id="@+id/dashboardMetricsGrid"
+        android:id="@+id/gaugeViewContainer"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="18dp"
-        android:columnCount="2"
-        android:rowCount="2"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/tripControlBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabsContainer">
 
-        <!-- Duration -->
+        <!-- Center Cockpit Dial -->
+        <FrameLayout
+            android:id="@+id/dialCenterContainer"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_analog_dial_gauge" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMainSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:includeFontPadding="false"
+                    android:text="0"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="82sp"
+                    tools:text="72" />
+
+                <TextView
+                    android:id="@+id/tvMainUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="km/h"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Odometer"
+                    android:textColor="@color/text_dark_gray"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/tvOdometerValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.1"
+                    android:text="000000 km"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Vehicle Mode Selector -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:padding="6dp">
+            android:id="@+id/vehicleModeSelector"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="⏱ Duration"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
+            <FrameLayout
+                android:id="@+id/ivModeWalkContainer"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="6dp"
+                android:background="@drawable/bg_vehicle_selected">
 
-            <TextView
-                android:id="@+id/tvDuration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="00:00:00"
-                android:textColor="@color/neon_cyan"
-                android:textSize="21sp" />
+                <ImageView
+                    android:id="@+id/ivModeWalk"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_directions"
+                    app:tint="@color/neon_cyan" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ivModeBicycleContainer"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="6dp">
+
+                <ImageView
+                    android:id="@+id/ivModeBicycle"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_compass"
+                    app:tint="@color/text_dark_gray" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ivModeMotoContainer"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="6dp">
+
+                <ImageView
+                    android:id="@+id/ivModeMoto"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="@color/text_dark_gray" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ivModeCarContainer"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="6dp">
+
+                <ImageView
+                    android:id="@+id/ivModeCar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_mapmode"
+                    app:tint="@color/text_dark_gray" />
+            </FrameLayout>
         </LinearLayout>
 
-        <!-- Distance -->
-        <LinearLayout
-            android:layout_width="0dp"
+        <!-- 2x2 Metrics Grid -->
+        <GridLayout
+            android:id="@+id/dashboardMetricsGrid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:padding="6dp">
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:columnCount="2"
+            android:rowCount="2">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="📍 Distance"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="6dp">
 
-            <TextView
-                android:id="@+id/tvDistance"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱ Duration"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="00:00:00"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="21sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="0 km"
-                android:textColor="@color/neon_cyan"
-                android:textSize="21sp" />
-        </LinearLayout>
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="6dp">
 
-        <!-- Avg Speed -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:padding="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Distance"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 km"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="21sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="📈 Avg speed"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="6dp">
 
-            <TextView
-                android:id="@+id/tvAvgSpeed"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📈 Avg speed"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvAvgSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 km/h"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="21sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="0 km/h"
-                android:textColor="@color/neon_cyan"
-                android:textSize="21sp" />
-        </LinearLayout>
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:padding="6dp">
 
-        <!-- Max Speed -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:padding="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡ Max speed"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="⚡ Max speed"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/tvMaxSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="0 km/h"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="21sp" />
+            </LinearLayout>
+        </GridLayout>
 
-            <TextView
-                android:id="@+id/tvMaxSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="0 km/h"
-                android:textColor="@color/neon_cyan"
-                android:textSize="21sp" />
-        </LinearLayout>
+    </LinearLayout>
 
-    </GridLayout>
+    <!-- TAB 3: Map Tab Included -->
+    <include
+        android:id="@+id/includedMapTab"
+        layout="@layout/view_map_tab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabsContainer" />
+
+    <!-- TAB 4: Nav Tab Included -->
+    <include
+        android:id="@+id/includedNavTab"
+        layout="@layout/view_nav_tab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabsContainer" />
 
     <!-- Controls Row: State 1 (Single Big START Pill) & State 2 (Reset | STOP | Pause) -->
-    <!-- Default Big START Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMainAction"
         android:layout_width="0dp"
@@ -508,7 +525,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Active 3-Button Control Bar matching screenshot 1 (Reset | STOP | Pause) -->
     <LinearLayout
         android:id="@+id/tripControlBar"
         android:layout_width="0dp"
@@ -522,7 +538,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Reset Button Column -->
         <LinearLayout
             android:id="@+id/btnResetTripCol"
             android:layout_width="wrap_content"
@@ -552,7 +567,6 @@
                 android:textSize="11sp" />
         </LinearLayout>
 
-        <!-- Center STOP Pill Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnStopTrip"
             android:layout_width="0dp"
@@ -566,7 +580,6 @@
             android:textColor="@color/neon_cyan"
             android:textSize="16sp" />
 
-        <!-- Pause / Resume Button Column -->
         <LinearLayout
             android:id="@+id/btnPauseTripCol"
             android:layout_width="wrap_content"
@@ -609,7 +622,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Included First Time Feature Tour Overlay (Gone by default) -->
+    <!-- Feature Tour Overlay -->
     <include
         android:id="@+id/tourLayout"
         layout="@layout/view_feature_tour"

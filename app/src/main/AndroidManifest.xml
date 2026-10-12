@@ -63,6 +63,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- History Trips List Activity -->
+        <activity
+            android:name=".ui.history.HistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- Main Dashboard Multi-Screen Activity (Portrait & Landscape responsive) -->
         <activity
             android:name=".ui.MainActivity"
