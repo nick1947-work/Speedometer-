@@ -13,13 +13,29 @@
         android:layout_height="0dp"
         android:layout_weight="0.8" />
 
-    <!-- Center Phone Mockup Vector Illustration -->
-    <ImageView
-        android:id="@+id/ivOnboardingIllustration"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:contentDescription="@null"
-        android:scaleType="fitCenter" />
+    <!-- Center Phone Mockup with Original Assets -->
+    <FrameLayout
+        android:layout_width="220dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="20dp">
+
+        <!-- Outer Phone Shell -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_phone_shell" />
+
+        <!-- Screen Graphic inside Phone Shell -->
+        <ImageView
+            android:id="@+id/ivOnboardingIllustration"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside" />
+    </FrameLayout>
 
     <!-- Middle spacer -->
     <View
@@ -27,33 +43,34 @@
         android:layout_height="0dp"
         android:layout_weight="1.0" />
 
-    <!-- Onboarding Title -->
+    <!-- Onboarding Title with Poppins Bold -->
     <TextView
         android:id="@+id/tvOnboardingTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:letterSpacing="0.01"
-        android:lineSpacingExtra="4dp"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="0.9"
         android:textColor="@color/text_white"
         android:textSize="26sp" />
 
-    <!-- Onboarding Subtitle / Description -->
+    <!-- Onboarding Subtitle with Poppins Regular -->
     <TextView
         android:id="@+id/tvOnboardingDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        android:textColor="@color/text_gray"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="3dp"
+        android:textColor="#80FFFFFF"
         android:textSize="15sp" />
 
     <!-- Bottom spacer for page indicator and button clearance -->
     <View
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="130dp" />
 
 </LinearLayout>

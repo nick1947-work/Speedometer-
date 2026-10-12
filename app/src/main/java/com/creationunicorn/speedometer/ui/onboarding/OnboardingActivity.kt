@@ -20,17 +20,17 @@ class OnboardingActivity : AppCompatActivity() {
         OnboardingSlide(
             titleRes = R.string.onboarding_title_1,
             descRes = R.string.onboarding_desc_1,
-            illustrationRes = R.drawable.img_onboarding_gauge
+            illustrationRes = R.drawable.icon_guide_dashboard_kmh
         ),
         OnboardingSlide(
             titleRes = R.string.onboarding_title_2,
             descRes = R.string.onboarding_desc_2,
-            illustrationRes = R.drawable.img_onboarding_route
+            illustrationRes = R.drawable.bg_guide2_track_kmh
         ),
         OnboardingSlide(
             titleRes = R.string.onboarding_title_3,
             descRes = R.string.onboarding_desc_3,
-            illustrationRes = R.drawable.img_onboarding_alert
+            illustrationRes = R.drawable.icon_guide2_warn
         )
     )
 

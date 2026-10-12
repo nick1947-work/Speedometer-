@@ -3,23 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="20dp"
-    android:background="@drawable/bg_dialog_dark"
+    android:background="@drawable/rect_2c2c2e_16dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="28dp">
 
-    <!-- Location Pin with Folded Map Graphic -->
+    <!-- Location Permission Icon from Original APK -->
     <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/ic_loc_dialog_pin" />
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:src="@drawable/ic_icon_general_permission" />
 
     <!-- Bold Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/loc_dialog_title"
         android:textColor="@color/text_white"
         android:textSize="22sp" />
@@ -89,11 +89,11 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/bg_button_continue"
-        android:fontFamily="sans-serif-black"
+        android:background="@drawable/rect_00fff2_8dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/btn_grant_now"
         android:textColor="@color/bg_black"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <!-- 'Later' text button -->
     <TextView
@@ -101,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/poppins_regular"
         android:padding="8dp"
         android:text="@string/btn_later"
         android:textColor="@color/text_gray"

@@ -226,10 +226,10 @@ class MainActivity : AppCompatActivity() {
             isPaused = !isPaused
             if (isPaused) {
                 binding.tvPauseText?.text = "Resume"
-                binding.ivPauseIcon?.setImageResource(android.R.drawable.ic_media_play)
+                binding.ivPauseIcon?.setImageResource(R.drawable.ic_icon_general_resume)
             } else {
                 binding.tvPauseText?.text = "Pause"
-                binding.ivPauseIcon?.setImageResource(android.R.drawable.ic_media_pause)
+                binding.ivPauseIcon?.setImageResource(R.drawable.ic_icon_general_pause)
             }
         }
 

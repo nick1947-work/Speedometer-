@@ -5,56 +5,86 @@
     android:layout_height="match_parent"
     android:background="@color/bg_black">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <!-- Animated Speedometer Gauge & Pointer from original APK -->
+    <FrameLayout
+        android:id="@+id/gaugeContainer"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/dashboardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:src="@drawable/img_splash_dashboard" />
+
+        <ImageView
+            android:id="@+id/pointerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:rotation="90"
+            android:src="@drawable/img_splash_pointer" />
+    </FrameLayout>
+
+    <!-- App Title & Subtitle with original Poppins fonts -->
+    <LinearLayout
+        android:id="@+id/titlePanelView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:orientation="vertical"
-        android:paddingHorizontal="48dp"
-        app:layout_constraintBottom_toTopOf="@id/splashProgressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45">
+        app:layout_constraintTop_toBottomOf="@id/guideline">
 
-        <!-- Speedometer logo icon -->
-        <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@drawable/ic_splash_speedometer" />
-
-        <!-- Bold Title -->
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:fontFamily="sans-serif-black"
-            android:letterSpacing="0.04"
-            android:text="@string/splash_title"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="Speedometer"
             android:textColor="@color/text_white"
-            android:textSize="32sp" />
+            android:textSize="36sp" />
 
-        <!-- Subtitle -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/splash_subtitle"
-            android:textColor="@color/text_gray"
-            android:textSize="17sp" />
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="2dp"
+            android:text="Measure your speed with ease, at any time."
+            android:textColor="#B3FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Bottom loading progress indicator matching screenshot -->
+    <!-- Bottom Loading Bar with original splash_progress_bar -->
     <ProgressBar
         android:id="@+id/splashProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="0dp"
         android:layout_height="4dp"
-        android:layout_marginHorizontal="36dp"
-        android:layout_marginBottom="44dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/text_white"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginBottom="60dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/splash_progress_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
