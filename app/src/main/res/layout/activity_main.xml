@@ -9,13 +9,13 @@
     android:keepScreenOn="true">
 
     <!-- Top Action Bar -->
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/appTopBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="14dp"
-        android:paddingBottom="6dp"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,96 +24,106 @@
             android:id="@+id/tvAppTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:fontFamily="@font/poppins_bold"
             android:text="Speedometer"
             android:textColor="@color/text_white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Action Icons from original APK: King Crown, History, Rotate/Mirror, Settings -->
+        <!-- GPS Status Directly Under Speedometer Title (No pill background, matches original) -->
+        <LinearLayout
+            android:id="@+id/gpsStatusRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppTitle">
+
+            <ImageView
+                android:id="@+id/ivGpsSignalIcon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_icon_gps_no" />
+
+            <TextView
+                android:id="@+id/tvGpsStatusDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="GPS: No"
+                android:textColor="@color/text_white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvGpsSatellites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="(0/0 Satellites)"
+                android:textColor="#9AA0A6"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Right Action Icons: VIP Crown, History (with notification dot), Rotate/HUD, Settings -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/ivCrown"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="12dp"
+                android:padding="2dp"
                 android:src="@drawable/icon_king" />
 
-            <ImageView
+            <com.creationunicorn.speedometer.ui.view.NotifyImageView
                 android:id="@+id/ivHistory"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="12dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_icon_general_history" />
 
             <ImageView
                 android:id="@+id/ivFloatingWindow"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="12dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_icon_general_rotate" />
 
             <ImageView
                 android:id="@+id/ivSettings"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:padding="2dp"
                 android:src="@drawable/ic_icon_general_settings" />
         </LinearLayout>
-    </RelativeLayout>
-
-    <!-- Top GPS Satellite status pill (Target for Tour) -->
-    <LinearLayout
-        android:id="@+id/gpsStatusPill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/bg_gps_pill"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appTopBar">
-
-        <ImageView
-            android:id="@+id/ivGpsSignalIcon"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:src="@drawable/ic_dot_active"
-            app:tint="@color/neon_green" />
-
-        <TextView
-            android:id="@+id/tvGpsPillText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/gps_status_excellent"
-            android:textColor="@color/text_white"
-            android:textSize="12sp" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 4 Tabs Bar: Gauge | Digital | Map | Nav -->
     <LinearLayout
         android:id="@+id/tabsContainer"
         android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gpsStatusPill">
+        app:layout_constraintTop_toBottomOf="@id/appTopBar">
 
-        <!-- Tab 1: Gauge -->
+        <!-- Tab 0: Gauge -->
         <FrameLayout
             android:id="@+id/tabGauge"
             android:layout_width="0dp"
@@ -126,8 +136,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-black"
-                android:text="@string/tab_gauge"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Gauge"
                 android:textColor="@color/neon_cyan"
                 android:textSize="16sp" />
 
@@ -139,7 +149,7 @@
                 android:background="@color/neon_cyan" />
         </FrameLayout>
 
-        <!-- Tab 2: Digital -->
+        <!-- Tab 1: Digital -->
         <FrameLayout
             android:id="@+id/tabDigital"
             android:layout_width="0dp"
@@ -152,8 +162,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/tab_digital"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Digital"
                 android:textColor="@color/text_gray"
                 android:textSize="15sp" />
 
@@ -166,7 +176,7 @@
                 android:visibility="invisible" />
         </FrameLayout>
 
-        <!-- Tab 3: Map -->
+        <!-- Tab 2: Map -->
         <FrameLayout
             android:id="@+id/tabMap"
             android:layout_width="0dp"
@@ -179,8 +189,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/tab_map"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Map"
                 android:textColor="@color/text_gray"
                 android:textSize="15sp" />
 
@@ -193,7 +203,7 @@
                 android:visibility="invisible" />
         </FrameLayout>
 
-        <!-- Tab 4: Nav -->
+        <!-- Tab 3: Nav -->
         <FrameLayout
             android:id="@+id/tabNav"
             android:layout_width="0dp"
@@ -206,8 +216,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/tab_nav"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Nav"
                 android:textColor="@color/text_gray"
                 android:textSize="15sp" />
 
@@ -219,100 +229,281 @@
                 android:background="@color/neon_cyan"
                 android:visibility="invisible" />
         </FrameLayout>
-
     </LinearLayout>
 
-    <!-- TAB 1 & 2 CONTAINER: Gauge & Digital Cockpit -->
-    <LinearLayout
-        android:id="@+id/gaugeViewContainer"
+    <!-- MAIN BODY CONTAINER FOR TABS 0 (Gauge), 1 (Digital), 2 (Map) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainTabsBodyContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/tripControlBar"
+        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabsContainer">
 
-        <!-- Center Cockpit Dial -->
+        <!-- UPPER HALF SWITCHABLE SECTION: Gauge Dial | Giant Digital | Map Card -->
         <FrameLayout
-            android:id="@+id/dialCenterContainer"
-            android:layout_width="280dp"
-            android:layout_height="280dp"
-            android:layout_marginTop="10dp">
+            android:id="@+id/upperDisplayContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/trafficSwitchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <!-- 1. GAUGE TAB VIEW -->
+            <FrameLayout
+                android:id="@+id/viewGaugeDisplay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bg_analog_dial_gauge" />
+                android:visibility="visible">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
+                <com.creationunicorn.speedometer.ui.view.GaugeSpeedometerView
+                    android:id="@+id/gaugeSpeedometer"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center" />
 
-                <TextView
-                    android:id="@+id/tvMainSpeed"
+                <!-- Cockpit readout in center of dial -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <!-- Center Speed (7-segment LED cyan) -->
+                    <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                        android:id="@+id/digitalGaugeSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="68dp" />
+
+                    <!-- Speed Unit (knot / km/h) -->
+                    <TextView
+                        android:id="@+id/tvGaugeUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="knot"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="17sp" />
+
+                    <!-- Odometer Header -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Odometer"
+                        android:textColor="#8E8E93"
+                        android:textSize="11sp" />
+
+                    <!-- Odometer Value in grey 7-segment LED -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                            android:id="@+id/digitalGaugeOdometer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvGaugeOdoUnit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="nm"
+                            android:textColor="#8E8E93"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- 2. DIGITAL TAB VIEW (Matches Screenshot 3) -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/viewDigitalDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <!-- Giant 7-segment LED speed digit in center -->
+                <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                    android:id="@+id/digitalSpeedLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="140dp"
+                    app:layout_constraintBottom_toTopOf="@id/digitalOdoContainer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <!-- Unit to the right of digit -->
+                <TextView
+                    android:id="@+id/tvDigitalUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="knot"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@id/digitalSpeedLarge"
+                    app:layout_constraintStart_toEndOf="@id/digitalSpeedLarge" />
+
+                <!-- Odometer section to the lower-left of digit -->
+                <LinearLayout
+                    android:id="@+id/digitalOdoContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/digitalSpeedLarge">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Odometer"
+                        android:textColor="#8E8E93"
+                        android:textSize="11sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                            android:id="@+id/digitalOdometerVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvDigitalOdoUnit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="nm"
+                            android:textColor="#8E8E93"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 3. MAP TAB VIEW (Matches Screenshot 4) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/viewMapDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="12dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#1A1C22"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <!-- OsmDroid Map View -->
+                <org.osmdroid.views.MapView
+                    android:id="@+id/tabMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Top Left Floating Digital Speed Chip -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/rect_7009090a_90dp"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp">
+
+                    <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                        android:id="@+id/digitalMapSpeedChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- Bottom Left Floating Coordinate Chip -->
+                <TextView
+                    android:id="@+id/tvMapCoordinates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|bottom"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/rect_90ffffff_90dp"
+                    android:fontFamily="@font/poppins_semibold"
                     android:includeFontPadding="false"
-                    android:text="0"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="82sp"
-                    tools:text="72" />
-
-                <TextView
-                    android:id="@+id/tvMainUnit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="km/h"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="17sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Odometer"
-                    android:textColor="@color/text_dark_gray"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="5dp"
+                    android:text='28°35&apos;48.2"N , 77°23&apos;2.4"E'
+                    android:textColor="#000000"
                     android:textSize="11sp" />
 
-                <TextView
-                    android:id="@+id/tvOdometerValue"
+                <!-- Bottom Right Floating Map FABs (Style switch & Location target) -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:letterSpacing="0.1"
-                    android:text="000000 km"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btnMapChangeStyle"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/shape_round_white"
+                        android:padding="7dp"
+                        app:srcCompat="@drawable/ic_icon_map_change"
+                        app:tint="#000000" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btnMapRecenter"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/shape_round_white"
+                        android:padding="7dp"
+                        app:srcCompat="@drawable/ic_icon_map_position"
+                        app:tint="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </FrameLayout>
 
-        <!-- Vehicle Mode Selector -->
+        <!-- VEHICLE MODE SELECTOR: Walk | Bike | Moto | Car (Matches TrafficSwitchView) -->
         <LinearLayout
-            android:id="@+id/vehicleModeSelector"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:layout_marginTop="12dp"
+            android:id="@+id/trafficSwitchView"
+            android:layout_width="240dp"
+            android:layout_height="38dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_inset_shadow"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/mainMetricsPanel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <FrameLayout
-                android:id="@+id/ivModeWalkContainer"
-                android:layout_width="48dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="6dp"
-                android:background="@drawable/bg_vehicle_selected">
+                android:id="@+id/walkMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rect_00fff2_8dp">
 
                 <ImageView
-                    android:id="@+id/ivModeWalk"
+                    android:id="@+id/ivWalkMode"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
@@ -321,71 +512,83 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/ivModeBicycleContainer"
-                android:layout_width="48dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="6dp">
+                android:id="@+id/bikeMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <ImageView
-                    android:id="@+id/ivModeBicycle"
+                    android:id="@+id/ivBikeMode"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_transport_bicycle"
-                    app:tint="@color/text_dark_gray" />
+                    app:tint="#55FFFFFF" />
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/ivModeMotoContainer"
-                android:layout_width="48dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="6dp">
+                android:id="@+id/motorMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <ImageView
-                    android:id="@+id/ivModeMoto"
+                    android:id="@+id/ivMotorMode"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_traffic_motorcycle"
-                    app:tint="@color/text_dark_gray" />
+                    app:tint="#55FFFFFF" />
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/ivModeCarContainer"
-                android:layout_width="48dp"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="6dp">
+                android:id="@+id/carMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <ImageView
-                    android:id="@+id/ivModeCar"
+                    android:id="@+id/ivCarMode"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_traffic_car"
-                    app:tint="@color/text_dark_gray" />
+                    app:tint="#55FFFFFF" />
             </FrameLayout>
         </LinearLayout>
 
-        <!-- 2x2 Metrics Grid with Original Drawables & Poppins Fonts -->
-        <GridLayout
-            android:id="@+id/dashboardMetricsGrid"
-            android:layout_width="match_parent"
+        <!-- 2x2 METRICS PANEL (Matches main_view_speed_distance_new.xml) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainMetricsPanel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="12dp"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomButtonsContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <!-- Duration Metric Card -->
+            <!-- Center Vertical Divider Line -->
+            <View
+                android:id="@+id/centerDividerLine"
+                android:layout_width="0.5dp"
+                android:layout_height="0dp"
+                android:background="#30979797"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Row 1 Left: Duration -->
             <LinearLayout
+                android:id="@+id/llDuration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rect_10ffffff_16dp"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical"
-                android:padding="12dp">
+                app:layout_constraintEnd_toStartOf="@id/centerDividerLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -397,7 +600,7 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:src="@drawable/ic_icon_gauge_duration"
-                        app:tint="@color/text_gray" />
+                        app:tint="#8E8E93" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -405,31 +608,27 @@
                         android:layout_marginStart="6dp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Duration"
-                        android:textColor="@color/text_gray"
+                        android:textColor="#8E8E93"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvDuration"
+                <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                    android:id="@+id/digitalDuration"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="00:00:00"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="19sp" />
+                    android:layout_height="22dp"
+                    android:layout_marginTop="4dp" />
             </LinearLayout>
 
-            <!-- Distance Metric Card -->
+            <!-- Row 1 Right: Distance -->
             <LinearLayout
+                android:id="@+id/llDistance"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rect_10ffffff_16dp"
+                android:layout_marginStart="16dp"
                 android:orientation="vertical"
-                android:padding="12dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/centerDividerLine"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -441,7 +640,7 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:src="@drawable/ic_icon_gauge_distance"
-                        app:tint="@color/text_gray" />
+                        app:tint="#8E8E93" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -449,31 +648,45 @@
                         android:layout_marginStart="6dp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Distance"
-                        android:textColor="@color/text_gray"
+                        android:textColor="#8E8E93"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvDistance"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="0 km"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="19sp" />
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                        android:id="@+id/digitalDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp" />
+
+                    <TextView
+                        android:id="@+id/tvDistanceUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="nm"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Avg Speed Metric Card -->
+            <!-- Row 2 Left: Avg speed -->
             <LinearLayout
+                android:id="@+id/llAvgSpeed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rect_10ffffff_16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical"
-                android:padding="12dp">
+                app:layout_constraintEnd_toStartOf="@id/centerDividerLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llDuration">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -485,39 +698,53 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:src="@drawable/ic_icon_gauge_avgspeed"
-                        app:tint="@color/text_gray" />
+                        app:tint="#8E8E93" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Avg.Speed"
-                        android:textColor="@color/text_gray"
+                        android:text="Avg speed"
+                        android:textColor="#8E8E93"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvAvgSpeed"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="0 km/h"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="19sp" />
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                        android:id="@+id/digitalAvgSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp" />
+
+                    <TextView
+                        android:id="@+id/tvAvgSpeedUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="knot"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Max Speed Metric Card -->
+            <!-- Row 2 Right: Max speed -->
             <LinearLayout
+                android:id="@+id/llMaxSpeed"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="4dp"
-                android:background="@drawable/rect_10ffffff_16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
-                android:padding="12dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/centerDividerLine"
+                app:layout_constraintTop_toBottomOf="@id/llDistance">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -529,164 +756,407 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:src="@drawable/ic_icon_gauge_maxspeed"
-                        app:tint="@color/text_gray" />
+                        app:tint="#8E8E93" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="Max.Speed"
-                        android:textColor="@color/text_gray"
+                        android:text="Max speed"
+                        android:textColor="#8E8E93"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvMaxSpeed"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="0 km/h"
-                    android:textColor="@color/neon_cyan"
-                    android:textSize="19sp" />
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <com.creationunicorn.speedometer.ui.view.DigitalDisplayView
+                        android:id="@+id/digitalMaxSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp" />
+
+                    <TextView
+                        android:id="@+id/tvMaxSpeedUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="knot"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
-        </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-
-    <!-- TAB 3: Map Tab Included -->
-    <include
-        android:id="@+id/includedMapTab"
-        layout="@layout/view_map_tab"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabsContainer" />
-
-    <!-- TAB 4: Nav Tab Included -->
-    <include
-        android:id="@+id/includedNavTab"
-        layout="@layout/view_nav_tab"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabsContainer" />
-
-    <!-- Controls Row: State 1 (Single Big START Pill) & State 2 (Reset | STOP | Pause) -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMainAction"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="36dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/rect_00fff2_90dp"
-        android:fontFamily="@font/poppins_bold"
-        android:letterSpacing="0.04"
-        android:text="START"
-        android:textColor="@color/bg_black"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:drawableStartCompat="@drawable/ic_icon_general_start"
-        android:paddingHorizontal="24dp"
-        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/tripControlBar"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:id="@+id/btnResetTripCol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ripple_rect_363637_90dp">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_icon_general_reset" />
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Reset"
-                android:textColor="@color/text_gray"
-                android:textSize="11sp" />
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnStopTrip"
+        <!-- ACTION BUTTONS: State 1 (Idle START) vs State 2 (Reset | STOP | Pause) -->
+        <FrameLayout
+            android:id="@+id/bottomButtonsContainer"
             android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/rect_ff3c00_8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:letterSpacing="0.04"
-            android:text="STOP"
-            android:textColor="@color/text_white"
-            android:textSize="17sp"
-            app:drawableStartCompat="@drawable/ic_icon_general_stop"
-            android:paddingHorizontal="20dp" />
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:id="@+id/btnPauseTripCol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            <!-- Idle State: Full Width Cyan Pill Button with START -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMainAction"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rect_00fff2_90dp"
+                android:fontFamily="@font/poppins_bold"
+                android:letterSpacing="0.04"
+                android:text="START"
+                android:textColor="@color/bg_black"
+                android:textSize="19sp"
+                android:visibility="visible"
+                app:drawableStartCompat="@drawable/ic_icon_general_start"
+                android:paddingHorizontal="32dp" />
 
-            <FrameLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ripple_rect_007bff_90dp">
+            <!-- Active / Tracking State: Reset (Dark circle) | STOP (Dark pill) | Pause (Blue circle) -->
+            <LinearLayout
+                android:id="@+id/tripControlBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
-                <ImageView
-                    android:id="@+id/ivPauseIcon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_icon_general_pause" />
-            </FrameLayout>
+                <!-- Reset Column -->
+                <LinearLayout
+                    android:id="@+id/btnResetTripCol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <FrameLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ripple_rect_363637_90dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_icon_general_reset" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Reset"
+                        android:textColor="#8E8E93"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Center STOP Button (Matches Screenshot 2) -->
+                <LinearLayout
+                    android:id="@+id/btnStopTrip"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_rect_363637_90dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- Cyan square icon -->
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@drawable/rect_00fff2_8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:letterSpacing="0.04"
+                        android:text="STOP"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- Pause Column -->
+                <LinearLayout
+                    android:id="@+id/btnPauseTripCol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ripple_rect_007bff_90dp">
+
+                        <ImageView
+                            android:id="@+id/ivPauseIcon"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_icon_general_pause" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvPauseText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Pause"
+                        android:textColor="#8E8E93"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- TAB 3: FULLSCREEN NAV SCREEN (Matches Screenshot 5) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewNavContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/adViewContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabsContainer">
+
+        <!-- Upper Map View with top rounded corners -->
+        <FrameLayout
+            android:id="@+id/navMapCanvasContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/navBottomSheetCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/navMapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Center Navigation Arrowhead with blue circle dot -->
+            <ImageView
+                android:id="@+id/ivNavArrowCenter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_arrows" />
+
+            <!-- Bottom Left Coordinate Badge (Matches Screenshot 5) -->
             <TextView
-                android:id="@+id/tvPauseText"
+                android:id="@+id/tvNavCoordinates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Pause"
-                android:textColor="@color/text_gray"
+                android:layout_gravity="start|bottom"
+                android:layout_margin="14dp"
+                android:background="@drawable/rect_7009090a_90dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text='28°35&apos;48.2"N , 77°23&apos;2.4"E'
+                android:textColor="@color/text_white"
                 android:textSize="11sp" />
+
+            <!-- Bottom Right 3 Dark Floating Buttons (Matches Screenshot 5) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="14dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- 1. Route / Distance button -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNavDistance"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ripple_rect_363637_90dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_map_distance"
+                    app:tint="@color/text_white" />
+
+                <!-- 2. Map Style / Layers button -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNavChangeStyle"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ripple_rect_363637_90dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_icon_map_change"
+                    app:tint="@color/text_white" />
+
+                <!-- 3. GPS Position / Recenter button -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNavRecenter"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/ripple_rect_363637_90dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_icon_map_position"
+                    app:tint="@color/text_white" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Lower Navigation Destination Bottom Sheet (Matches layout_main_map_search_destination_address.xml & Screenshot 5) -->
+        <LinearLayout
+            android:id="@+id/navBottomSheetCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_2c2c2e_16dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Search Field: "Your destination" -->
+            <LinearLayout
+                android:id="@+id/llSearchDestination"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/rect_10ffffff_16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="#80FFFFFF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_regular"
+                    android:includeFontPadding="false"
+                    android:text="Your destination"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Destination Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Destination"
+                android:textColor="#80FFFFFF"
+                android:textSize="14sp" />
+
+            <!-- 3 Shortcut Cards: Home | Company | More -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <!-- Card 1: Home -->
+                <LinearLayout
+                    android:id="@+id/cardNavHome"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_10ffffff_16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="6dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/icon_map_home" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Home"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Card 2: Company -->
+                <LinearLayout
+                    android:id="@+id/cardNavCompany"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_10ffffff_16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="6dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/icon_map_company" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Company"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Card 3: More -->
+                <LinearLayout
+                    android:id="@+id/cardNavMore"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_10ffffff_16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="6dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/icon_map_more" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="More"
+                        android:textColor="#B3FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Bottom Banner Ad -->
     <FrameLayout

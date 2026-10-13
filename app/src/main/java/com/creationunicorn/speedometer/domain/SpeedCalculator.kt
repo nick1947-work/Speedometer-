@@ -19,7 +19,9 @@ class SpeedCalculator {
                 totalDistanceMeters = totalDistanceMeters,
                 isGpsActive = true,
                 accuracyMeters = location.accuracy,
-                speedLimitMps = speedLimitMps
+                speedLimitMps = speedLimitMps,
+                latitude = location.latitude,
+                longitude = location.longitude
             )
         }
 
@@ -65,7 +67,9 @@ class SpeedCalculator {
             totalDistanceMeters = totalDistanceMeters,
             isGpsActive = true,
             accuracyMeters = location.accuracy,
-            speedLimitMps = speedLimitMps
+            speedLimitMps = speedLimitMps,
+            latitude = location.latitude,
+            longitude = location.longitude
         )
     }
 

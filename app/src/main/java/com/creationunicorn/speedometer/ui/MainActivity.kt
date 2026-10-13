@@ -4,10 +4,12 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.preference.PreferenceManager
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,6 +31,10 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import kotlinx.coroutines.launch
+import org.osmdroid.config.Configuration
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     private var adView: AdView? = null
     private var isPaused = false
     private var currentSelectedTab = 0
+    private var currentSelectedVehicle = 0
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -52,15 +59,40 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize OSM configuration
+        Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
+        Configuration.getInstance().userAgentValue = packageName
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initMapViews()
         setupAdBanner()
         setupListeners()
         setupTabs()
+        setupVehicleModes()
         observeViewModel()
 
         checkFirstTimeFlow()
+    }
+
+    private fun initMapViews() {
+        val defaultPoint = GeoPoint(28.5967, 77.3840) // Sector 70 Noida from screenshot 4 & 5
+
+        binding.tabMapView.apply {
+            setTileSource(TileSourceFactory.MAPNIK)
+            setMultiTouchControls(true)
+            controller.setZoom(16.5)
+            controller.setCenter(defaultPoint)
+        }
+
+        binding.navMapView.apply {
+            setTileSource(TileSourceFactory.MAPNIK)
+            setMultiTouchControls(true)
+            controller.setZoom(16.5)
+            controller.setCenter(defaultPoint)
+        }
     }
 
     private fun checkFirstTimeFlow() {
@@ -136,48 +168,93 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTabs() {
-        binding.tabGauge?.setOnClickListener { selectTab(0) }
-        binding.tabDigital?.setOnClickListener { selectTab(1) }
-        binding.tabMap?.setOnClickListener { selectTab(2) }
-        binding.tabNav?.setOnClickListener { selectTab(3) }
+        binding.tabGauge.setOnClickListener { selectTab(0) }
+        binding.tabDigital.setOnClickListener { selectTab(1) }
+        binding.tabMap.setOnClickListener { selectTab(2) }
+        binding.tabNav.setOnClickListener { selectTab(3) }
+        selectTab(0)
     }
 
     private fun selectTab(index: Int) {
         currentSelectedTab = index
-        val tabs = listOfNotNull(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
-        val indicators = listOfNotNull(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
+        val tabs = listOf(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
+        val indicators = listOf(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
+
+        val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
+        val grayColor = ContextCompat.getColor(this, R.color.text_gray)
 
         for (i in tabs.indices) {
             if (i == index) {
-                tabs[i].setTextColor(ContextCompat.getColor(this, R.color.neon_cyan))
-                if (i < indicators.size) indicators[i].visibility = View.VISIBLE
+                tabs[i].setTextColor(cyanColor)
+                indicators[i].visibility = View.VISIBLE
             } else {
-                tabs[i].setTextColor(ContextCompat.getColor(this, R.color.text_gray))
-                if (i < indicators.size) indicators[i].visibility = View.INVISIBLE
+                tabs[i].setTextColor(grayColor)
+                indicators[i].visibility = View.INVISIBLE
             }
         }
 
         when (index) {
-            0, 1 -> {
-                binding.gaugeViewContainer?.visibility = View.VISIBLE
-                binding.includedMapTab?.mapScreenRoot?.visibility = View.GONE
-                binding.includedNavTab?.navScreenRoot?.visibility = View.GONE
+            0 -> { // Gauge Tab
+                binding.mainTabsBodyContainer.visibility = View.VISIBLE
+                binding.viewNavContainer.visibility = View.GONE
+                binding.viewGaugeDisplay.visibility = View.VISIBLE
+                binding.viewDigitalDisplay.visibility = View.GONE
+                binding.viewMapDisplay.visibility = View.GONE
+                binding.ivFloatingWindow.visibility = View.VISIBLE
             }
-            2 -> {
-                binding.gaugeViewContainer?.visibility = View.GONE
-                binding.includedMapTab?.mapScreenRoot?.visibility = View.VISIBLE
-                binding.includedNavTab?.navScreenRoot?.visibility = View.GONE
+            1 -> { // Digital Tab
+                binding.mainTabsBodyContainer.visibility = View.VISIBLE
+                binding.viewNavContainer.visibility = View.GONE
+                binding.viewGaugeDisplay.visibility = View.GONE
+                binding.viewDigitalDisplay.visibility = View.VISIBLE
+                binding.viewMapDisplay.visibility = View.GONE
+                binding.ivFloatingWindow.visibility = View.VISIBLE
             }
-            3 -> {
-                binding.gaugeViewContainer?.visibility = View.GONE
-                binding.includedMapTab?.mapScreenRoot?.visibility = View.GONE
-                binding.includedNavTab?.navScreenRoot?.visibility = View.VISIBLE
+            2 -> { // Map Tab
+                binding.mainTabsBodyContainer.visibility = View.VISIBLE
+                binding.viewNavContainer.visibility = View.GONE
+                binding.viewGaugeDisplay.visibility = View.GONE
+                binding.viewDigitalDisplay.visibility = View.GONE
+                binding.viewMapDisplay.visibility = View.VISIBLE
+                binding.ivFloatingWindow.visibility = View.VISIBLE
+            }
+            3 -> { // Nav Tab
+                binding.mainTabsBodyContainer.visibility = View.GONE
+                binding.viewNavContainer.visibility = View.VISIBLE
+                binding.ivFloatingWindow.visibility = View.GONE // Matches Screenshot 5!
+            }
+        }
+    }
+
+    private fun setupVehicleModes() {
+        binding.walkMode.setOnClickListener { selectVehicleMode(0) }
+        binding.bikeMode.setOnClickListener { selectVehicleMode(1) }
+        binding.motorMode.setOnClickListener { selectVehicleMode(2) }
+        binding.carMode.setOnClickListener { selectVehicleMode(3) }
+        selectVehicleMode(0)
+    }
+
+    private fun selectVehicleMode(mode: Int) {
+        currentSelectedVehicle = mode
+        val modes = listOf(binding.walkMode, binding.bikeMode, binding.motorMode, binding.carMode)
+        val icons = listOf(binding.ivWalkMode, binding.ivBikeMode, binding.ivMotorMode, binding.ivCarMode)
+
+        val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
+        val dimColor = Color.parseColor("#55FFFFFF")
+
+        for (i in modes.indices) {
+            if (i == mode) {
+                modes[i].setBackgroundResource(R.drawable.rect_00fff2_8dp)
+                icons[i].setColorFilter(cyanColor)
+            } else {
+                modes[i].background = null
+                icons[i].setColorFilter(dimColor)
             }
         }
     }
 
     private fun setupAdBanner() {
-        binding.adViewContainer?.let { container ->
+        binding.adViewContainer.let { container ->
             adView = AdView(this).apply {
                 adUnitId = AdManager.TEST_BANNER_ID
                 setAdSize(AdSize.BANNER)
@@ -188,11 +265,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        binding.ivSettings?.setOnClickListener {
+        binding.ivSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        binding.ivHistory?.setOnClickListener {
+        binding.ivHistory.setOnClickListener {
+            binding.ivHistory.notify = false
             startActivity(Intent(this, HistoryActivity::class.java))
         }
 
@@ -200,43 +278,58 @@ class MainActivity : AppCompatActivity() {
             startTripFlow()
         }
 
-        binding.btnStopTrip?.setOnClickListener {
+        binding.btnStopTrip.setOnClickListener {
             stopTripFlow()
         }
 
-        binding.includedMapTab?.btnMapStop?.setOnClickListener {
-            stopTripFlow()
-        }
-
-        binding.includedNavTab?.btnNavStop?.setOnClickListener {
-            stopTripFlow()
-        }
-
-        binding.includedNavTab?.btnNavExit?.setOnClickListener {
-            selectTab(0)
-        }
-
-        binding.btnResetTripCol?.setOnClickListener {
+        binding.btnResetTripCol.setOnClickListener {
             viewModel.resetTrip()
             isPaused = false
             updateTripControlState(isActive = false)
         }
 
-        binding.btnPauseTripCol?.setOnClickListener {
+        binding.btnPauseTripCol.setOnClickListener {
             isPaused = !isPaused
             if (isPaused) {
-                binding.tvPauseText?.text = "Resume"
-                binding.ivPauseIcon?.setImageResource(R.drawable.ic_icon_general_resume)
+                binding.tvPauseText.text = "Resume"
+                binding.ivPauseIcon.setImageResource(R.drawable.ic_icon_general_resume)
             } else {
-                binding.tvPauseText?.text = "Pause"
-                binding.ivPauseIcon?.setImageResource(R.drawable.ic_icon_general_pause)
+                binding.tvPauseText.text = "Pause"
+                binding.ivPauseIcon.setImageResource(R.drawable.ic_icon_general_pause)
             }
         }
 
-        binding.ivModeWalk?.setOnClickListener { selectVehicleMode(0) }
-        binding.ivModeBicycle?.setOnClickListener { selectVehicleMode(1) }
-        binding.ivModeMoto?.setOnClickListener { selectVehicleMode(2) }
-        binding.ivModeCar?.setOnClickListener { selectVehicleMode(3) }
+        // Map tab controls
+        binding.btnMapRecenter.setOnClickListener {
+            val loc = viewModel.metrics.value
+            if (loc.latitude != 0.0 || loc.longitude != 0.0) {
+                binding.tabMapView.controller.animateTo(GeoPoint(loc.latitude, loc.longitude))
+            } else {
+                binding.tabMapView.controller.animateTo(GeoPoint(28.5967, 77.3840))
+            }
+        }
+
+        binding.btnNavRecenter.setOnClickListener {
+            val loc = viewModel.metrics.value
+            if (loc.latitude != 0.0 || loc.longitude != 0.0) {
+                binding.navMapView.controller.animateTo(GeoPoint(loc.latitude, loc.longitude))
+            } else {
+                binding.navMapView.controller.animateTo(GeoPoint(28.5967, 77.3840))
+            }
+        }
+
+        binding.llSearchDestination.setOnClickListener {
+            Toast.makeText(this, "Search destination", Toast.LENGTH_SHORT).show()
+        }
+        binding.cardNavHome.setOnClickListener {
+            Toast.makeText(this, "Navigating to Home", Toast.LENGTH_SHORT).show()
+        }
+        binding.cardNavCompany.setOnClickListener {
+            Toast.makeText(this, "Navigating to Company", Toast.LENGTH_SHORT).show()
+        }
+        binding.cardNavMore.setOnClickListener {
+            Toast.makeText(this, "More destinations", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun startTripFlow() {
@@ -270,25 +363,10 @@ class MainActivity : AppCompatActivity() {
     private fun updateTripControlState(isActive: Boolean) {
         if (isActive) {
             binding.btnMainAction.visibility = View.GONE
-            binding.tripControlBar?.visibility = View.VISIBLE
+            binding.tripControlBar.visibility = View.VISIBLE
         } else {
             binding.btnMainAction.visibility = View.VISIBLE
-            binding.tripControlBar?.visibility = View.GONE
-        }
-    }
-
-    private fun selectVehicleMode(mode: Int) {
-        val icons = listOfNotNull(binding.ivModeWalk, binding.ivModeBicycle, binding.ivModeMoto, binding.ivModeCar)
-        val containers = listOfNotNull(binding.ivModeWalkContainer, binding.ivModeBicycleContainer, binding.ivModeMotoContainer, binding.ivModeCarContainer)
-
-        for (i in icons.indices) {
-            if (i == mode) {
-                icons[i].setColorFilter(ContextCompat.getColor(this, R.color.neon_cyan))
-                if (i < containers.size) containers[i].setBackgroundResource(R.drawable.bg_vehicle_selected)
-            } else {
-                icons[i].setColorFilter(ContextCompat.getColor(this, R.color.text_dark_gray))
-                if (i < containers.size) containers[i].background = null
-            }
+            binding.tripControlBar.visibility = View.GONE
         }
     }
 
@@ -302,50 +380,87 @@ class MainActivity : AppCompatActivity() {
                         val maxSpeed = unit.convert(metrics.maxSpeedMps)
                         val avgSpeed = unit.convert(metrics.averageSpeedMps)
 
-                        // Main Gauge Tab
-                        binding.tvMainSpeed.text = String.format("%.0f", currentSpeed)
-                        binding.tvMainUnit.text = unit.displayName
-                        binding.tvMaxSpeed.text = String.format("%.0f %s", maxSpeed, unit.displayName)
-                        binding.tvAvgSpeed.text = String.format("%.0f %s", avgSpeed, unit.displayName)
-                        binding.tvDistance.text = unit.formatDistance(metrics.totalDistanceMeters)
+                        val speedStr = String.format(Locale.US, "%.0f", currentSpeed)
+                        val maxSpeedStr = String.format(Locale.US, "%.0f", maxSpeed)
+                        val avgSpeedStr = String.format(Locale.US, "%.0f", avgSpeed)
 
-                        // Map Tab
-                        binding.includedMapTab?.tvMapFloatingSpeed?.text = String.format("%.0f", currentSpeed)
-                        binding.includedMapTab?.tvMapDistance?.text = unit.formatDistance(metrics.totalDistanceMeters)
-                        binding.includedMapTab?.tvMapMaxSpeed?.text = String.format("%.0f %s", maxSpeed, unit.displayName)
-                        binding.includedMapTab?.tvMapAvgSpeed?.text = String.format("%.0f %s", avgSpeed, unit.displayName)
+                        // 1. Gauge Tab Readouts
+                        binding.digitalGaugeSpeed.text = speedStr
+                        binding.tvGaugeUnit.text = unit.displayName
+                        binding.gaugeSpeedometer.currentSpeed = currentSpeed.toFloat()
 
-                        // Nav Tab
-                        binding.includedNavTab?.tvNavSpeedVal?.text = String.format("%.0f", currentSpeed)
-                        binding.includedNavTab?.tvNavDistanceVal?.text = unit.formatDistance(metrics.totalDistanceMeters)
-                        binding.includedNavTab?.tvNavAvgVal?.text = String.format("%.0f %s", avgSpeed, unit.displayName)
+                        val odoNm = (metrics.totalDistanceMeters / 1852.0).toInt()
+                        val odoStr = String.format(Locale.US, "%06d", odoNm)
+                        binding.digitalGaugeOdometer.digitalColor = Color.parseColor("#6C757D")
+                        binding.digitalGaugeOdometer.text = odoStr
+                        binding.tvGaugeOdoUnit.text = if (unit.displayName == "knot") "nm" else unit.distanceDisplayName
 
+                        // 2. Digital Tab Readouts
+                        binding.digitalSpeedLarge.text = speedStr
+                        binding.tvDigitalUnit.text = unit.displayName
+                        binding.digitalOdometerVal.digitalColor = Color.parseColor("#6C757D")
+                        binding.digitalOdometerVal.text = odoStr
+                        binding.tvDigitalOdoUnit.text = if (unit.displayName == "knot") "nm" else unit.distanceDisplayName
+
+                        // 3. Map Tab Readout
+                        binding.digitalMapSpeedChip.text = speedStr
+
+                        // 4. 2x2 Metrics Panel Readouts
                         val totalSeconds = metrics.elapsedTimeMillis / 1000
                         val hours = totalSeconds / 3600
                         val minutes = (totalSeconds % 3600) / 60
                         val seconds = totalSeconds % 60
-                        val formattedDuration = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+                        val formattedDuration = String.format(Locale.US, "%02d:%02d:%02d", hours, minutes, seconds)
 
-                        binding.tvDuration.text = formattedDuration
-                        binding.includedMapTab?.tvMapDuration?.text = formattedDuration
-                        binding.includedNavTab?.tvNavElapsed?.text = formattedDuration
+                        binding.digitalDuration.text = formattedDuration
 
-                        val odoKm = (metrics.totalDistanceMeters / 1000.0).toInt()
-                        binding.tvOdometerValue.text = String.format("%06d km", odoKm)
-
-                        if (metrics.isGpsActive) {
-                            binding.tvGpsPillText?.text = getString(R.string.gps_status_excellent)
-                            binding.ivGpsSignalIcon?.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.neon_green))
+                        val distVal = if (unit.displayName == "knot") {
+                            metrics.totalDistanceMeters / 1852.0
                         } else {
-                            binding.tvGpsPillText?.text = getString(R.string.gps_status_no)
-                            binding.ivGpsSignalIcon?.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.alert_red))
+                            unit.convertDistance(metrics.totalDistanceMeters)
+                        }
+                        val distStr = if (distVal >= 10) String.format(Locale.US, "%.0f", distVal) else String.format(Locale.US, "%.1f", distVal)
+                        binding.digitalDistance.text = if (distStr == "0.0") "0" else distStr
+                        binding.tvDistanceUnit.text = if (unit.displayName == "knot") "nm" else unit.distanceDisplayName
+
+                        binding.digitalAvgSpeed.text = avgSpeedStr
+                        binding.tvAvgSpeedUnit.text = unit.displayName
+
+                        binding.digitalMaxSpeed.text = maxSpeedStr
+                        binding.tvMaxSpeedUnit.text = unit.displayName
+
+                        // Coordinates
+                        if (metrics.latitude != 0.0 || metrics.longitude != 0.0) {
+                            val coordStr = formatCoordinate(metrics.latitude, metrics.longitude)
+                            binding.tvMapCoordinates.text = coordStr
+                            binding.tvNavCoordinates.text = coordStr
+
+                            val geoPoint = GeoPoint(metrics.latitude, metrics.longitude)
+                            binding.tabMapView.controller.setCenter(geoPoint)
+                            binding.navMapView.controller.setCenter(geoPoint)
                         }
 
+                        // GPS Status Top Bar
+                        if (metrics.isGpsActive) {
+                            binding.ivGpsSignalIcon.setImageResource(R.drawable.ic_icon_gps_excellent)
+                            binding.tvGpsStatusDesc.text = "GPS: Excellent"
+                            binding.tvGpsSatellites.text = "(8/12 Satellites)"
+                        } else {
+                            binding.ivGpsSignalIcon.setImageResource(R.drawable.ic_icon_gps_no)
+                            binding.tvGpsStatusDesc.text = "GPS: No"
+                            binding.tvGpsSatellites.text = "(0/0 Satellites)"
+                        }
+
+                        // Overspeed Alert
+                        val alertColor = ContextCompat.getColor(this@MainActivity, R.color.alert_red)
+                        val cyanColor = ContextCompat.getColor(this@MainActivity, R.color.neon_cyan)
                         if (metrics.isOverSpeedLimit()) {
-                            binding.tvMainSpeed.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.alert_red))
+                            binding.digitalGaugeSpeed.digitalColor = alertColor
+                            binding.digitalSpeedLarge.digitalColor = alertColor
                             triggerVibration()
                         } else {
-                            binding.tvMainSpeed.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.neon_cyan))
+                            binding.digitalGaugeSpeed.digitalColor = cyanColor
+                            binding.digitalSpeedLarge.digitalColor = cyanColor
                         }
                     }
                 }
@@ -359,6 +474,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun formatCoordinate(lat: Double, lon: Double): String {
+        val latHem = if (lat >= 0) "N" else "S"
+        val lonHem = if (lon >= 0) "E" else "W"
+        val absLat = Math.abs(lat)
+        val absLon = Math.abs(lon)
+        val latD = absLat.toInt()
+        val latM = ((absLat - latD) * 60).toInt()
+        val latS = ((absLat - latD - latM / 60.0) * 3600)
+        val lonD = absLon.toInt()
+        val lonM = ((absLon - lonD) * 60).toInt()
+        val lonS = ((absLon - lonD - lonM / 60.0) * 3600)
+        return String.format(Locale.US, "%d°%d'%.1f\"%s , %d°%d'%.1f\"%s", latD, latM, latS, latHem, lonD, lonM, lonS, lonHem)
+    }
+
     private fun triggerVibration() {
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -367,6 +496,18 @@ class MainActivity : AppCompatActivity() {
             @Suppress("DEPRECATION")
             vibrator?.vibrate(150)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.tabMapView.onResume()
+        binding.navMapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.tabMapView.onPause()
+        binding.navMapView.onPause()
     }
 
     override fun onDestroy() {

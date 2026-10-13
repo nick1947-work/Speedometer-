@@ -46,4 +46,5 @@ dependencies {
     implementation(libs.play.services.ads)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
 }
