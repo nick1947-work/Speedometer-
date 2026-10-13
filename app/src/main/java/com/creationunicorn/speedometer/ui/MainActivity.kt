@@ -351,11 +351,27 @@ class MainActivity : AppCompatActivity() {
     private fun openTripSummary() {
         val metrics = viewModel.metrics.value
         val unit = viewModel.unit.value
+        val distVal = if (unit.displayName == "knot") {
+            metrics.totalDistanceMeters / 1852.0
+        } else {
+            unit.convertDistance(metrics.totalDistanceMeters)
+        }
+        val distStr = if (distVal >= 10) String.format(Locale.US, "%.0f", distVal) else String.format(Locale.US, "%.1f", distVal)
+        val finalDistStr = if (distStr == "0.0") "0" else distStr
+
+        val avgSpeed = String.format(Locale.US, "%.0f", unit.convert(metrics.averageSpeedMps))
+        val maxSpeed = String.format(Locale.US, "%.0f", unit.convert(metrics.maxSpeedMps))
+
         val intent = Intent(this, TripSummaryActivity::class.java).apply {
-            putExtra(TripSummaryActivity.EXTRA_DISTANCE, unit.formatDistance(metrics.totalDistanceMeters))
+            putExtra(TripSummaryActivity.EXTRA_DISTANCE, finalDistStr)
+            putExtra(TripSummaryActivity.EXTRA_DISTANCE_UNIT, if (unit.displayName == "knot") "nm" else unit.distanceDisplayName)
             putExtra(TripSummaryActivity.EXTRA_DURATION_MILLIS, metrics.elapsedTimeMillis)
-            putExtra(TripSummaryActivity.EXTRA_AVG_SPEED, String.format("%.0f %s", unit.convert(metrics.averageSpeedMps), unit.displayName))
-            putExtra(TripSummaryActivity.EXTRA_MAX_SPEED, String.format("%.0f %s", unit.convert(metrics.maxSpeedMps), unit.displayName))
+            putExtra(TripSummaryActivity.EXTRA_AVG_SPEED, avgSpeed)
+            putExtra(TripSummaryActivity.EXTRA_MAX_SPEED, maxSpeed)
+            putExtra(TripSummaryActivity.EXTRA_SPEED_UNIT, unit.displayName)
+            putExtra(TripSummaryActivity.EXTRA_MODE, currentSelectedVehicle)
+            putExtra(TripSummaryActivity.EXTRA_LAT, metrics.latitude)
+            putExtra(TripSummaryActivity.EXTRA_LON, metrics.longitude)
         }
         startActivity(intent)
     }

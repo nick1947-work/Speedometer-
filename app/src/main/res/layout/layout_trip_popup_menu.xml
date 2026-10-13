@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect_2c2c2e_16dp"
+    android:elevation="8dp"
+    android:orientation="vertical"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/menuRename"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="Rename"
+        android:textColor="@color/text_white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/menuShare"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="Share"
+        android:textColor="@color/text_white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/menuExport"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="Export"
+        android:textColor="@color/text_white"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/menuDelete"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="Delete"
+        android:textColor="@color/color_delete_red"
+        android:textSize="15sp" />
+
+</LinearLayout>

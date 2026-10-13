@@ -17,4 +17,5 @@
     <color name="dot_inactive">#33373E</color>
     <color name="hud_bg">#000000</color>
     <color name="card_border">#232832</color>
+    <color name="color_delete_red">#FF453A</color>
 </resources>
