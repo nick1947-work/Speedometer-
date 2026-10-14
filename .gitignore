@@ -9,4 +9,6 @@
 .externalNativeBuild
 .cxx
 *.apk
+!apk/
+!apk/*.apk
 store_screens/
