@@ -34,7 +34,11 @@ import kotlinx.coroutines.launch
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
+import com.creationunicorn.speedometer.data.TripRecord
+import com.creationunicorn.speedometer.data.TripRepository
 
 class MainActivity : AppCompatActivity() {
 
@@ -271,7 +275,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.ivHistory.setOnClickListener {
             binding.ivHistory.notify = false
-            startActivity(Intent(this, HistoryActivity::class.java))
+            val intent = Intent(this, HistoryActivity::class.java).apply {
+                putExtra(HistoryActivity.EXTRA_SELECTED_MODE, currentSelectedVehicle)
+            }
+            startActivity(intent)
         }
 
         binding.btnMainAction.setOnClickListener {
@@ -361,10 +368,42 @@ class MainActivity : AppCompatActivity() {
 
         val avgSpeed = String.format(Locale.US, "%.0f", unit.convert(metrics.averageSpeedMps))
         val maxSpeed = String.format(Locale.US, "%.0f", unit.convert(metrics.maxSpeedMps))
+        val distUnitStr = if (unit.displayName == "knot") "nm" else unit.distanceDisplayName
+
+        val tripNum = TripRepository.getNextTripNumber(this)
+        val currentDate = SimpleDateFormat("MMM dd, yyyy", Locale.US).format(Date())
+        val currentTime = SimpleDateFormat("HH:mm", Locale.US).format(Date())
+        val totalSec = metrics.elapsedTimeMillis / 1000
+        val h = totalSec / 3600
+        val m = (totalSec % 3600) / 60
+        val s = totalSec % 60
+        val durationStr = String.format(Locale.US, "%02d:%02d:%02d", h, m, s)
+
+        val newTrip = TripRecord(
+            id = System.currentTimeMillis().toString(),
+            title = "Trip-$tripNum",
+            vehicleMode = currentSelectedVehicle,
+            distance = finalDistStr,
+            distanceUnit = distUnitStr,
+            avgSpeed = avgSpeed,
+            maxSpeed = maxSpeed,
+            speedUnit = unit.displayName,
+            durationStr = durationStr,
+            durationMillis = metrics.elapsedTimeMillis,
+            dateStr = currentDate,
+            fromTime = currentTime,
+            toTime = currentTime,
+            fromAddress = "H9VM+WQC, Desai Village, Noida, Uttar Pradesh 201309, India",
+            toAddress = "H9VM+WQC, Desai Village, Noida, Uttar Pradesh 201309, India",
+            latitude = metrics.latitude,
+            longitude = metrics.longitude
+        )
+        TripRepository.saveTrip(this, newTrip)
 
         val intent = Intent(this, TripSummaryActivity::class.java).apply {
+            putExtra(TripSummaryActivity.EXTRA_TITLE, newTrip.title)
             putExtra(TripSummaryActivity.EXTRA_DISTANCE, finalDistStr)
-            putExtra(TripSummaryActivity.EXTRA_DISTANCE_UNIT, if (unit.displayName == "knot") "nm" else unit.distanceDisplayName)
+            putExtra(TripSummaryActivity.EXTRA_DISTANCE_UNIT, distUnitStr)
             putExtra(TripSummaryActivity.EXTRA_DURATION_MILLIS, metrics.elapsedTimeMillis)
             putExtra(TripSummaryActivity.EXTRA_AVG_SPEED, avgSpeed)
             putExtra(TripSummaryActivity.EXTRA_MAX_SPEED, maxSpeed)

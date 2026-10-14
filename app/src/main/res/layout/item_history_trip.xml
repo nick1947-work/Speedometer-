@@ -1,218 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="14dp"
-    app:cardBackgroundColor="#21252D"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="0dp">
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/rect_10ffffff_16dp"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout
+    <!-- Header: Vehicle Mode Icon + Trip Name + More Menu / Checkbox -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
-        <!-- Card Header: Walk Icon + Trip-1 Title + Menu ⋮ -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/ivItemTripIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_transport_walking"
+                app:tint="@color/text_white" />
+
+            <TextView
+                android:id="@+id/tvItemTripTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:includeFontPadding="false"
+                android:text="Trip-1"
+                android:textColor="@color/text_white"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/ivItemTripIcon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/ic_menu_directions"
-                    app:tint="@color/text_white" />
-
-                <TextView
-                    android:id="@+id/tvItemTripTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Trip-1"
-                    android:textColor="@color/text_white"
-                    android:textSize="18sp" />
-            </LinearLayout>
+        <!-- Right Side: Menu or Checkbox -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
 
             <ImageView
                 android:id="@+id/ivItemTripMenu"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@android:drawable/ic_menu_more"
-                app:tint="@color/text_gray" />
-        </RelativeLayout>
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="5dp"
+                android:src="@drawable/ic_icon_general_more"
+                app:tint="#80FFFFFF" />
 
-        <!-- Distance & Max Speed row matching screenshot 1 (0 nm, 0 knot, Oct 12, 2026, 00:00:11) -->
-        <RelativeLayout
-            android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/ivItemTripCheck"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_icon_history_unselected"
+                android:visibility="gone" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <!-- Thin Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#15FFFFFF" />
+
+    <!-- Metric Row: Distance & Date (Left) | Speed & Duration (Right) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Left: Distance & Date -->
+        <LinearLayout
+            android:id="@+id/llLeftMetrics"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvItemDistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/poppins_bold"
+                android:includeFontPadding="false"
                 android:text="0 nm"
                 android:textColor="@color/text_white"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tvItemSpeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:fontFamily="sans-serif-black"
-                android:text="⏱ 0 knot"
-                android:textColor="@color/text_white"
-                android:textSize="17sp" />
-
-            <TextView
                 android:id="@+id/tvItemDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvItemDistance"
                 android:layout_marginTop="2dp"
-                android:text="Oct 12, 2026"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
+                android:fontFamily="@font/poppins_regular"
+                android:includeFontPadding="false"
+                android:text="Oct 14, 2026"
+                android:textColor="#70FFFFFF"
+                android:textSize="13sp" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvItemDuration"
+        <!-- Right: Avg Speed & Duration -->
+        <LinearLayout
+            android:id="@+id/llRightMetrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <!-- Speed with Speed Icon -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/tvItemSpeed"
-                android:layout_marginTop="2dp"
-                android:text="⏱ 00:00:11"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-        </RelativeLayout>
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-        <!-- Divider line -->
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_icon_history_speed"
+                    app:tint="@color/text_white" />
+
+                <TextView
+                    android:id="@+id/tvItemSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:includeFontPadding="false"
+                    android:text="0 knot"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- Duration with Clock Icon -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:src="@drawable/ic_icon_history_time"
+                    app:tint="#70FFFFFF" />
+
+                <TextView
+                    android:id="@+id/tvItemDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:includeFontPadding="false"
+                    android:text="00:00:06"
+                    android:textColor="#70FFFFFF"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Thin Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
+        android:background="#15FFFFFF" />
+
+    <!-- Address Section: FROM and TO with Dotted Line -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- FROM Start Pin -->
+        <ImageView
+            android:id="@+id/ivItemFromPin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_icon_general_location_start" />
+
+        <TextView
+            android:id="@+id/tvItemFromLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ivItemFromPin"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/ivItemFromPin"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:text="FROM"
+            android:textColor="@color/text_white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvItemFromTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tvItemFromLabel"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="01:54"
+            android:textColor="#50FFFFFF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvItemFromAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvItemFromLabel"
+            android:layout_alignStart="@id/tvItemFromLabel"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:text="H9VM+WQC, Desai Village, Noida, Uttar Pradesh 201309, India"
+            android:textColor="#70FFFFFF"
+            android:textSize="12sp" />
+
+        <!-- Vertical Dotted Line between Start and End -->
         <View
+            android:id="@+id/dottedLine"
+            android:layout_width="2dp"
+            android:layout_height="14dp"
+            android:layout_below="@id/ivItemFromPin"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/dot_gap_bg" />
+
+        <!-- TO End Pin -->
+        <ImageView
+            android:id="@+id/ivItemToPin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/dottedLine"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_icon_general_location_end" />
+
+        <TextView
+            android:id="@+id/tvItemToLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ivItemToPin"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/ivItemToPin"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:text="TO"
+            android:textColor="@color/text_white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvItemEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tvItemToLabel"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="01:54"
+            android:textColor="#50FFFFFF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvItemToAddress"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="12dp"
-            android:background="#2E3440" />
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvItemToLabel"
+            android:layout_alignStart="@id/tvItemToLabel"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:text="H9VM+WQC, Desai Village, Noida, Uttar Pradesh 201309, India"
+            android:textColor="#70FFFFFF"
+            android:textSize="12sp" />
+    </RelativeLayout>
 
-        <!-- FROM Section with Red Pin -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/ivItemFromPin"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_alignParentStart="true"
-                android:src="@drawable/ic_dot_active"
-                app:tint="#FF5722" />
-
-            <TextView
-                android:id="@+id/tvItemFromLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@id/ivItemFromPin"
-                android:fontFamily="sans-serif-black"
-                android:text="FROM"
-                android:textColor="@color/text_white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvItemFromTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="16:58"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvItemFromAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvItemFromLabel"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_toEndOf="@id/ivItemFromPin"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Block H, H6, H Block, Sector 63, Noida, U..."
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-        </RelativeLayout>
-
-        <!-- Dotted connector -->
-        <View
-            android:layout_width="1dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginVertical="2dp"
-            android:background="#37474F" />
-
-        <!-- TO Section with Green Pin -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/ivItemToPin"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_alignParentStart="true"
-                android:src="@drawable/ic_dot_active"
-                app:tint="@color/neon_green" />
-
-            <TextView
-                android:id="@+id/tvItemToLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@id/ivItemToPin"
-                android:fontFamily="sans-serif-black"
-                android:text="TO"
-                android:textColor="@color/text_white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvItemToTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="16:58"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvItemToAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvItemToLabel"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_toEndOf="@id/ivItemToPin"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Block H, H6, H Block, Sector 63, Noida, U..."
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-        </RelativeLayout>
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

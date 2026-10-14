@@ -27,6 +27,7 @@ import java.util.Locale
 class TripSummaryActivity : AppCompatActivity() {
 
     companion object {
+        const val EXTRA_TITLE = "trip_title"
         const val EXTRA_DISTANCE = "trip_distance"
         const val EXTRA_DISTANCE_UNIT = "trip_distance_unit"
         const val EXTRA_DURATION_MILLIS = "trip_duration_millis"
@@ -56,10 +57,15 @@ class TripSummaryActivity : AppCompatActivity() {
     }
 
     private fun setupTripData() {
-        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
-        val tripCount = prefs.getInt("trip_history_count", 3) + 1
-        prefs.edit().putInt("trip_history_count", tripCount).apply()
-        tripName = "Trip-$tripCount"
+        val passedTitle = intent.getStringExtra(EXTRA_TITLE)
+        if (!passedTitle.isNullOrEmpty()) {
+            tripName = passedTitle
+        } else {
+            val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
+            val tripCount = prefs.getInt("trip_history_count", 3) + 1
+            prefs.edit().putInt("trip_history_count", tripCount).apply()
+            tripName = "Trip-$tripCount"
+        }
         binding.tvTripName.text = tripName
 
         val mode = intent.getIntExtra(EXTRA_MODE, 3) // Default car
