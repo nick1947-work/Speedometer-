@@ -3,6 +3,7 @@ package com.creationunicorn.speedometer.ui
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
@@ -69,6 +70,12 @@ class MainActivity : AppCompatActivity() {
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
         Configuration.getInstance().userAgentValue = packageName
 
+        if (savedInstanceState != null) {
+            currentSelectedTab = savedInstanceState.getInt("saved_selected_tab", 0)
+            currentSelectedVehicle = savedInstanceState.getInt("saved_selected_vehicle", 0)
+            isPaused = savedInstanceState.getBoolean("saved_is_paused", false)
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -79,7 +86,22 @@ class MainActivity : AppCompatActivity() {
         setupVehicleModes()
         observeViewModel()
 
+        if (viewModel.isTripActive.value) {
+            updateTripControlState(isActive = true)
+            if (isPaused) {
+                binding.tvPauseText.text = "Resume"
+                binding.ivPauseIcon.setImageResource(R.drawable.ic_icon_general_resume)
+            }
+        }
+
         checkFirstTimeFlow()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("saved_selected_tab", currentSelectedTab)
+        outState.putInt("saved_selected_vehicle", currentSelectedVehicle)
+        outState.putBoolean("saved_is_paused", isPaused)
     }
 
     private fun initMapViews() {
@@ -232,11 +254,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupVehicleModes() {
-        binding.walkMode.setOnClickListener { selectVehicleMode(0) }
-        binding.bikeMode.setOnClickListener { selectVehicleMode(1) }
-        binding.motorMode.setOnClickListener { selectVehicleMode(2) }
-        binding.carMode.setOnClickListener { selectVehicleMode(3) }
-        selectVehicleMode(0)
+        val clickWalk = View.OnClickListener { selectVehicleMode(0) }
+        val clickBike = View.OnClickListener { selectVehicleMode(1) }
+        val clickMotor = View.OnClickListener { selectVehicleMode(2) }
+        val clickCar = View.OnClickListener { selectVehicleMode(3) }
+
+        binding.walkMode.setOnClickListener(clickWalk)
+        binding.ivWalkMode.setOnClickListener(clickWalk)
+
+        binding.bikeMode.setOnClickListener(clickBike)
+        binding.ivBikeMode.setOnClickListener(clickBike)
+
+        binding.motorMode.setOnClickListener(clickMotor)
+        binding.ivMotorMode.setOnClickListener(clickMotor)
+
+        binding.carMode.setOnClickListener(clickCar)
+        binding.ivCarMode.setOnClickListener(clickCar)
+
+        selectVehicleMode(currentSelectedVehicle)
     }
 
     private fun selectVehicleMode(mode: Int) {
@@ -249,12 +284,19 @@ class MainActivity : AppCompatActivity() {
 
         for (i in modes.indices) {
             if (i == mode) {
-                modes[i].setBackgroundResource(R.drawable.rect_00fff2_8dp)
+                modes[i].setBackgroundResource(R.drawable.bg_vehicle_selected)
                 icons[i].setColorFilter(cyanColor)
             } else {
                 modes[i].background = null
                 icons[i].setColorFilter(dimColor)
             }
+        }
+
+        when (mode) {
+            0 -> binding.gaugeSpeedometer.setSpeedMax(15f) // Walk ~15 km/h
+            1 -> binding.gaugeSpeedometer.setSpeedMax(40f) // Bike ~40 km/h
+            2 -> binding.gaugeSpeedometer.setSpeedMax(120f) // Motorcycle ~120 km/h
+            3 -> binding.gaugeSpeedometer.setSpeedMax(140f) // Car ~140 km/h
         }
     }
 
@@ -286,7 +328,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.ivFloatingWindow.setOnClickListener {
-            Toast.makeText(this, "HUD Mirror Mode activated! Place device on dashboard.", Toast.LENGTH_LONG).show()
+            val isLandscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
+            if (isLandscape) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            } else {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            }
         }
 
         binding.ivHistory.setOnClickListener {
@@ -644,6 +691,16 @@ class MainActivity : AppCompatActivity() {
             window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         } else {
             window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+
+        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+        try {
+            val themeColor = Color.parseColor(themeHex)
+            binding.tvGaugeUnit.setTextColor(themeColor)
+            binding.tvDigitalUnit.setTextColor(themeColor)
+            binding.tvDistanceUnit.setTextColor(themeColor)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

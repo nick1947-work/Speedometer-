@@ -450,51 +450,75 @@
                         android:orientation="horizontal">
 
                         <View
+                            android:id="@+id/swatchCyan"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="@drawable/bg_dot_active" />
+                            android:background="@drawable/rect_swatch_cyan"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchSkyBlue"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#29B6F6" />
+                            android:background="@drawable/rect_swatch_skyblue"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchGreen"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#76FF03" />
+                            android:background="@drawable/rect_swatch_green"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchYellow"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#FFEA00" />
+                            android:background="@drawable/rect_swatch_yellow"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchOrange"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#FF6D00" />
+                            android:background="@drawable/rect_swatch_orange"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchRed"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#FF1744" />
+                            android:background="@drawable/rect_swatch_red"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchPurple"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_marginEnd="8dp"
-                            android:background="#B388FF" />
+                            android:background="@drawable/rect_swatch_purple"
+                            android:clickable="true"
+                            android:focusable="true" />
 
                         <View
+                            android:id="@+id/swatchWhite"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:background="#FFFFFF" />
+                            android:background="@drawable/rect_swatch_white"
+                            android:clickable="true"
+                            android:focusable="true" />
                     </LinearLayout>
 
                     <!-- Keep screen on -->

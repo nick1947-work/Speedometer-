@@ -137,6 +137,28 @@ class SettingsActivity : AppCompatActivity() {
             Toast.makeText(this, "Window / HUD Mode: ${if (isChecked) "ON" else "OFF"}", Toast.LENGTH_SHORT).show()
         }
 
+        // Theme Color Swatches (8 colors)
+        val swatches = listOf(
+            Triple(binding.swatchCyan, "#00FFF2", "Cyan"),
+            Triple(binding.swatchSkyBlue, "#29B6F6", "Sky Blue"),
+            Triple(binding.swatchGreen, "#76FF03", "Green"),
+            Triple(binding.swatchYellow, "#FFEA00", "Yellow"),
+            Triple(binding.swatchOrange, "#FF6D00", "Orange"),
+            Triple(binding.swatchRed, "#FF1744", "Red"),
+            Triple(binding.swatchPurple, "#B388FF", "Purple"),
+            Triple(binding.swatchWhite, "#FFFFFF", "White")
+        )
+        val currentThemeColor = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+        updateThemeSwatchesUi(swatches, currentThemeColor)
+
+        for ((view, hex, name) in swatches) {
+            view.setOnClickListener {
+                prefs.edit().putString("pref_theme_color", hex).apply()
+                updateThemeSwatchesUi(swatches, hex)
+                Toast.makeText(this, "Theme color: $name", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         // Support Us actions
         binding.btnRateUs.setOnClickListener {
             try {
@@ -229,6 +251,25 @@ class SettingsActivity : AppCompatActivity() {
             } else {
                 buttons[i].background = null
                 buttons[i].setTextColor(inactiveColor)
+            }
+        }
+    }
+
+    private fun updateThemeSwatchesUi(
+        swatches: List<Triple<android.view.View, String, String>>,
+        selectedHex: String
+    ) {
+        for ((view, hex, _) in swatches) {
+            if (hex.equals(selectedHex, ignoreCase = true)) {
+                view.scaleX = 1.15f
+                view.scaleY = 1.15f
+                view.alpha = 1.0f
+                view.elevation = 8f
+            } else {
+                view.scaleX = 0.95f
+                view.scaleY = 0.95f
+                view.alpha = 0.7f
+                view.elevation = 0f
             }
         }
     }

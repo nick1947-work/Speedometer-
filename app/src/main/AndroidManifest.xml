@@ -73,7 +73,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="false"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:configChanges="keyboardHidden"
             android:screenOrientation="unspecified" />
 
         <service

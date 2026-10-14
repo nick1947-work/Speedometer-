@@ -219,7 +219,7 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Landscape Body Split into 2 Columns -->
+    <!-- Landscape Body Split into 3: Left Vertical Vehicle Capsule | Center Dial/Display | Right Metrics & Controls -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainTabsBodyContainer"
         android:layout_width="0dp"
@@ -229,14 +229,90 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appTopBar">
 
-        <!-- Left Half: Cockpit / Digital / Map -->
+        <!-- Left: Vertical Vehicle Mode Selector matching reference screenshot -->
+        <LinearLayout
+            android:id="@+id/trafficSwitchView"
+            android:layout_width="48dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_inset_shadow"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/walkMode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vehicle_selected">
+
+                <ImageView
+                    android:id="@+id/ivWalkMode"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_transport_walking"
+                    app:tint="@color/neon_cyan" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/bikeMode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/ivBikeMode"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_transport_bicycle"
+                    app:tint="#55FFFFFF" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/motorMode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/ivMotorMode"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_traffic_motorcycle"
+                    app:tint="#55FFFFFF" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/carMode"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/ivCarMode"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_traffic_car"
+                    app:tint="#55FFFFFF" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Center: Cockpit / Digital / Map -->
         <FrameLayout
             android:id="@+id/upperDisplayContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/rightColumn"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/trafficSwitchView"
             app:layout_constraintTop_toTopOf="parent">
 
             <!-- 1. Gauge -->
@@ -462,77 +538,6 @@
             android:paddingTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/upperDisplayContainer">
-
-            <!-- Vehicle Mode Selector -->
-            <LinearLayout
-                android:id="@+id/trafficSwitchView"
-                android:layout_width="220dp"
-                android:layout_height="34dp"
-                android:background="@drawable/bg_inset_shadow"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:id="@+id/walkMode"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/rect_00fff2_8dp">
-
-                    <ImageView
-                        android:id="@+id/ivWalkMode"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_transport_walking"
-                        app:tint="@color/neon_cyan" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/bikeMode"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/ivBikeMode"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_transport_bicycle"
-                        app:tint="#55FFFFFF" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/motorMode"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/ivMotorMode"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_traffic_motorcycle"
-                        app:tint="#55FFFFFF" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/carMode"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/ivCarMode"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_traffic_car"
-                        app:tint="#55FFFFFF" />
-                </FrameLayout>
-            </LinearLayout>
 
             <!-- 2x2 Metrics Panel -->
             <androidx.constraintlayout.widget.ConstraintLayout
