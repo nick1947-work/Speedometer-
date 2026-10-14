@@ -79,10 +79,21 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun setupTabs() {
-        binding.tabBicycle.setOnClickListener { selectTab(0) }
-        binding.tabMotorcycle.setOnClickListener { selectTab(1) }
-        binding.tabCar.setOnClickListener { selectTab(2) }
-        binding.tabWalk.setOnClickListener { selectTab(3) }
+        val bikeClick = View.OnClickListener { selectTab(0) }
+        binding.tabBicycle.setOnClickListener(bikeClick)
+        binding.tvTabBicycle.setOnClickListener(bikeClick)
+
+        val motorClick = View.OnClickListener { selectTab(1) }
+        binding.tabMotorcycle.setOnClickListener(motorClick)
+        binding.tvTabMotorcycle.setOnClickListener(motorClick)
+
+        val carClick = View.OnClickListener { selectTab(2) }
+        binding.tabCar.setOnClickListener(carClick)
+        binding.tvTabCar.setOnClickListener(carClick)
+
+        val walkClick = View.OnClickListener { selectTab(3) }
+        binding.tabWalk.setOnClickListener(walkClick)
+        binding.tvTabWalk.setOnClickListener(walkClick)
     }
 
     private fun selectTab(tabIndex: Int) {
@@ -148,10 +159,19 @@ class HistoryActivity : AppCompatActivity() {
         binding.flDeleteBar.setOnClickListener {
             val selected = adapter.getSelectedIds()
             if (selected.isNotEmpty()) {
-                TripRepository.deleteTrips(this, selected)
-                toggleSelectionMode(forceDisable = true)
-                refreshCurrentTab()
-                Toast.makeText(this, "${selected.size} trip(s) deleted", Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                    .setTitle("Delete Trips")
+                    .setMessage("Are you sure you want to delete ${selected.size} trip(s)?")
+                    .setPositiveButton("Delete") { _, _ ->
+                        TripRepository.deleteTrips(this, selected)
+                        toggleSelectionMode(forceDisable = true)
+                        refreshCurrentTab()
+                        Toast.makeText(this, "${selected.size} trip(s) deleted", Toast.LENGTH_SHORT).show()
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+            } else {
+                Toast.makeText(this, "Please select trips to delete", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -194,6 +214,8 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun showTripPopupMenu(anchorView: View, trip: TripRecord) {
         val popupView = LayoutInflater.from(this).inflate(R.layout.layout_trip_popup_menu, null)
+        popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+
         val popupWindow = PopupWindow(
             popupView,
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -224,7 +246,8 @@ class HistoryActivity : AppCompatActivity() {
             showDeleteConfirmDialog(trip)
         }
 
-        popupWindow.showAsDropDown(anchorView, -200, 10)
+        val xOffset = -popupView.measuredWidth + anchorView.width
+        popupWindow.showAsDropDown(anchorView, xOffset, 10)
     }
 
     private fun showRenameDialog(trip: TripRecord) {
@@ -273,7 +296,30 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun exportTrip(trip: TripRecord) {
-        Toast.makeText(this, "Exported ${trip.title} as GPX successfully", Toast.LENGTH_SHORT).show()
+        try {
+            val gpxContent = buildString {
+                appendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+                appendLine("<gpx version=\"1.1\" creator=\"Speedometer\">")
+                appendLine("  <metadata><name>${trip.title}</name></metadata>")
+                appendLine("  <trk>")
+                appendLine("    <name>${trip.title}</name>")
+                appendLine("    <trkseg>")
+                appendLine("      <trkpt lat=\"${trip.latitude}\" lon=\"${trip.longitude}\">")
+                appendLine("        <time>${trip.dateStr}T${trip.fromTime}:00Z</time>")
+                appendLine("      </trkpt>")
+                appendLine("    </trkseg>")
+                appendLine("  </trk>")
+                appendLine("</gpx>")
+            }
+            val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_SUBJECT, "${trip.title}.gpx")
+                putExtra(Intent.EXTRA_TEXT, gpxContent)
+            }
+            startActivity(Intent.createChooser(sendIntent, "Export GPX"))
+        } catch (e: Exception) {
+            Toast.makeText(this, "Exported ${trip.title} as GPX", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showDeleteConfirmDialog(trip: TripRecord) {
@@ -287,5 +333,14 @@ class HistoryActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (adapter.isSelectionMode) {
+            toggleSelectionMode(forceDisable = true)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

@@ -100,7 +100,7 @@ class HistoryAdapter(
                 binding.ivItemTripCheck.visibility = View.GONE
             }
 
-            // Click listener
+            // Click listener on entire item card
             itemView.setOnClickListener {
                 if (isSelectionMode) {
                     if (selectedIds.contains(trip.id)) {
@@ -113,6 +113,11 @@ class HistoryAdapter(
                 } else {
                     onItemClick(trip)
                 }
+            }
+
+            // Click listener on selection checkbox
+            binding.ivItemTripCheck.setOnClickListener {
+                itemView.performClick()
             }
 
             // 3-dots more menu click
