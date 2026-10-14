@@ -22,11 +22,13 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import java.text.SimpleDateFormat
 import java.util.Date
+import com.creationunicorn.speedometer.data.TripRepository
 import java.util.Locale
 
 class TripSummaryActivity : AppCompatActivity() {
 
     companion object {
+        const val EXTRA_TRIP_ID = "trip_id"
         const val EXTRA_TITLE = "trip_title"
         const val EXTRA_DISTANCE = "trip_distance"
         const val EXTRA_DISTANCE_UNIT = "trip_distance_unit"
@@ -37,10 +39,16 @@ class TripSummaryActivity : AppCompatActivity() {
         const val EXTRA_MODE = "trip_mode"
         const val EXTRA_LAT = "trip_lat"
         const val EXTRA_LON = "trip_lon"
+        const val EXTRA_DATE = "trip_date"
+        const val EXTRA_FROM_TIME = "trip_from_time"
+        const val EXTRA_TO_TIME = "trip_to_time"
+        const val EXTRA_FROM_ADDRESS = "trip_from_address"
+        const val EXTRA_TO_ADDRESS = "trip_to_address"
     }
 
     private lateinit var binding: ActivityTripSummaryBinding
     private var tripName: String = "Trip-4"
+    private var tripId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +65,7 @@ class TripSummaryActivity : AppCompatActivity() {
     }
 
     private fun setupTripData() {
+        tripId = intent.getStringExtra(EXTRA_TRIP_ID)
         val passedTitle = intent.getStringExtra(EXTRA_TITLE)
         if (!passedTitle.isNullOrEmpty()) {
             tripName = passedTitle
@@ -80,9 +89,14 @@ class TripSummaryActivity : AppCompatActivity() {
         val currentDate = SimpleDateFormat("MMM dd, yyyy", Locale.US).format(Date())
         val currentTime = SimpleDateFormat("HH:mm", Locale.US).format(Date())
 
-        binding.tvTripDate.text = currentDate
-        binding.tvFromTime.text = currentTime
-        binding.tvToTime.text = currentTime
+        binding.tvTripDate.text = intent.getStringExtra(EXTRA_DATE) ?: currentDate
+        binding.tvFromTime.text = intent.getStringExtra(EXTRA_FROM_TIME) ?: currentTime
+        binding.tvToTime.text = intent.getStringExtra(EXTRA_TO_TIME) ?: currentTime
+
+        val fromAddr = intent.getStringExtra(EXTRA_FROM_ADDRESS)
+        val toAddr = intent.getStringExtra(EXTRA_TO_ADDRESS)
+        binding.tvFromAddress.text = if (!fromAddr.isNullOrEmpty()) fromAddr else "--"
+        binding.tvToAddress.text = if (!toAddr.isNullOrEmpty()) toAddr else "--"
 
         val distanceVal = intent.getStringExtra(EXTRA_DISTANCE) ?: "0"
         val distanceUnit = intent.getStringExtra(EXTRA_DISTANCE_UNIT) ?: "nm"
@@ -119,13 +133,15 @@ class TripSummaryActivity : AppCompatActivity() {
 
     private fun showTripOptionsMenu(anchorView: View) {
         val popupView = LayoutInflater.from(this).inflate(R.layout.layout_trip_popup_menu, null)
+        val widthPx = (140 * resources.displayMetrics.density).toInt()
         val popupWindow = PopupWindow(
             popupView,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+            widthPx,
             ViewGroup.LayoutParams.WRAP_CONTENT,
             true
         ).apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            isOutsideTouchable = true
             elevation = 16f
         }
 
@@ -149,8 +165,8 @@ class TripSummaryActivity : AppCompatActivity() {
             showDeleteConfirmDialog()
         }
 
-        // Show dropdown aligned to right of the more icon
-        popupWindow.showAsDropDown(anchorView, -200, 10)
+        val xOffset = -widthPx + anchorView.width
+        popupWindow.showAsDropDown(anchorView, xOffset, 10)
     }
 
     private fun showRenameDialog() {
@@ -170,6 +186,9 @@ class TripSummaryActivity : AppCompatActivity() {
                 if (newName.isNotEmpty()) {
                     tripName = newName
                     binding.tvTripName.text = newName
+                    tripId?.let { id ->
+                        TripRepository.updateTripTitle(this, id, newName)
+                    }
                     Toast.makeText(this, "Renamed to $newName", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -197,20 +216,40 @@ class TripSummaryActivity : AppCompatActivity() {
     }
 
     private fun exportTrip() {
-        val exportSummary = buildString {
-            appendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
-            appendLine("<gpx version=\"1.1\" creator=\"Speedometer\">")
-            appendLine("  <trk><name>$tripName</name></trk>")
-            appendLine("</gpx>")
+        try {
+            val gpxContent = buildString {
+                appendLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+                appendLine("<gpx version=\"1.1\" creator=\"Speedometer\">")
+                appendLine("  <metadata><name>$tripName</name></metadata>")
+                appendLine("  <trk>")
+                appendLine("    <name>$tripName</name>")
+                appendLine("    <trkseg>")
+                appendLine("      <trkpt lat=\"${intent.getDoubleExtra(EXTRA_LAT, 28.5967)}\" lon=\"${intent.getDoubleExtra(EXTRA_LON, 77.3840)}\">")
+                appendLine("        <time>${binding.tvTripDate.text}T${binding.tvFromTime.text}:00Z</time>")
+                appendLine("      </trkpt>")
+                appendLine("    </trkseg>")
+                appendLine("  </trk>")
+                appendLine("</gpx>")
+            }
+            val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_SUBJECT, "$tripName.gpx")
+                putExtra(Intent.EXTRA_TEXT, gpxContent)
+            }
+            startActivity(Intent.createChooser(sendIntent, "Export GPX"))
+        } catch (e: Exception) {
+            Toast.makeText(this, "Exported $tripName as GPX", Toast.LENGTH_SHORT).show()
         }
-        Toast.makeText(this, "Exported $tripName as GPX successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun showDeleteConfirmDialog() {
         AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
             .setTitle("Delete Trip")
-            .setMessage("Are you sure you want to delete this trip?")
+            .setMessage("Are you sure you want to delete $tripName?")
             .setPositiveButton("Delete") { _, _ ->
+                tripId?.let { id ->
+                    TripRepository.deleteTrip(this, id)
+                }
                 Toast.makeText(this, "Trip deleted", Toast.LENGTH_SHORT).show()
                 finish()
             }

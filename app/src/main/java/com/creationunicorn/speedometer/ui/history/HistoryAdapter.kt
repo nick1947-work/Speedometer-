@@ -38,6 +38,16 @@ class HistoryAdapter(
 
     fun getSelectedIds(): Set<String> = selectedIds
 
+    fun selectAll() {
+        if (!isSelectionMode) {
+            isSelectionMode = true
+        }
+        selectedIds.clear()
+        selectedIds.addAll(trips.map { it.id })
+        notifyDataSetChanged()
+        onSelectionChanged(selectedIds.size)
+    }
+
     fun clearSelection() {
         selectedIds.clear()
         notifyDataSetChanged()
@@ -103,13 +113,17 @@ class HistoryAdapter(
             // Click listener on entire item card
             itemView.setOnClickListener {
                 if (isSelectionMode) {
-                    if (selectedIds.contains(trip.id)) {
-                        selectedIds.remove(trip.id)
-                    } else {
-                        selectedIds.add(trip.id)
+                    @Suppress("DEPRECATION")
+                    val pos = adapterPosition
+                    if (pos != RecyclerView.NO_POSITION) {
+                        if (selectedIds.contains(trip.id)) {
+                            selectedIds.remove(trip.id)
+                        } else {
+                            selectedIds.add(trip.id)
+                        }
+                        notifyItemChanged(pos)
+                        onSelectionChanged(selectedIds.size)
                     }
-                    notifyItemChanged(adapterPosition)
-                    onSelectionChanged(selectedIds.size)
                 } else {
                     onItemClick(trip)
                 }

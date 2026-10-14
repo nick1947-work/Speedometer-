@@ -81,33 +81,37 @@
 
             <ImageView
                 android:id="@+id/ivCrown"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="12dp"
-                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="3dp"
                 android:src="@drawable/icon_king" />
 
             <com.creationunicorn.speedometer.ui.view.NotifyImageView
                 android:id="@+id/ivHistory"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="12dp"
-                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="3dp"
                 android:src="@drawable/ic_icon_general_history" />
 
             <ImageView
                 android:id="@+id/ivFloatingWindow"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginEnd="12dp"
-                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="3dp"
                 android:src="@drawable/ic_icon_general_rotate" />
 
             <ImageView
                 android:id="@+id/ivSettings"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="3dp"
                 android:src="@drawable/ic_icon_general_settings" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

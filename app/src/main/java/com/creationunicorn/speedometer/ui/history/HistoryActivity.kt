@@ -82,21 +82,28 @@ class HistoryActivity : AppCompatActivity() {
         val bikeClick = View.OnClickListener { selectTab(0) }
         binding.tabBicycle.setOnClickListener(bikeClick)
         binding.tvTabBicycle.setOnClickListener(bikeClick)
+        binding.indicatorBicycle.setOnClickListener(bikeClick)
 
         val motorClick = View.OnClickListener { selectTab(1) }
         binding.tabMotorcycle.setOnClickListener(motorClick)
         binding.tvTabMotorcycle.setOnClickListener(motorClick)
+        binding.indicatorMotorcycle.setOnClickListener(motorClick)
 
         val carClick = View.OnClickListener { selectTab(2) }
         binding.tabCar.setOnClickListener(carClick)
         binding.tvTabCar.setOnClickListener(carClick)
+        binding.indicatorCar.setOnClickListener(carClick)
 
         val walkClick = View.OnClickListener { selectTab(3) }
         binding.tabWalk.setOnClickListener(walkClick)
         binding.tvTabWalk.setOnClickListener(walkClick)
+        binding.indicatorWalk.setOnClickListener(walkClick)
     }
 
     private fun selectTab(tabIndex: Int) {
+        if (adapter.isSelectionMode) {
+            toggleSelectionMode(forceDisable = true)
+        }
         currentTabIndex = tabIndex
         val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
         val dimColor = Color.parseColor("#70FFFFFF")
@@ -153,10 +160,24 @@ class HistoryActivity : AppCompatActivity() {
         }
 
         binding.tvSelectHistory.setOnClickListener {
+            if (!adapter.isSelectionMode && adapter.itemCount == 0) {
+                Toast.makeText(this, "No trips to select", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             toggleSelectionMode()
         }
 
-        binding.flDeleteBar.setOnClickListener {
+        binding.tvSelectHistory.setOnLongClickListener {
+            if (adapter.isSelectionMode) {
+                adapter.selectAll()
+                Toast.makeText(this, "All trips selected", Toast.LENGTH_SHORT).show()
+                true
+            } else {
+                false
+            }
+        }
+
+        val deleteAction = View.OnClickListener {
             val selected = adapter.getSelectedIds()
             if (selected.isNotEmpty()) {
                 AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
@@ -174,6 +195,9 @@ class HistoryActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please select trips to delete", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.flDeleteBar.setOnClickListener(deleteAction)
+        binding.tvDeleteBtnText.setOnClickListener(deleteAction)
     }
 
     private fun toggleSelectionMode(forceDisable: Boolean = false) {
@@ -198,6 +222,7 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun openTripSummary(trip: TripRecord) {
         val intent = Intent(this, TripSummaryActivity::class.java).apply {
+            putExtra(TripSummaryActivity.EXTRA_TRIP_ID, trip.id)
             putExtra(TripSummaryActivity.EXTRA_TITLE, trip.title)
             putExtra(TripSummaryActivity.EXTRA_DISTANCE, trip.distance)
             putExtra(TripSummaryActivity.EXTRA_DISTANCE_UNIT, trip.distanceUnit)
@@ -208,21 +233,27 @@ class HistoryActivity : AppCompatActivity() {
             putExtra(TripSummaryActivity.EXTRA_MODE, trip.vehicleMode)
             putExtra(TripSummaryActivity.EXTRA_LAT, trip.latitude)
             putExtra(TripSummaryActivity.EXTRA_LON, trip.longitude)
+            putExtra(TripSummaryActivity.EXTRA_DATE, trip.dateStr)
+            putExtra(TripSummaryActivity.EXTRA_FROM_TIME, trip.fromTime)
+            putExtra(TripSummaryActivity.EXTRA_TO_TIME, trip.toTime)
+            putExtra(TripSummaryActivity.EXTRA_FROM_ADDRESS, trip.fromAddress)
+            putExtra(TripSummaryActivity.EXTRA_TO_ADDRESS, trip.toAddress)
         }
         startActivity(intent)
     }
 
     private fun showTripPopupMenu(anchorView: View, trip: TripRecord) {
         val popupView = LayoutInflater.from(this).inflate(R.layout.layout_trip_popup_menu, null)
-        popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+        val widthPx = (140 * resources.displayMetrics.density).toInt()
 
         val popupWindow = PopupWindow(
             popupView,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+            widthPx,
             ViewGroup.LayoutParams.WRAP_CONTENT,
             true
         ).apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            isOutsideTouchable = true
             elevation = 16f
         }
 
@@ -246,7 +277,7 @@ class HistoryActivity : AppCompatActivity() {
             showDeleteConfirmDialog(trip)
         }
 
-        val xOffset = -popupView.measuredWidth + anchorView.width
+        val xOffset = -widthPx + anchorView.width
         popupWindow.showAsDropDown(anchorView, xOffset, 10)
     }
 

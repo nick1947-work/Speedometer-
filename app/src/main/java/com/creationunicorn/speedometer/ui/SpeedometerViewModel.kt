@@ -36,6 +36,10 @@ class SpeedometerViewModel(application: Application) : AndroidViewModel(applicat
     private var timerJob: Job? = null
     private var tripStartTime = 0L
 
+    fun setUnit(newUnit: SpeedUnit) {
+        _unit.value = newUnit
+    }
+
     fun toggleUnit() {
         val nextUnit = when (_unit.value) {
             SpeedUnit.KMH -> SpeedUnit.MPH

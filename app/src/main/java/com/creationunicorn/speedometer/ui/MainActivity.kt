@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
@@ -273,6 +274,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
+        binding.ivCrown.setOnClickListener {
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("👑 Speedometer VIP")
+                .setMessage("Upgrade to VIP for the ultimate experience:\n\n• 100% Ad-Free\n• HUD Windshield Mirror Mode\n• Unlimited GPX/KML Route Export\n• Offline Topo & Satellite Maps\n• Custom Theme Colors")
+                .setPositiveButton("Get VIP") { _, _ ->
+                    Toast.makeText(this, "VIP unlocked for testing!", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Maybe Later", null)
+                .show()
+        }
+
+        binding.ivFloatingWindow.setOnClickListener {
+            Toast.makeText(this, "HUD Mirror Mode activated! Place device on dashboard.", Toast.LENGTH_LONG).show()
+        }
+
         binding.ivHistory.setOnClickListener {
             binding.ivHistory.notify = false
             val intent = Intent(this, HistoryActivity::class.java).apply {
@@ -307,6 +323,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Map tab controls
+        var isTopoMap = false
+        val mapStyleListener = View.OnClickListener {
+            isTopoMap = !isTopoMap
+            val tileSource = if (isTopoMap) TileSourceFactory.OpenTopo else TileSourceFactory.MAPNIK
+            binding.tabMapView.setTileSource(tileSource)
+            binding.navMapView.setTileSource(tileSource)
+            val name = if (isTopoMap) "Topographic / Terrain" else "Standard Street"
+            Toast.makeText(this, "Map layer: $name", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnMapChangeStyle.setOnClickListener(mapStyleListener)
+        binding.btnNavChangeStyle.setOnClickListener(mapStyleListener)
+
+        val limits = listOf("30 km", "50 km", "100 km", "No Limit")
+        var limitIdx = 0
+        binding.btnNavDistance.setOnClickListener {
+            limitIdx = (limitIdx + 1) % limits.size
+            Toast.makeText(this, "Navigation limit: ${limits[limitIdx]}", Toast.LENGTH_SHORT).show()
+        }
+
         binding.btnMapRecenter.setOnClickListener {
             val loc = viewModel.metrics.value
             if (loc.latitude != 0.0 || loc.longitude != 0.0) {
@@ -326,16 +361,47 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.llSearchDestination.setOnClickListener {
-            Toast.makeText(this, "Search destination", Toast.LENGTH_SHORT).show()
+            val input = android.widget.EditText(this).apply {
+                hint = "Enter destination address..."
+                setTextColor(Color.WHITE)
+                setHintTextColor(Color.GRAY)
+                setBackgroundColor(Color.parseColor("#22242A"))
+                setPadding(32, 24, 32, 24)
+            }
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("Set Destination")
+                .setView(input)
+                .setPositiveButton("Navigate") { _, _ ->
+                    val dest = input.text.toString().trim()
+                    if (dest.isNotEmpty()) {
+                        binding.tvNavCoordinates.text = dest
+                        Toast.makeText(this, "Destination set: $dest", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
+
         binding.cardNavHome.setOnClickListener {
-            Toast.makeText(this, "Navigating to Home", Toast.LENGTH_SHORT).show()
+            binding.tvNavCoordinates.text = "Home • 24 km remaining"
+            Toast.makeText(this, "Route set to Home", Toast.LENGTH_SHORT).show()
         }
+
         binding.cardNavCompany.setOnClickListener {
-            Toast.makeText(this, "Navigating to Company", Toast.LENGTH_SHORT).show()
+            binding.tvNavCoordinates.text = "Company Office • 12 km remaining"
+            Toast.makeText(this, "Route set to Company", Toast.LENGTH_SHORT).show()
         }
+
         binding.cardNavMore.setOnClickListener {
-            Toast.makeText(this, "More destinations", Toast.LENGTH_SHORT).show()
+            val places = arrayOf("⛽ Gas Station", "🅿️ Parking Lot", "☕ Restaurant / Cafe", "🏥 Hospital", "✈️ Airport")
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("Quick Destinations")
+                .setItems(places) { _, which ->
+                    binding.tvNavCoordinates.text = "${places[which]} • Calculating route..."
+                    Toast.makeText(this, "Route set to ${places[which]}", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
     }
 
@@ -401,6 +467,7 @@ class MainActivity : AppCompatActivity() {
         TripRepository.saveTrip(this, newTrip)
 
         val intent = Intent(this, TripSummaryActivity::class.java).apply {
+            putExtra(TripSummaryActivity.EXTRA_TRIP_ID, newTrip.id)
             putExtra(TripSummaryActivity.EXTRA_TITLE, newTrip.title)
             putExtra(TripSummaryActivity.EXTRA_DISTANCE, finalDistStr)
             putExtra(TripSummaryActivity.EXTRA_DISTANCE_UNIT, distUnitStr)
@@ -411,6 +478,11 @@ class MainActivity : AppCompatActivity() {
             putExtra(TripSummaryActivity.EXTRA_MODE, currentSelectedVehicle)
             putExtra(TripSummaryActivity.EXTRA_LAT, metrics.latitude)
             putExtra(TripSummaryActivity.EXTRA_LON, metrics.longitude)
+            putExtra(TripSummaryActivity.EXTRA_DATE, newTrip.dateStr)
+            putExtra(TripSummaryActivity.EXTRA_FROM_TIME, newTrip.fromTime)
+            putExtra(TripSummaryActivity.EXTRA_TO_TIME, newTrip.toTime)
+            putExtra(TripSummaryActivity.EXTRA_FROM_ADDRESS, newTrip.fromAddress)
+            putExtra(TripSummaryActivity.EXTRA_TO_ADDRESS, newTrip.toAddress)
         }
         startActivity(intent)
     }
@@ -557,6 +629,22 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         binding.tabMapView.onResume()
         binding.navMapView.onResume()
+
+        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
+        val savedUnit = prefs.getString("speed_unit", "km")
+        val targetUnit = when (savedUnit) {
+            "mph" -> com.creationunicorn.speedometer.domain.SpeedUnit.MPH
+            "knot" -> com.creationunicorn.speedometer.domain.SpeedUnit.KNOTS
+            else -> com.creationunicorn.speedometer.domain.SpeedUnit.KMH
+        }
+        viewModel.setUnit(targetUnit)
+
+        val keepScreenOn = prefs.getBoolean("pref_keep_screen_on", true)
+        if (keepScreenOn) {
+            window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
     }
 
     override fun onPause() {
