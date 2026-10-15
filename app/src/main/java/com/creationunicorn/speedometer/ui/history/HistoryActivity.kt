@@ -1,5 +1,6 @@
 package com.creationunicorn.speedometer.ui.history
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -105,7 +106,9 @@ class HistoryActivity : AppCompatActivity() {
             toggleSelectionMode(forceDisable = true)
         }
         currentTabIndex = tabIndex
-        val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
+        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
+        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+        val activeThemeColor = try { Color.parseColor(themeHex) } catch (e: Exception) { ContextCompat.getColor(this, R.color.neon_cyan) }
         val dimColor = Color.parseColor("#70FFFFFF")
         val boldTypeface = ResourcesCompat.getFont(this, R.font.poppins_bold)
         val regularTypeface = ResourcesCompat.getFont(this, R.font.poppins_regular)
@@ -125,9 +128,10 @@ class HistoryActivity : AppCompatActivity() {
 
         for (i in tabTexts.indices) {
             if (i == tabIndex) {
-                tabTexts[i].setTextColor(cyanColor)
+                tabTexts[i].setTextColor(activeThemeColor)
                 tabTexts[i].typeface = boldTypeface
                 tabTexts[i].textSize = 15f
+                tabIndicators[i].setBackgroundColor(activeThemeColor)
                 tabIndicators[i].visibility = View.VISIBLE
             } else {
                 tabTexts[i].setTextColor(dimColor)

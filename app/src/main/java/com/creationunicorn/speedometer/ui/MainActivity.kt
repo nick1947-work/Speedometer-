@@ -5,9 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.media.AudioManager
 import android.media.ToneGenerator
+import androidx.core.graphics.ColorUtils
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     private var isPaused = false
     private var currentSelectedTab = 0
     private var currentSelectedVehicle = 0
+    private var currentThemeColor: Int = Color.parseColor("#00FFF2")
     private var toneGenerator: ToneGenerator? = null
     private var lastAlertTime = 0L
 
@@ -82,6 +86,11 @@ class MainActivity : AppCompatActivity() {
             if (savedHud && !viewModel.isHudMode.value) {
                 viewModel.toggleHudMode()
             }
+        }
+
+        val isLandscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
+        if (isLandscape && currentSelectedTab == 3) {
+            currentSelectedTab = 0
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -208,20 +217,26 @@ class MainActivity : AppCompatActivity() {
         binding.tabDigital.setOnClickListener { selectTab(1) }
         binding.tabMap.setOnClickListener { selectTab(2) }
         binding.tabNav.setOnClickListener { selectTab(3) }
-        selectTab(0)
+        selectTab(currentSelectedTab)
     }
 
     private fun selectTab(index: Int) {
+        val isLandscape = resources.configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
+        if (isLandscape && index == 3) {
+            Toast.makeText(this, "Navigation mode is only available in portrait screen", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         currentSelectedTab = index
         val tabs = listOf(binding.tvTabGauge, binding.tvTabDigital, binding.tvTabMap, binding.tvTabNav)
         val indicators = listOf(binding.indicatorGauge, binding.indicatorDigital, binding.indicatorMap, binding.indicatorNav)
 
-        val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
         val grayColor = ContextCompat.getColor(this, R.color.text_gray)
 
         for (i in tabs.indices) {
             if (i == index) {
-                tabs[i].setTextColor(cyanColor)
+                tabs[i].setTextColor(currentThemeColor)
+                indicators[i].setBackgroundColor(currentThemeColor)
                 indicators[i].visibility = View.VISIBLE
             } else {
                 tabs[i].setTextColor(grayColor)
@@ -288,13 +303,19 @@ class MainActivity : AppCompatActivity() {
         val modes = listOf(binding.walkMode, binding.bikeMode, binding.motorMode, binding.carMode)
         val icons = listOf(binding.ivWalkMode, binding.ivBikeMode, binding.ivMotorMode, binding.ivCarMode)
 
-        val cyanColor = ContextCompat.getColor(this, R.color.neon_cyan)
         val dimColor = Color.parseColor("#55FFFFFF")
+        val strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
 
         for (i in modes.indices) {
             if (i == mode) {
-                modes[i].setBackgroundResource(R.drawable.bg_vehicle_selected)
-                icons[i].setColorFilter(cyanColor)
+                val shape = GradientDrawable().apply {
+                    this.shape = GradientDrawable.RECTANGLE
+                    cornerRadius = 10f * resources.displayMetrics.density
+                    setColor(ColorUtils.setAlphaComponent(currentThemeColor, 35))
+                    setStroke(strokeWidth, currentThemeColor)
+                }
+                modes[i].background = shape
+                icons[i].setColorFilter(currentThemeColor)
             } else {
                 modes[i].background = null
                 icons[i].setColorFilter(dimColor)
@@ -306,6 +327,47 @@ class MainActivity : AppCompatActivity() {
             1 -> binding.gaugeSpeedometer.setSpeedMax(40f) // Bike ~40 km/h
             2 -> binding.gaugeSpeedometer.setSpeedMax(120f) // Motorcycle ~120 km/h
             3 -> binding.gaugeSpeedometer.setSpeedMax(140f) // Car ~140 km/h
+        }
+    }
+
+    private fun applyThemeColor(themeColor: Int) {
+        currentThemeColor = themeColor
+
+        // 1. Digital Display Views (7-segment LED numbers)
+        binding.digitalGaugeSpeed.digitalColor = themeColor
+        binding.digitalSpeedLarge.digitalColor = themeColor
+        binding.digitalMapSpeedChip.digitalColor = themeColor
+        binding.digitalDuration.digitalColor = themeColor
+        binding.digitalDistance.digitalColor = themeColor
+        binding.digitalAvgSpeed.digitalColor = themeColor
+        binding.digitalMaxSpeed.digitalColor = themeColor
+
+        // 2. Unit labels
+        binding.tvGaugeUnit.setTextColor(themeColor)
+        binding.tvDigitalUnit.setTextColor(themeColor)
+        binding.tvDistanceUnit.setTextColor(themeColor)
+        binding.tvAvgSpeedUnit.setTextColor(themeColor)
+        binding.tvMaxSpeedUnit.setTextColor(themeColor)
+
+        // 3. Gauge dial speedometer (arc, ticks, needle)
+        binding.gaugeSpeedometer.themeColor = themeColor
+
+        // 4. Action button (START)
+        binding.btnMainAction.backgroundTintList = ColorStateList.valueOf(themeColor)
+
+        // 5. Tabs indicator & active tab text
+        binding.indicatorGauge.setBackgroundColor(themeColor)
+        binding.indicatorDigital.setBackgroundColor(themeColor)
+        binding.indicatorMap.setBackgroundColor(themeColor)
+        binding.indicatorNav.setBackgroundColor(themeColor)
+        selectTab(currentSelectedTab)
+
+        // 6. Vehicle Mode selected border and icon tint
+        selectVehicleMode(currentSelectedVehicle)
+
+        // 7. HUD icon if active
+        if (viewModel.isHudMode.value) {
+            binding.ivHudMode.setColorFilter(themeColor)
         }
     }
 
@@ -641,8 +703,6 @@ class MainActivity : AppCompatActivity() {
                         // Overspeed Alert
                         val alertColor = ContextCompat.getColor(this@MainActivity, R.color.alert_red)
                         val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
-                        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
-                        val normalThemeColor = try { Color.parseColor(themeHex) } catch (e: Exception) { ContextCompat.getColor(this@MainActivity, R.color.neon_cyan) }
                         val isWarningEnabled = prefs.getBoolean("pref_speed_warning", true)
                         val isSoundEnabled = prefs.getBoolean("pref_sound", true)
                         val isVibrationEnabled = prefs.getBoolean("pref_vibration", true)
@@ -661,8 +721,8 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
                         } else {
-                            binding.digitalGaugeSpeed.digitalColor = normalThemeColor
-                            binding.digitalSpeedLarge.digitalColor = normalThemeColor
+                            binding.digitalGaugeSpeed.digitalColor = currentThemeColor
+                            binding.digitalSpeedLarge.digitalColor = currentThemeColor
                         }
                     }
                 }
@@ -670,11 +730,8 @@ class MainActivity : AppCompatActivity() {
                 launch {
                     viewModel.isHudMode.collect { isHud ->
                         binding.upperDisplayContainer.scaleX = if (isHud) -1f else 1f
-                        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
-                        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
-                        val activeColor = try { Color.parseColor(themeHex) } catch (e: Exception) { ContextCompat.getColor(this@MainActivity, R.color.neon_cyan) }
                         if (isHud) {
-                            binding.ivHudMode.setColorFilter(activeColor)
+                            binding.ivHudMode.setColorFilter(currentThemeColor)
                             Toast.makeText(this@MainActivity, "HUD Mirror Mode ON: Place device on dashboard facing windshield", Toast.LENGTH_SHORT).show()
                         } else {
                             binding.ivHudMode.clearColorFilter()
@@ -757,17 +814,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
-        try {
-            val themeColor = Color.parseColor(themeHex)
-            binding.tvGaugeUnit.setTextColor(themeColor)
-            binding.tvDigitalUnit.setTextColor(themeColor)
-            binding.tvDistanceUnit.setTextColor(themeColor)
-            if (viewModel.isHudMode.value) {
-                binding.ivHudMode.setColorFilter(themeColor)
-            }
+        val parsedColor = try {
+            Color.parseColor(themeHex)
         } catch (e: Exception) {
-            e.printStackTrace()
+            ContextCompat.getColor(this, R.color.neon_cyan)
         }
+        applyThemeColor(parsedColor)
     }
 
     override fun onPause() {

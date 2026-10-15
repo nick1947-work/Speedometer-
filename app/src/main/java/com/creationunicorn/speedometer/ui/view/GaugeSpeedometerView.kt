@@ -62,6 +62,28 @@ class GaugeSpeedometerView @JvmOverloads constructor(
         color = ContextCompat.getColor(context, R.color.neon_cyan)
     }
 
+    var themeColor: Int = ContextCompat.getColor(context, R.color.neon_cyan)
+        set(value) {
+            field = value
+            tickPaint.color = value
+            needlePaint.color = value
+            updateArcShader(width, height)
+            invalidate()
+        }
+
+    private fun updateArcShader(w: Int, h: Int) {
+        if (w <= 0 || h <= 0) return
+        val colors = intArrayOf(
+            themeColor,
+            themeColor,
+            Color.parseColor("#FF7A00"),
+            Color.parseColor("#FF3B30"),
+            themeColor
+        )
+        val positions = floatArrayOf(0f, 0.35f, 0.7f, 0.85f, 1f)
+        activeArcPaint.shader = SweepGradient(w / 2f, h / 2f, colors, positions)
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         val pad = 44f
@@ -70,16 +92,7 @@ class GaugeSpeedometerView @JvmOverloads constructor(
         val top = (h - diameter) / 2f
         arcRect.set(left, top, left + diameter, top + diameter)
 
-        // Gradient for active arc: Cyan -> Orange -> Red
-        val colors = intArrayOf(
-            Color.parseColor("#00FFF2"),
-            Color.parseColor("#00FFF2"),
-            Color.parseColor("#FF7A00"),
-            Color.parseColor("#FF3B30"),
-            Color.parseColor("#00FFF2")
-        )
-        val positions = floatArrayOf(0f, 0.35f, 0.7f, 0.85f, 1f)
-        activeArcPaint.shader = SweepGradient(w / 2f, h / 2f, colors, positions)
+        updateArcShader(w, h)
     }
 
     override fun onDraw(canvas: Canvas) {
