@@ -107,6 +107,15 @@
                 android:src="@drawable/ic_icon_general_rotate" />
 
             <ImageView
+                android:id="@+id/ivHudMode"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="3dp"
+                android:src="@drawable/ic_icon_general_overturn" />
+
+            <ImageView
                 android:id="@+id/ivSettings"
                 android:layout_width="32dp"
                 android:layout_height="32dp"

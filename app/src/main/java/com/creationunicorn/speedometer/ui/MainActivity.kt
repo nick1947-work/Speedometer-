@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -50,6 +52,8 @@ class MainActivity : AppCompatActivity() {
     private var isPaused = false
     private var currentSelectedTab = 0
     private var currentSelectedVehicle = 0
+    private var toneGenerator: ToneGenerator? = null
+    private var lastAlertTime = 0L
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -74,6 +78,10 @@ class MainActivity : AppCompatActivity() {
             currentSelectedTab = savedInstanceState.getInt("saved_selected_tab", 0)
             currentSelectedVehicle = savedInstanceState.getInt("saved_selected_vehicle", 0)
             isPaused = savedInstanceState.getBoolean("saved_is_paused", false)
+            val savedHud = savedInstanceState.getBoolean("saved_is_hud", false)
+            if (savedHud && !viewModel.isHudMode.value) {
+                viewModel.toggleHudMode()
+            }
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -102,6 +110,7 @@ class MainActivity : AppCompatActivity() {
         outState.putInt("saved_selected_tab", currentSelectedTab)
         outState.putInt("saved_selected_vehicle", currentSelectedVehicle)
         outState.putBoolean("saved_is_paused", isPaused)
+        outState.putBoolean("saved_is_hud", viewModel.isHudMode.value)
     }
 
     private fun initMapViews() {
@@ -334,6 +343,10 @@ class MainActivity : AppCompatActivity() {
             } else {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
             }
+        }
+
+        binding.ivHudMode.setOnClickListener {
+            viewModel.toggleHudMode()
         }
 
         binding.ivHistory.setOnClickListener {
@@ -627,14 +640,44 @@ class MainActivity : AppCompatActivity() {
 
                         // Overspeed Alert
                         val alertColor = ContextCompat.getColor(this@MainActivity, R.color.alert_red)
-                        val cyanColor = ContextCompat.getColor(this@MainActivity, R.color.neon_cyan)
-                        if (metrics.isOverSpeedLimit()) {
+                        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
+                        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+                        val normalThemeColor = try { Color.parseColor(themeHex) } catch (e: Exception) { ContextCompat.getColor(this@MainActivity, R.color.neon_cyan) }
+                        val isWarningEnabled = prefs.getBoolean("pref_speed_warning", true)
+                        val isSoundEnabled = prefs.getBoolean("pref_sound", true)
+                        val isVibrationEnabled = prefs.getBoolean("pref_vibration", true)
+
+                        if (isWarningEnabled && metrics.isOverSpeedLimit()) {
                             binding.digitalGaugeSpeed.digitalColor = alertColor
                             binding.digitalSpeedLarge.digitalColor = alertColor
-                            triggerVibration()
+                            val now = System.currentTimeMillis()
+                            if (now - lastAlertTime > 1500L) {
+                                lastAlertTime = now
+                                if (isSoundEnabled) {
+                                    triggerSpeedAlarmSound()
+                                }
+                                if (isVibrationEnabled) {
+                                    triggerVibration()
+                                }
+                            }
                         } else {
-                            binding.digitalGaugeSpeed.digitalColor = cyanColor
-                            binding.digitalSpeedLarge.digitalColor = cyanColor
+                            binding.digitalGaugeSpeed.digitalColor = normalThemeColor
+                            binding.digitalSpeedLarge.digitalColor = normalThemeColor
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.isHudMode.collect { isHud ->
+                        binding.upperDisplayContainer.scaleX = if (isHud) -1f else 1f
+                        val prefs = getSharedPreferences("speedometer_prefs", Context.MODE_PRIVATE)
+                        val themeHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+                        val activeColor = try { Color.parseColor(themeHex) } catch (e: Exception) { ContextCompat.getColor(this@MainActivity, R.color.neon_cyan) }
+                        if (isHud) {
+                            binding.ivHudMode.setColorFilter(activeColor)
+                            Toast.makeText(this@MainActivity, "HUD Mirror Mode ON: Place device on dashboard facing windshield", Toast.LENGTH_SHORT).show()
+                        } else {
+                            binding.ivHudMode.clearColorFilter()
                         }
                     }
                 }
@@ -662,13 +705,24 @@ class MainActivity : AppCompatActivity() {
         return String.format(Locale.US, "%d°%d'%.1f\"%s , %d°%d'%.1f\"%s", latD, latM, latS, latHem, lonD, lonM, lonS, lonHem)
     }
 
+    private fun triggerSpeedAlarmSound() {
+        try {
+            if (toneGenerator == null) {
+                toneGenerator = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 85)
+            }
+            toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP2, 250)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     private fun triggerVibration() {
-        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator?.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE))
+            vibrator.vibrate(VibrationEffect.createWaveform(longArrayOf(0, 150, 80, 150), -1))
         } else {
             @Suppress("DEPRECATION")
-            vibrator?.vibrate(150)
+            vibrator.vibrate(250)
         }
     }
 
@@ -686,6 +740,15 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.setUnit(targetUnit)
 
+        val isWarningEnabled = prefs.getBoolean("pref_speed_warning", true)
+        val warningLimit = prefs.getFloat("pref_speed_warning_limit", 80f)
+        val warningLimitKmh = when (savedUnit) {
+            "mph" -> warningLimit * 1.60934f
+            "knot" -> warningLimit * 1.852f
+            else -> warningLimit
+        }
+        viewModel.setSpeedLimit(if (isWarningEnabled) warningLimitKmh else 0f)
+
         val keepScreenOn = prefs.getBoolean("pref_keep_screen_on", true)
         if (keepScreenOn) {
             window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -699,6 +762,9 @@ class MainActivity : AppCompatActivity() {
             binding.tvGaugeUnit.setTextColor(themeColor)
             binding.tvDigitalUnit.setTextColor(themeColor)
             binding.tvDistanceUnit.setTextColor(themeColor)
+            if (viewModel.isHudMode.value) {
+                binding.ivHudMode.setColorFilter(themeColor)
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -712,6 +778,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        toneGenerator?.release()
+        toneGenerator = null
         adView?.destroy()
     }
 }

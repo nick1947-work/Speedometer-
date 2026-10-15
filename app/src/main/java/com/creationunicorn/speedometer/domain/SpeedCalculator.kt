@@ -42,8 +42,8 @@ class SpeedCalculator {
             }
         }
 
-        // Clamp stop jitter
-        if (speed < 0.4f) {
+        // Clamp stop jitter (speeds below ~1.6 km/h treated as stationary)
+        if (speed < 0.45f) {
             speed = 0f
         }
 

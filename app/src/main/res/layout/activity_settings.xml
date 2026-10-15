@@ -222,9 +222,12 @@
 
                     <!-- Maximum Mileage Row -->
                     <RelativeLayout
+                        android:id="@+id/rowMaxMileage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
+                        android:layout_marginTop="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="4dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -234,6 +237,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/tvMaxMileageVal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -244,9 +248,12 @@
 
                     <!-- Warning When Over Row -->
                     <RelativeLayout
+                        android:id="@+id/rowWarningSpeedLimit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
+                        android:layout_marginTop="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="4dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -256,6 +263,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/tvWarningSpeedLimitVal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"

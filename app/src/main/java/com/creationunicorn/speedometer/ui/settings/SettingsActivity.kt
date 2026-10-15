@@ -91,6 +91,63 @@ class SettingsActivity : AppCompatActivity() {
                 .show()
         }
 
+        // Maximum Mileage
+        var currentMaxMileage = prefs.getFloat("pref_max_mileage", 200f)
+        binding.tvMaxMileageVal.text = "${currentMaxMileage.toInt()} km >"
+        binding.rowMaxMileage.setOnClickListener {
+            val options = arrayOf("50 km", "100 km", "150 km", "200 km", "300 km", "500 km")
+            val values = floatArrayOf(50f, 100f, 150f, 200f, 300f, 500f)
+            val selectedIdx = values.indexOfFirst { it == currentMaxMileage }.coerceAtLeast(0)
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("Maximum Mileage Alert")
+                .setSingleChoiceItems(options, selectedIdx) { dialog, which ->
+                    currentMaxMileage = values[which]
+                    prefs.edit().putFloat("pref_max_mileage", currentMaxMileage).apply()
+                    binding.tvMaxMileageVal.text = "${currentMaxMileage.toInt()} km >"
+                    Toast.makeText(this, "Max mileage: ${options[which]}", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
+        // Speed Warning Limit
+        val unitLabel = when (currentUnit) {
+            "mph" -> "mph"
+            "knot" -> "knots"
+            else -> "km/h"
+        }
+        var currentWarningLimit = prefs.getFloat("pref_speed_warning_limit", 80f)
+        binding.tvWarningSpeedLimitVal.text = "${currentWarningLimit.toInt()} $unitLabel >"
+        binding.rowWarningSpeedLimit.setOnClickListener {
+            val (options, values) = when (currentUnit) {
+                "mph" -> Pair(
+                    arrayOf("25 mph", "35 mph", "45 mph", "55 mph", "65 mph", "75 mph", "85 mph"),
+                    floatArrayOf(25f, 35f, 45f, 55f, 65f, 75f, 85f)
+                )
+                "knot" -> Pair(
+                    arrayOf("20 knots", "30 knots", "40 knots", "50 knots", "60 knots", "70 knots"),
+                    floatArrayOf(20f, 30f, 40f, 50f, 60f, 70f)
+                )
+                else -> Pair(
+                    arrayOf("40 km/h", "50 km/h", "60 km/h", "70 km/h", "80 km/h", "90 km/h", "100 km/h", "120 km/h", "140 km/h"),
+                    floatArrayOf(40f, 50f, 60f, 70f, 80f, 90f, 100f, 120f, 140f)
+                )
+            }
+            val selectedIdx = values.indexOfFirst { it == currentWarningLimit }.coerceAtLeast(0)
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("Speed Warning Limit")
+                .setSingleChoiceItems(options, selectedIdx) { dialog, which ->
+                    currentWarningLimit = values[which]
+                    prefs.edit().putFloat("pref_speed_warning_limit", currentWarningLimit).apply()
+                    binding.tvWarningSpeedLimitVal.text = "${currentWarningLimit.toInt()} $unitLabel >"
+                    Toast.makeText(this, "Speed warning set to ${options[which]}", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
         // Switches
         binding.switchSpeedWarning.isChecked = prefs.getBoolean("pref_speed_warning", true)
         binding.switchSpeedWarning.setOnCheckedChangeListener { _, isChecked ->
