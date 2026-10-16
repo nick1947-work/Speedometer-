@@ -8,7 +8,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.creationunicorn.speedometer"
+        applicationId = "gps.speedometer.odometer.speed.tracker"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
