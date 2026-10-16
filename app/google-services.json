@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816717537385",
+    "project_id": "speedometer-b05cd",
+    "storage_bucket": "speedometer-b05cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816717537385:android:7b6bf75b28a4d6f74cc2f8",
+        "android_client_info": {
+          "package_name": "gps.speedometer.odometer.speed.tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX3sGQNdA3XVcH1qVPDWm0J7JbPWsqFxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
