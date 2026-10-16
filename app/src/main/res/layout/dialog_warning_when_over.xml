@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/rect_2c2c2e_16dp"
+    android:padding="20dp">
+
+    <!-- Title: Warning when over -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Warning when over"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/btnClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Current selection subtitle -->
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Current selection: Car"
+        android:textColor="@color/text_gray"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@id/btnClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_icon_general_round_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Number input card -->
+    <LinearLayout
+        android:id="@+id/panelInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rect_20000000_12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+        <EditText
+            android:id="@+id/etSpeedLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minWidth="60dp"
+            android:text="100"
+            android:textColor="@color/text_white"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="km/h"
+            android:textColor="@color/text_white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Recommend Speed Limits Divider & Header -->
+    <LinearLayout
+        android:id="@+id/panelRecommendTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/panelInput">
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="0.5dp"
+            android:background="#50979797" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Recommend speed limits"
+            android:textColor="#80FFFFFF"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="0.5dp"
+            android:background="#50979797" />
+    </LinearLayout>
+
+    <!-- 4 Preset buttons: Car / Moto / Bike / Walk -->
+    <LinearLayout
+        android:id="@+id/panelPresets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/panelRecommendTitle">
+
+        <!-- Driving preset -->
+        <LinearLayout
+            android:id="@+id/btnPresetDriving"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_90"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-bold"
+                android:text="Driving"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvPresetDrivingVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="100 km/h"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Moto preset -->
+        <LinearLayout
+            android:id="@+id/btnPresetMoto"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_90"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-bold"
+                android:text="Motorcycle"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvPresetMotoVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="70 km/h"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Cycling preset -->
+        <LinearLayout
+            android:id="@+id/btnPresetCycling"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_90"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-bold"
+                android:text="Cycling"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvPresetCyclingVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="25 km/h"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Walking preset -->
+        <LinearLayout
+            android:id="@+id/btnPresetWalking"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_90"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-bold"
+                android:text="Walking"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvPresetWalkingVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="6 km/h"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Done / Sure Button -->
+    <TextView
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rect_00fff2_8dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Done"
+        android:textColor="@color/bg_black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/panelPresets" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

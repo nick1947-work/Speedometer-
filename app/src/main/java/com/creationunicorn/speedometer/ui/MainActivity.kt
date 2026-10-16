@@ -29,6 +29,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.creationunicorn.speedometer.R
 import com.creationunicorn.speedometer.ads.AdManager
 import com.creationunicorn.speedometer.databinding.ActivityMainBinding
+import com.creationunicorn.speedometer.service.SpeedometerNotificationManager
 import com.creationunicorn.speedometer.service.TrackingService
 import com.creationunicorn.speedometer.ui.dialog.PermissionDialogHelper
 import com.creationunicorn.speedometer.ui.history.HistoryActivity
@@ -58,6 +59,14 @@ class MainActivity : AppCompatActivity() {
     private var currentThemeColor: Int = Color.parseColor("#00FFF2")
     private var toneGenerator: ToneGenerator? = null
     private var lastAlertTime = 0L
+
+    private val notifStopReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action == "com.creationunicorn.speedometer.STOP_TRIP_FROM_NOTIF") {
+                stopTripFlow()
+            }
+        }
+    }
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -103,6 +112,8 @@ class MainActivity : AppCompatActivity() {
         setupVehicleModes()
         observeViewModel()
 
+        handleNotificationIntent(intent)
+
         if (viewModel.isTripActive.value) {
             updateTripControlState(isActive = true)
             if (isPaused) {
@@ -112,6 +123,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         checkFirstTimeFlow()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleNotificationIntent(intent)
+    }
+
+    private fun handleNotificationIntent(intent: Intent?) {
+        if (intent == null) return
+        val targetTab = intent.getIntExtra(SpeedometerNotificationManager.EXTRA_TARGET_TAB, -1)
+        if (targetTab in 0..3) {
+            selectTab(targetTab)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -724,6 +749,18 @@ class MainActivity : AppCompatActivity() {
                             binding.digitalGaugeSpeed.digitalColor = currentThemeColor
                             binding.digitalSpeedLarge.digitalColor = currentThemeColor
                         }
+
+                        // Update Trip Tracking Notification if trip is active
+                        if (viewModel.isTripActive.value) {
+                            val distUnitStr = if (unit.displayName == "knot") "nm" else unit.distanceDisplayName
+                            SpeedometerNotificationManager.updateTripNotification(
+                                this@MainActivity,
+                                speedStr = speedStr,
+                                speedUnit = unit.displayName,
+                                distanceStr = if (distStr == "0.0") "0" else distStr,
+                                distanceUnit = distUnitStr
+                            )
+                        }
                     }
                 }
 
@@ -820,12 +857,33 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.getColor(this, R.color.neon_cyan)
         }
         applyThemeColor(parsedColor)
+
+        // Quick bar notification (if enabled in settings)
+        val showQuickBar = prefs.getBoolean("pref_notification", true)
+        if (showQuickBar) {
+            SpeedometerNotificationManager.showQuickBarNotification(this)
+        } else {
+            SpeedometerNotificationManager.hideQuickBarNotification(this)
+        }
+
+        // Register notif stop receiver
+        val filter = android.content.IntentFilter("com.creationunicorn.speedometer.STOP_TRIP_FROM_NOTIF")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(notifStopReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(notifStopReceiver, filter)
+        }
     }
 
     override fun onPause() {
         super.onPause()
         binding.tabMapView.onPause()
         binding.navMapView.onPause()
+        try {
+            unregisterReceiver(notifStopReceiver)
+        } catch (e: Exception) {
+            // Ignored
+        }
     }
 
     override fun onDestroy() {

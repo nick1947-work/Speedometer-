@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".SpeedometerApplication"
@@ -54,6 +55,12 @@
         <!-- Settings Screen Activity -->
         <activity
             android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Permission Settings Activity -->
+        <activity
+            android:name=".ui.settings.PermissionSettingsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 

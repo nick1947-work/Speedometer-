@@ -1,15 +1,24 @@
 package com.creationunicorn.speedometer.ui.settings
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.view.ViewGroup
+import android.view.Window
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.creationunicorn.speedometer.R
 import com.creationunicorn.speedometer.databinding.ActivitySettingsBinding
+import com.creationunicorn.speedometer.service.SpeedometerNotificationManager
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -28,24 +37,27 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         // Speed Unit setup
-        val currentUnit = prefs.getString("speed_unit", "km")
-        updateUnitUi(currentUnit ?: "km")
+        val currentUnit = prefs.getString("speed_unit", "km") ?: "km"
+        updateUnitUi(currentUnit)
 
         binding.btnUnitKm.setOnClickListener {
             prefs.edit().putString("speed_unit", "km").apply()
             updateUnitUi("km")
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Speed unit set to km/h", Toast.LENGTH_SHORT).show()
         }
 
         binding.btnUnitMph.setOnClickListener {
             prefs.edit().putString("speed_unit", "mph").apply()
             updateUnitUi("mph")
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Speed unit set to mph", Toast.LENGTH_SHORT).show()
         }
 
         binding.btnUnitKnot.setOnClickListener {
             prefs.edit().putString("speed_unit", "knot").apply()
             updateUnitUi("knot")
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Speed unit set to knots", Toast.LENGTH_SHORT).show()
         }
 
@@ -56,21 +68,25 @@ class SettingsActivity : AppCompatActivity() {
         binding.btnSettingWalk.setOnClickListener {
             prefs.edit().putInt("setting_vehicle_mode", 0).apply()
             updateVehicleModeUi(0)
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Default mode: Walk", Toast.LENGTH_SHORT).show()
         }
         binding.btnSettingBike.setOnClickListener {
             prefs.edit().putInt("setting_vehicle_mode", 1).apply()
             updateVehicleModeUi(1)
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Default mode: Bike", Toast.LENGTH_SHORT).show()
         }
         binding.btnSettingMoto.setOnClickListener {
             prefs.edit().putInt("setting_vehicle_mode", 2).apply()
             updateVehicleModeUi(2)
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Default mode: Motorcycle", Toast.LENGTH_SHORT).show()
         }
         binding.btnSettingCar.setOnClickListener {
             prefs.edit().putInt("setting_vehicle_mode", 3).apply()
             updateVehicleModeUi(3)
+            updateDisplayValues(prefs)
             Toast.makeText(this, "Default mode: Car", Toast.LENGTH_SHORT).show()
         }
 
@@ -91,61 +107,17 @@ class SettingsActivity : AppCompatActivity() {
                 .show()
         }
 
-        // Maximum Mileage
-        var currentMaxMileage = prefs.getFloat("pref_max_mileage", 200f)
-        binding.tvMaxMileageVal.text = "${currentMaxMileage.toInt()} km >"
+        // Update display values for Max Mileage and Warning When Over
+        updateDisplayValues(prefs)
+
+        // Custom Dialog: Maximum Mileage
         binding.rowMaxMileage.setOnClickListener {
-            val options = arrayOf("50 km", "100 km", "150 km", "200 km", "300 km", "500 km")
-            val values = floatArrayOf(50f, 100f, 150f, 200f, 300f, 500f)
-            val selectedIdx = values.indexOfFirst { it == currentMaxMileage }.coerceAtLeast(0)
-            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
-                .setTitle("Maximum Mileage Alert")
-                .setSingleChoiceItems(options, selectedIdx) { dialog, which ->
-                    currentMaxMileage = values[which]
-                    prefs.edit().putFloat("pref_max_mileage", currentMaxMileage).apply()
-                    binding.tvMaxMileageVal.text = "${currentMaxMileage.toInt()} km >"
-                    Toast.makeText(this, "Max mileage: ${options[which]}", Toast.LENGTH_SHORT).show()
-                    dialog.dismiss()
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
+            showMaximumMileageDialog(prefs)
         }
 
-        // Speed Warning Limit
-        val unitLabel = when (currentUnit) {
-            "mph" -> "mph"
-            "knot" -> "knots"
-            else -> "km/h"
-        }
-        var currentWarningLimit = prefs.getFloat("pref_speed_warning_limit", 80f)
-        binding.tvWarningSpeedLimitVal.text = "${currentWarningLimit.toInt()} $unitLabel >"
+        // Custom Dialog: Warning when over
         binding.rowWarningSpeedLimit.setOnClickListener {
-            val (options, values) = when (currentUnit) {
-                "mph" -> Pair(
-                    arrayOf("25 mph", "35 mph", "45 mph", "55 mph", "65 mph", "75 mph", "85 mph"),
-                    floatArrayOf(25f, 35f, 45f, 55f, 65f, 75f, 85f)
-                )
-                "knot" -> Pair(
-                    arrayOf("20 knots", "30 knots", "40 knots", "50 knots", "60 knots", "70 knots"),
-                    floatArrayOf(20f, 30f, 40f, 50f, 60f, 70f)
-                )
-                else -> Pair(
-                    arrayOf("40 km/h", "50 km/h", "60 km/h", "70 km/h", "80 km/h", "90 km/h", "100 km/h", "120 km/h", "140 km/h"),
-                    floatArrayOf(40f, 50f, 60f, 70f, 80f, 90f, 100f, 120f, 140f)
-                )
-            }
-            val selectedIdx = values.indexOfFirst { it == currentWarningLimit }.coerceAtLeast(0)
-            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
-                .setTitle("Speed Warning Limit")
-                .setSingleChoiceItems(options, selectedIdx) { dialog, which ->
-                    currentWarningLimit = values[which]
-                    prefs.edit().putFloat("pref_speed_warning_limit", currentWarningLimit).apply()
-                    binding.tvWarningSpeedLimitVal.text = "${currentWarningLimit.toInt()} $unitLabel >"
-                    Toast.makeText(this, "Speed warning set to ${options[which]}", Toast.LENGTH_SHORT).show()
-                    dialog.dismiss()
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
+            showWarningWhenOverDialog(prefs)
         }
 
         // Switches
@@ -177,9 +149,15 @@ class SettingsActivity : AppCompatActivity() {
             prefs.edit().putBoolean("pref_route_tracking", isChecked).apply()
         }
 
+        // Notification Bar Switch: controls ongoing 4-button quick bar
         binding.switchNotification.isChecked = prefs.getBoolean("pref_notification", true)
         binding.switchNotification.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("pref_notification", isChecked).apply()
+            if (isChecked) {
+                SpeedometerNotificationManager.showQuickBarNotification(this)
+            } else {
+                SpeedometerNotificationManager.hideQuickBarNotification(this)
+            }
         }
 
         binding.switchKeepScreenOn.isChecked = prefs.getBoolean("pref_keep_screen_on", true)
@@ -192,6 +170,24 @@ class SettingsActivity : AppCompatActivity() {
         binding.switchWindowMode.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("pref_window_mode", isChecked).apply()
             Toast.makeText(this, "Window / HUD Mode: ${if (isChecked) "ON" else "OFF"}", Toast.LENGTH_SHORT).show()
+        }
+
+        // Language row
+        binding.rowLanguage.setOnClickListener {
+            val languages = arrayOf("English", "Spanish", "French", "German", "Japanese", "Chinese")
+            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
+                .setTitle("Select Language")
+                .setItems(languages) { _, which ->
+                    binding.tvLanguageVal.text = "${languages[which]} >"
+                    Toast.makeText(this, "Language: ${languages[which]}", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
+        // Permission settings row -> launches PermissionSettingsActivity
+        binding.rowPermissionSettings.setOnClickListener {
+            startActivity(Intent(this, PermissionSettingsActivity::class.java))
         }
 
         // Theme Color Swatches (8 colors)
@@ -254,6 +250,230 @@ class SettingsActivity : AppCompatActivity() {
                 .setPositiveButton("OK", null)
                 .show()
         }
+    }
+
+    private fun updateDisplayValues(prefs: android.content.SharedPreferences) {
+        val currentUnit = prefs.getString("speed_unit", "km") ?: "km"
+        val distUnit = when (currentUnit) {
+            "mph" -> "mi"
+            "knot" -> "nm"
+            else -> "km"
+        }
+        val speedUnit = when (currentUnit) {
+            "mph" -> "mph"
+            "knot" -> "knots"
+            else -> "km/h"
+        }
+
+        val maxMileage = prefs.getFloat("pref_max_mileage", 200f)
+        binding.tvMaxMileageVal.text = "${maxMileage.toInt()} $distUnit >"
+
+        val warningLimit = prefs.getFloat("pref_speed_warning_limit", 100f)
+        binding.tvWarningSpeedLimitVal.text = "${warningLimit.toInt()} $speedUnit >"
+    }
+
+    private fun getVehicleModeName(mode: Int): String {
+        return when (mode) {
+            0 -> "Walk"
+            1 -> "Bike"
+            2 -> "Motorcycle"
+            else -> "Car"
+        }
+    }
+
+    /**
+     * Shows custom "Warning when over" Dialog matching user screenshot 1.
+     */
+    private fun showWarningWhenOverDialog(prefs: android.content.SharedPreferences) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_warning_when_over)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        val vehicleMode = prefs.getInt("setting_vehicle_mode", 3)
+        val vehicleName = getVehicleModeName(vehicleMode)
+
+        val currentUnit = prefs.getString("speed_unit", "km") ?: "km"
+        val speedUnit = when (currentUnit) {
+            "mph" -> "mph"
+            "knot" -> "knots"
+            else -> "km/h"
+        }
+
+        val themeColorHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+        val themeColor = try { Color.parseColor(themeColorHex) } catch (e: Exception) { Color.parseColor("#00FFF2") }
+
+        val tvSubtitle = dialog.findViewById<TextView>(R.id.tvSubtitle)
+        val etSpeedLimit = dialog.findViewById<EditText>(R.id.etSpeedLimit)
+        val tvUnit = dialog.findViewById<TextView>(R.id.tvUnit)
+        val btnClose = dialog.findViewById<ImageView>(R.id.btnClose)
+        val btnDone = dialog.findViewById<TextView>(R.id.btnDone)
+
+        val btnDriving = dialog.findViewById<ViewGroup>(R.id.btnPresetDriving)
+        val btnMoto = dialog.findViewById<ViewGroup>(R.id.btnPresetMoto)
+        val btnCycling = dialog.findViewById<ViewGroup>(R.id.btnPresetCycling)
+        val btnWalking = dialog.findViewById<ViewGroup>(R.id.btnPresetWalking)
+
+        val tvDriving = dialog.findViewById<TextView>(R.id.tvPresetDrivingVal)
+        val tvMoto = dialog.findViewById<TextView>(R.id.tvPresetMotoVal)
+        val tvCycling = dialog.findViewById<TextView>(R.id.tvPresetCyclingVal)
+        val tvWalking = dialog.findViewById<TextView>(R.id.tvPresetWalkingVal)
+
+        tvSubtitle.text = "Current selection: $vehicleName"
+        tvUnit.text = speedUnit
+
+        val curLimit = prefs.getFloat("pref_speed_warning_limit", 100f).toInt()
+        etSpeedLimit.setText(curLimit.toString())
+
+        // Values based on unit
+        val (valDriving, valMoto, valCycling, valWalking) = when (currentUnit) {
+            "mph" -> listOf(65, 45, 15, 4)
+            "knot" -> listOf(55, 35, 12, 3)
+            else -> listOf(100, 70, 25, 6)
+        }
+
+        tvDriving.text = "$valDriving $speedUnit"
+        tvMoto.text = "$valMoto $speedUnit"
+        tvCycling.text = "$valCycling $speedUnit"
+        tvWalking.text = "$valWalking $speedUnit"
+
+        val presets = listOf(
+            btnDriving to valDriving,
+            btnMoto to valMoto,
+            btnCycling to valCycling,
+            btnWalking to valWalking
+        )
+
+        fun updatePresetSelection(selectedValue: Int) {
+            presets.forEach { (view, value) ->
+                view.isSelected = (value == selectedValue)
+            }
+        }
+        updatePresetSelection(curLimit)
+
+        presets.forEach { (view, value) ->
+            view.setOnClickListener {
+                etSpeedLimit.setText(value.toString())
+                updatePresetSelection(value)
+            }
+        }
+
+        // Apply theme color to Done button
+        val doneBg = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = 24f
+            setColor(themeColor)
+        }
+        btnDone.background = doneBg
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnDone.setOnClickListener {
+            val inputVal = etSpeedLimit.text.toString().toFloatOrNull() ?: 100f
+            prefs.edit().putFloat("pref_speed_warning_limit", inputVal).apply()
+            updateDisplayValues(prefs)
+            Toast.makeText(this, "Speed warning: ${inputVal.toInt()} $speedUnit", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    /**
+     * Shows custom "Maximum mileage" Dialog matching user screenshot 4.
+     */
+    private fun showMaximumMileageDialog(prefs: android.content.SharedPreferences) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_maximum_mileage)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        val vehicleMode = prefs.getInt("setting_vehicle_mode", 3)
+        val vehicleName = getVehicleModeName(vehicleMode)
+
+        val currentUnit = prefs.getString("speed_unit", "km") ?: "km"
+        val distUnit = when (currentUnit) {
+            "mph" -> "mi"
+            "knot" -> "nm"
+            else -> "km"
+        }
+
+        val themeColorHex = prefs.getString("pref_theme_color", "#00FFF2") ?: "#00FFF2"
+        val themeColor = try { Color.parseColor(themeColorHex) } catch (e: Exception) { Color.parseColor("#00FFF2") }
+
+        val tvTrafficSelection = dialog.findViewById<TextView>(R.id.tvTrafficSelection)
+        val btnOption1 = dialog.findViewById<ViewGroup>(R.id.btnOption1)
+        val btnOption2 = dialog.findViewById<ViewGroup>(R.id.btnOption2)
+        val btnOption3 = dialog.findViewById<ViewGroup>(R.id.btnOption3)
+        val tvOption1 = dialog.findViewById<TextView>(R.id.tvOption1)
+        val tvOption2 = dialog.findViewById<TextView>(R.id.tvOption2)
+        val tvOption3 = dialog.findViewById<TextView>(R.id.tvOption3)
+        val btnDone = dialog.findViewById<TextView>(R.id.btnDone)
+
+        tvTrafficSelection.text = "Current selection: $vehicleName"
+
+        // Scale mileage options based on vehicle mode and unit
+        val (opt1, opt2, opt3) = when (currentUnit) {
+            "knot" -> listOf(15, 30, 50)
+            "mph" -> listOf(30, 60, 100)
+            else -> listOf(50, 100, 200)
+        }
+
+        tvOption1.text = "$opt1 $distUnit"
+        tvOption2.text = "$opt2 $distUnit"
+        tvOption3.text = "$opt3 $distUnit"
+
+        var selectedMileage = prefs.getFloat("pref_max_mileage", opt3.toFloat()).toInt()
+        if (selectedMileage !in listOf(opt1, opt2, opt3)) {
+            selectedMileage = opt3
+        }
+
+        fun updateOptions(selected: Int) {
+            btnOption1.isSelected = (selected == opt1)
+            btnOption2.isSelected = (selected == opt2)
+            btnOption3.isSelected = (selected == opt3)
+        }
+        updateOptions(selectedMileage)
+
+        btnOption1.setOnClickListener {
+            selectedMileage = opt1
+            updateOptions(selectedMileage)
+        }
+        btnOption2.setOnClickListener {
+            selectedMileage = opt2
+            updateOptions(selectedMileage)
+        }
+        btnOption3.setOnClickListener {
+            selectedMileage = opt3
+            updateOptions(selectedMileage)
+        }
+
+        // Apply theme color to Done button
+        val doneBg = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = 24f
+            setColor(themeColor)
+        }
+        btnDone.background = doneBg
+
+        btnDone.setOnClickListener {
+            prefs.edit().putFloat("pref_max_mileage", selectedMileage.toFloat()).apply()
+            updateDisplayValues(prefs)
+            Toast.makeText(this, "Max mileage: $selectedMileage $distUnit", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun updateUnitUi(unit: String) {

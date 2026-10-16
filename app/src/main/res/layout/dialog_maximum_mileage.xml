@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/rect_2c2c2e_16dp"
+    android:padding="20dp">
+
+    <!-- Title: Maximum mileage -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Maximum mileage"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Current selection: Car -->
+    <TextView
+        android:id="@+id/tvTrafficSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Current selection: Car"
+        android:textColor="@color/text_white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <!-- Description note -->
+    <TextView
+        android:id="@+id/tvSubtitleDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Change your vehicle type in the settings."
+        android:textColor="@color/text_gray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTrafficSelection" />
+
+    <!-- 3 Choice Pills container -->
+    <LinearLayout
+        android:id="@+id/panelChoices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitleDesc">
+
+        <!-- Option 1 -->
+        <FrameLayout
+            android:id="@+id/btnOption1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_12"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/tvOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:fontFamily="sans-serif-bold"
+                android:text="15 nm"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="15sp" />
+        </FrameLayout>
+
+        <!-- Option 2 -->
+        <FrameLayout
+            android:id="@+id/btnOption2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_12"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/tvOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:fontFamily="sans-serif-bold"
+                android:text="30 nm"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="15sp" />
+        </FrameLayout>
+
+        <!-- Option 3 -->
+        <FrameLayout
+            android:id="@+id/btnOption3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/selector_00fff2_3c3c3e_12"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/tvOption3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:fontFamily="sans-serif-bold"
+                android:text="50 nm"
+                android:textColor="@color/speed_limit_item_color_selector"
+                android:textSize="15sp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Done Button -->
+    <TextView
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rect_00fff2_8dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Done"
+        android:textColor="@color/bg_black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/panelChoices" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
