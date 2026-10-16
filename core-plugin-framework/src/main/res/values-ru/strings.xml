@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Премиум предложения</string>
+    <string name="billing_info">Ваша бесплатная пробная версия будет автоматически преобразована в годовую подписку после ее окончания. Кроме того, нажав "Обновить", ваша подписка будет автоматически продлена на такой же срок по той же цене, пока вы не отмените ее в настройках Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Ваша бесплатная пробная версия будет автоматически преобразована в годовую подписку после ее окончания. Кроме того, нажав "Подписаться сейчас", ваш пакет будет автоматически продлен по той же цене, пока вы не отмените его в настройках Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Нажимая «Продолжить», ваша оплата будет списана с вашего аккаунта Google Play, и ваша подписка будет автоматически продлена на такой же срок по той же цене, пока вы не отмените ее в настройках Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Попробуйте премиум-версию и уберите рекламу</string>
+    <string name="made_in_india" translatable="false">Сделано в Индии</string>
+    <string name="recuringanytime" translatable="false">Рекуррентная оплата, отмена в любое время.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Бесплатный пробный период 3 дня</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Темы</string>
+    <string name="themes_description1" translatable="false">Более 20 премиум тем для настройки вашего приложения.</string>
+    <string name="themes_description2" translatable="false">Персонализируйте внешний вид вашего приложения.</string>
+    <string name="themes_description3" translatable="false">Снизьте нагрузку на глаза, используя темы с градиентом или темный режим.</string>
+
+    <string name="trash_title" translatable="false">Корзина</string>
+    <string name="trash_description1" translatable="false">Легко удаляйте ненужные файлы, такие как фотографии или видео.</string>
+    <string name="trash_description2" translatable="false">Поддерживает порядок в вашем хранилище и избавляет от беспорядка.</string>
+    <string name="trash_description3" translatable="false">Предотвращает случайное удаление файлов, предоставляя запасной вариант.</string>
+
+    <string name="ad_free_title" translatable="false">Без рекламы</string>
+    <string name="ad_free_description1" translatable="false">Пользуйтесь основными функциями без отвлекающих реклам.</string>
+    <string name="ad_free_description2" translatable="false">Ускоряет время загрузки страниц и улучшает общую производительность.</string>
+    <string name="ad_free_description3" translatable="false">Снижает потребление данных и может сэкономить мобильные данные.</string>
+
+    <string name="crop_title" translatable="false">Обрезка</string>
+    <string name="crop_description1" translatable="false">Настройте размер и соотношение сторон изображений или видео.</string>
+    <string name="crop_description2" translatable="false">Улучшите композицию и удалите ненужные элементы из фотографии или видео.</string>
+    <string name="crop_description3" translatable="false">Экономит место для хранения, уменьшая размер файлов больших изображений или видео.</string>
+
+    <string name="lyrics_title" translatable="false">Тексты</string>
+    <string name="lyrics_description1" translatable="false">Неограниченное воспроизведение музыки с онлайн текстами</string>
+    <string name="lyrics_description2" translatable="false">Легко следите за словами ваших любимых песен.</string>
+    <string name="lyrics_description3" translatable="false">Улучшите ваш музыкальный опыт онлайн и офлайн.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Фильтрация дубликатов</string>
+    <string name="filter_duplicate_description1" translatable="false">Неограниченное использование на всю жизнь для защиты вашего устройства от дублирующихся файлов</string>
+    <string name="filter_duplicate_description2" translatable="false">Помогает экономить время и избегать путаницы, выявляя и удаляя дублирующиеся файлы</string>
+    <string name="filter_duplicate_description3" translatable="false">Уменьшает количество занимаемого пространства, удаляя ненужные копии файлов.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Будущая функция</string>
+    <string name="upcoming_feature_description" translatable="false">Премиум-версия предлагает вам преимущества исследования и раннего доступа к эксклюзивным будущим функциям.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Премиум-функции ждут!
+    \nРазблокируйте премиум-опыт
+    </string>
+
+    <string name="restore_purchase" translatable="false">Восстановить покупку</string>
+
+    <string name="restore_purchase_success" translatable="false">Успешно восстановлено!
+    \nРады видеть вас в качестве пользователя Premium</string>
+
+    <string name="restore_purchase_error" translatable="false">Ой, извините!
+    \nВы еще не обновились до премиум-версии</string>
+
+    <string name="continue_purchase" translatable="false">Продолжить</string>
+    <string name="go_premium" translatable="false">Перейти на Premium</string>
+    <string name="update_to_premium" translatable="false">Обновить до Premium</string>
+    <string name="features_in_premium" translatable="false">Функции в премиум</string>
+    <string name="upcoming" translatable="false">Предстоящие</string>
+    <string name="new_update_to_premium" translatable="false">Разблокировать \nПремиум функцию</string>
+    <string name="new_features_in_premium" translatable="false">Не пропустите отличные предложения Premium</string>
+    <string name="freeTrail">Ваша бесплатная пробная версия на 3 дня будет автоматически преобразована в \nгодовую подписку после ее окончания</string>
+    <string name="scan_doc_access_premium_features">Сканировать документ - Доступ к премиум функциям</string>
+    <string name="access_ads_free_usage">Доступ к использованию без рекламы</string>
+    <string name="create_unlimited_notes">Создавайте неограниченное количество заметок</string>
+    <string name="continuew">Продолжить</string>
+    <string name="terms_of_use">Условия использования</string>
+    <string name="restore">Восстановить</string>
+    <string name="unlimited_high_quality_downloads">Неограниченные загрузки высокого качества</string>
+    <string name="glad_to_see_you">Рады вас видеть!</string>
+    <string name="enjoy_premium">Наслаждайтесь Premium</string>
+</resources>

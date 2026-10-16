@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Fikia matumizi bila matangazo</string>
+    <string name="ad_free_description1" translatable="false">Furahia vipengele vya msingi bila matangazo yanayoshughulika.</string>
+    <string name="ad_free_description2" translatable="false">Inapunguza muda wa upakuaji wa kurasa na kuboresha utendaji kwa ujumla.</string>
+    <string name="ad_free_description3" translatable="false">Punguza matumizi ya data na huenda ukaokoa data yako ya rununu.</string>
+    <string name="ad_free_title" translatable="false">Bila matangazo</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">Jaribio lako la bure litabadilishwa kiatomati kuwa usajili wa mwaka baada ya kumalizika. Pia, kwa kugusa "Boresha", usajili wako utaendelea kiatomati kwa kipindi sawa kwa bei ile ile hadi utakapouacha kutoka kwenye mipangilio kwenye Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Kwa kugusa "Endelea", malipo yako yataondolewa kwenye akaunti yako ya Google Play na usajili wako utaendelea kiatomati kwa kipindi sawa kwa bei ile ile hadi utakapouacha kutoka kwenye mipangilio kwenye Google Play Store.</string>
+    <string name="continue_purchase" translatable="false">Endelea</string>
+    <string name="continuew">Endelea</string>
+    <string name="create_unlimited_notes">Tengeneza Maelezo Yasiyo na Kikomo</string>
+    <string name="crop_description1" translatable="false">Sahihisha ukubwa na uwiano wa picha au video.</string>
+    <string name="crop_description2" translatable="false">Boresha muundo na ondolea vipande visivyotakiwa kutoka kwenye picha au video.</string>
+    <string name="crop_description3" translatable="false">Huhifadhi nafasi ya uhifadhi kwa kupunguza ukubwa wa faili za picha au video kubwa.</string>
+    <string name="crop_title" translatable="false">Kata</string>
+    <string name="enjoy_premium">Furahia Premium</string>
+    <string name="features_in_premium" translatable="false">Vipengele vya premium</string>
+    <string name="filter_duplicate_description1" translatable="false">Matumizi yasiyo na kikomo kwa maisha yako kulinda kifaa chako kutokana na nakala za faili</string>
+    <string name="filter_duplicate_description2" translatable="false">Inakusaidia kuokoa muda na kuepuka machafuko kwa kubaini na kuondoa nakala za faili</string>
+    <string name="filter_duplicate_description3" translatable="false">Punguza kiasi cha nafasi ya uhifadhi inayohitajika kwa kuondoa nakala zisizohitajika za faili.</string>
+    <string name="filter_duplicate_title" translatable="false">Filtrisha nakala za maelezo</string>
+    <string name="freeTrail">Jaribio lako la bure la siku 3 litabadilishwa kiatomati kuwa \nusajili wa mwaka baada ya kumalizika</string>
+    <string name="glad_to_see_you">Furahi kuk kuona!</string>
+    <string name="go_premium" translatable="false">Nenda Premium</string>
+    <string name="lyrics_description1" translatable="false">Kupiga muziki bila kikomo kwa maneno mtandaoni</string>
+    <string name="lyrics_description2" translatable="false">Fuatilia kwa urahisi maneno ya nyimbo zako unazozipenda.</string>
+    <string name="lyrics_description3" translatable="false">Boresha uzoefu wako wa muziki mtandaoni na bila mtandao.</string>
+    <string name="lyrics_title" translatable="false">Maneno</string>
+    <string name="made_in_india" translatable="false">Imetengenezwa nchini India</string>
+    <string name="new_billing_info" translatable="false">Jaribio lako la bure litabadilishwa kiatomati kuwa usajili wa mwaka baada ya kumalizika. Pia, kwa kugusa "Mjiunge Sasa", kifurushi chako kitafanywa upya kiatomati kwa bei ile ile hadi utakapouacha kutoka kwenye mipangilio kwenye Google Play Store.</string>
+    <string name="new_features_in_premium" translatable="false">Usikose ofa kubwa za Premium</string>
+    <string name="new_update_to_premium" translatable="false">Fungua \nKipengele cha Premium</string>
+    <string name="premium_offers" translatable="false">Matoleo ya Premium</string>
+    <string name="premium_text" translatable="false">Vipengele vya premium vinakusubiri!
+    \nFungua uzoefu wa premium
+    </string>
+    <string name="recuringanytime" translatable="false">Malipo yanayojirudia, ghairi wakati wowote.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Jaribio la bure la siku 3</string>
+    <string name="remove_ads" translatable="false">Jaribu toleo la premium na ondoa matangazo</string>
+    <string name="restore">Rejesha</string>
+    <string name="restore_purchase" translatable="false">Rudisha ununuzi wako</string>
+    <string name="restore_purchase_error" translatable="false">Pole!
+    \nBado hujaongeza toleo la premium</string>
+    <string name="restore_purchase_success" translatable="false">Imerejeshwa kwa mafanikio!
+    \nFurahia kuwa mtumiaji wa Premium</string>
+    <string name="scan_doc_access_premium_features">Picha za Skana - Fikia vipengele vya premium</string>
+    <string name="terms_of_use">Masharti ya matumizi</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Mandhari zaidi ya 20 za premium kubadilisha programu yako.</string>
+    <string name="themes_description2" translatable="false">Binafsisha muonekano na hisia ya programu yako.</string>
+    <string name="themes_description3" translatable="false">Punguza uchovu wa macho kwa kutumia mandhari ya gradient au hali ya giza.</string>
+    <string name="themes_title" translatable="false">Mandhari</string>
+    <string name="trash_description1" translatable="false">Futa kwa urahisi faili zisizohitajika kama picha au video.</string>
+    <string name="trash_description2" translatable="false">Huhifadhi nafasi yako ya uhifadhi kuwa safi na bila machafuko.</string>
+    <string name="trash_description3" translatable="false">Kinga dhidi ya kufutwa kwa bahati mbaya kwa kutoa salama.</string>
+    <string name="trash_title" translatable="false">Pipa la taka</string>
+    <string name="unlimited_high_quality_downloads">Makuzi ya Juu Yasiyo na Kikomo</string>
+    <string name="upcoming" translatable="false">Kujia</string>
+    <string name="upcoming_feature_description" translatable="false">Toleo la premium linakupa faida za kuchunguza na kufurahia upatikanaji wa mapema kwa vipengele vya kipekee vinavyokuja.</string>
+    <string name="upcoming_feature_title" translatable="false">Kipengele kinachokuja</string>
+    <string name="update_to_premium" translatable="false">Sasisha hadi Premium</string>
+</resources>

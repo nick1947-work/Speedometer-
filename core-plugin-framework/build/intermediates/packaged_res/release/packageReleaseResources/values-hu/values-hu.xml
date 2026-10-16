@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Hirdetésmentes használat hozzáférése</string>
+    <string name="ad_free_description1" translatable="false">Élvezze a prémium funkciókat zavaró hirdetések nélkül.</string>
+    <string name="ad_free_description2" translatable="false">Gyorsítja az oldalak betöltési idejét és javítja a teljesítményt.</string>
+    <string name="ad_free_description3" translatable="false">Csökkenti az adatforgalmat, és potenciálisan megtakarítja a mobil adatokat.</string>
+    <string name="ad_free_title" translatable="false">Hirdetésmentes</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">Az ingyenes próbaverzió automatikusan éves előfizetéssé alakul, miután lejár. Továbbá, ha rákattint a „Frissítés” gombra, az előfizetés automatikusan megújul ugyanazzal a csomaggal és áron, amíg le nem mondja a Google Play Áruház beállításaiban.</string>
+    <string name="billing_info_config" translatable="false">A „Folytatás” gombra kattintva a díjat a Google Play fiókjára terheljük, és az előfizetés automatikusan megújul ugyanazzal a csomaggal és áron, amíg le nem mondja a Google Play Áruház beállításaiban.</string>
+    <string name="continue_purchase" translatable="false">Folytatás</string>
+    <string name="continuew">Folytatás</string>
+    <string name="create_unlimited_notes">Korlátlan jegyzetek létrehozása</string>
+    <string name="crop_description1" translatable="false">Kép vagy videó méretének és képarányának módosítása.</string>
+    <string name="crop_description2" translatable="false">Javítsa a kompozíciót, és távolítsa el a nem kívánt elemeket a fényképből vagy videóból.</string>
+    <string name="crop_description3" translatable="false">Takarítson meg tárhelyet a nagy fájlok méretének csökkentésével.</string>
+    <string name="crop_title" translatable="false">Kivágás</string>
+    <string name="enjoy_premium">Élvezze a prémiumot</string>
+    <string name="features_in_premium" translatable="false">Funkciók prémiumban</string>
+    <string name="filter_duplicate_description1" translatable="false">Élettartamra szóló korlátlan használat a duplikált fájlok védelme érdekében</string>
+    <string name="filter_duplicate_description2" translatable="false">Segít időt megtakarítani és elkerülni a zavart a duplikált fájlok azonosításával és eltávolításával</string>
+    <string name="filter_duplicate_description3" translatable="false">Csökkenti a szükséges tárhelyet az nem kívánt fájlok eltávolításával.</string>
+    <string name="filter_duplicate_title" translatable="false">Duplikált fájlok szűrése</string>
+    <string name="freeTrail">A 3 napos ingyenes próbaverzió automatikusan éves előfizetéssé alakul, miután lejár</string>
+    <string name="glad_to_see_you">Örülünk, hogy látjuk!</string>
+    <string name="go_premium" translatable="false">Váltás prémiumra</string>
+    <string name="lyrics_description1" translatable="false">Korlátlan zenelejátszás online dalszövegekkel</string>
+    <string name="lyrics_description2" translatable="false">Könnyedén kövesse a kedvenc dalai szövegét.</string>
+    <string name="lyrics_description3" translatable="false">Fejlessze online és offline zenei élményét.</string>
+    <string name="lyrics_title" translatable="false">Dalszövegek</string>
+    <string name="made_in_india" translatable="false">Indiában készült</string>
+    <string name="new_billing_info" translatable="false">Az ingyenes próbaverzió automatikusan éves előfizetéssé alakul, miután lejár. Továbbá, ha rákattint a „Előfizetés most” gombra, a csomag automatikusan megújul ugyanazzal az árral, amíg le nem mondja a Google Play Áruház beállításaiban.</string>
+    <string name="new_features_in_premium" translatable="false">Ne hagyja ki a nagyszerű prémium ajánlatokat</string>
+    <string name="new_update_to_premium" translatable="false">Fedezze fel\nPrémium funkciót</string>
+    <string name="premium_offers" translatable="false">Prémium ajánlatok</string>
+    <string name="premium_text" translatable="false">A prémium funkciók várnak rád!
+    \nFedezd fel a prémium élményt
+    </string>
+    <string name="recuringanytime" translatable="false">Ismétlődő számlázás, bármikor lemondható.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 napos ingyenes próbaverzió</string>
+    <string name="remove_ads" translatable="false">Prémium verzió kipróbálása és hirdetések eltávolítása</string>
+    <string name="restore">Visszaállítás</string>
+    <string name="restore_purchase" translatable="false">Vásárlás visszaállítása</string>
+    <string name="restore_purchase_error" translatable="false">Hoppá, sajnáljuk!
+    \nMég nem frissítette a prémium verzióra</string>
+    <string name="restore_purchase_success" translatable="false">Sikeresen visszaállítva!
+    \nÖrülünk, hogy prémium felhasználóként üdvözölhetünk</string>
+    <string name="scan_doc_access_premium_features">Dokumentum beolvasása - Prémium funkciók elérése</string>
+    <string name="terms_of_use">Használati feltételek</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Több mint 20 prémium téma az alkalmazás módosításához.</string>
+    <string name="themes_description2" translatable="false">Személyre szabhatja alkalmazása megjelenését és érzetét.</string>
+    <string name="themes_description3" translatable="false">Csökkentheti a szem fáradtságát a gradient vagy sötét módú témák használatával.</string>
+    <string name="themes_title" translatable="false">Témák</string>
+    <string name="trash_description1" translatable="false">Könnyen törölheti a nem kívánt fájlokat, például fényképeket vagy videókat.</string>
+    <string name="trash_description2" translatable="false">Segít rendszerezni és rendben tartani a tárolóhelyet.</string>
+    <string name="trash_description3" translatable="false">Megakadályozza a véletlenül törölt fájlokat egy biztonsági háló biztosításával.</string>
+    <string name="trash_title" translatable="false">Kuka</string>
+    <string name="unlimited_high_quality_downloads">Korlátlan, magas minőségű letöltések</string>
+    <string name="upcoming" translatable="false">Közelgő</string>
+    <string name="upcoming_feature_description" translatable="false">A prémium verzió lehetőséget ad arra, hogy felfedezze és élvezze az exkluzív közelgő funkciókat korai hozzáféréssel.</string>
+    <string name="upcoming_feature_title" translatable="false">Közelgő funkció</string>
+    <string name="update_to_premium" translatable="false">Frissítés prémiumra</string>
+</resources>

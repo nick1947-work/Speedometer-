@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">訪問無廣告使用</string>
+    <string name="ad_free_description1" translatable="false">享受無干擾的主要功能。</string>
+    <string name="ad_free_description2" translatable="false">加快頁面加載時間，提高整體性能。</string>
+    <string name="ad_free_description3" translatable="false">減少數據使用，可能節省您的移動數據。</string>
+    <string name="ad_free_title" translatable="false">無廣告</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">您的免費試用期在結束後將自動轉換為年度訂閱。此外，通過點擊“升級”，您的訂閱將以相同的價格和相同的包月自動續訂，直到您從 Google Play 商店的設置中取消它。</string>
+    <string name="billing_info_config" translatable="false">通過點擊“繼續”，您的付款將從您的 Google Play 帳戶中扣除，並且您的訂閱將以相同的價格和相同的包月自動續訂，直到您從 Google Play 商店的設置中取消它。</string>
+    <string name="continue_purchase" translatable="false">繼續</string>
+    <string name="continuew">繼續</string>
+    <string name="create_unlimited_notes">創建無限制的筆記</string>
+    <string name="crop_description1" translatable="false">調整圖像或影片的大小和縱橫比。</string>
+    <string name="crop_description2" translatable="false">改善構圖並移除照片或影片中的不需要的元素。</string>
+    <string name="crop_description3" translatable="false">通過減少大型圖像或影片的檔案大小來節省存儲空間。</string>
+    <string name="crop_title" translatable="false">裁剪</string>
+    <string name="enjoy_premium">享受高級版</string>
+    <string name="features_in_premium" translatable="false">高級版中的功能</string>
+    <string name="filter_duplicate_description1" translatable="false">終身無限使用，保護您的裝置免受重複檔案的困擾</string>
+    <string name="filter_duplicate_description2" translatable="false">通過識別和刪除重複檔案，幫助您節省時間並避免混淆</string>
+    <string name="filter_duplicate_description3" translatable="false">通過刪除不需要的檔案副本來減少所需的存儲空間。</string>
+    <string name="filter_duplicate_title" translatable="false">過濾重複檔案</string>
+    <string name="freeTrail">您的免費 3 天試用期在結束後將自動轉換為 \n年度訂閱</string>
+    <string name="glad_to_see_you">很高興見到您！</string>
+    <string name="go_premium" translatable="false">升級到高級版</string>
+    <string name="lyrics_description1" translatable="false">無限音樂播放，附帶線上歌詞</string>
+    <string name="lyrics_description2" translatable="false">輕鬆跟隨您最喜愛歌曲的歌詞。</string>
+    <string name="lyrics_description3" translatable="false">提升您的線上和離線音樂體驗。</string>
+    <string name="lyrics_title" translatable="false">歌詞</string>
+    <string name="made_in_india" translatable="false">印度製造</string>
+    <string name="new_billing_info" translatable="false">您的免費試用期在結束後將自動轉換為年度訂閱。此外，通過點擊“立即訂閱”，您的方案將自動以相同的價格續訂，直到您從 Google Play 商店的設置中取消它。</string>
+    <string name="new_features_in_premium" translatable="false">不要錯過絕佳的高級版優惠</string>
+    <string name="new_update_to_premium" translatable="false">解鎖 \n高級功能</string>
+    <string name="premium_offers" translatable="false">高級優惠</string>
+    <string name="premium_text" translatable="false">高級功能正在等待！
+    \n解鎖高級體驗
+    </string>
+    <string name="recuringanytime" translatable="false">定期計費，隨時取消。</string>
+    <string name="recuringanytime_with_trial" translatable="false">3天免費試用</string>
+    <string name="remove_ads" translatable="false">嘗試高級版並移除廣告</string>
+    <string name="restore">恢復</string>
+    <string name="restore_purchase" translatable="false">恢復購買</string>
+    <string name="restore_purchase_error" translatable="false">哦，抱歉！
+    \n您尚未升級到高級版</string>
+    <string name="restore_purchase_success" translatable="false">恢復成功！
+    \n很高興見到您成為高級用戶</string>
+    <string name="scan_doc_access_premium_features">掃描文檔 - 訪問高級功能</string>
+    <string name="terms_of_use">使用條款</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">20+ 高級主題，自訂您的應用程式。</string>
+    <string name="themes_description2" translatable="false">個性化您的應用外觀和感覺。</string>
+    <string name="themes_description3" translatable="false">使用漸層或黑暗模式主題減少眼睛疲勞。</string>
+    <string name="themes_title" translatable="false">主題</string>
+    <string name="trash_description1" translatable="false">輕鬆刪除不需要的檔案，如照片或影片。</string>
+    <string name="trash_description2" translatable="false">保持您的存儲空間整齊無雜亂。</string>
+    <string name="trash_description3" translatable="false">通過提供安全網，防止意外刪除的檔案。</string>
+    <string name="trash_title" translatable="false">垃圾桶</string>
+    <string name="unlimited_high_quality_downloads">無限制高質量下載</string>
+    <string name="upcoming" translatable="false">即將推出</string>
+    <string name="upcoming_feature_description" translatable="false">高級版為您提供探索和享受即將推出的獨家功能的早期訪問權限。</string>
+    <string name="upcoming_feature_title" translatable="false">即將推出的功能</string>
+    <string name="update_to_premium" translatable="false">更新到高級版</string>
+</resources>

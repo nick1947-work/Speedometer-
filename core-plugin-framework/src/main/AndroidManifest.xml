@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Required only if your app needs to access in app products (IAP) -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+<!--    <application android:name=".core.base.BaseApplication">-->
+    <application
+        >
+        <!--Core Plugin test components registration begins-->
+
+        <!--In app Billing components registration begins -->
+        <activity
+            android:name="com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingActivity"
+            android:label="IAP_Purchase"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppFramework.Xml.Based"
+            />
+
+        <activity
+            android:name="com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingPurchaseRestoreActivity"
+            android:label="IAP_Restore"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppFramework.Xml.Based"
+            />
+
+        <!--In app Billing components registration ends-->
+
+        <!--Core Plugin test components registration ends-->
+
+
+    </application>
+
+</manifest>

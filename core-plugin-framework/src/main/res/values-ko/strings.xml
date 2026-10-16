@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">프리미엄 오퍼</string>
+    <string name="billing_info">무료 체험이 끝난 후, 자동으로 연간 구독으로 전환됩니다. 또한, "업그레이드"를 탭하면 구독이 자동으로 동일한 패키지 길이와 가격으로 갱신되며, Google Play 스토어 설정에서 취소할 때까지 계속됩니다.</string>
+    <string name="new_billing_info" translatable="false">무료 체험이 끝난 후, 자동으로 연간 구독으로 전환됩니다. 또한, "지금 구독"을 탭하면 패키지가 자동으로 동일한 가격으로 갱신되며, Google Play 스토어의 설정에서 취소할 때까지 계속됩니다.</string>
+    <string name="billing_info_config" translatable="false">"계속"을 탭하면 결제가 Google Play 계정으로 청구되며, 구독이 자동으로 동일한 패키지 길이와 가격으로 갱신됩니다. Google Play 스토어의 설정에서 취소할 때까지 계속됩니다.</string>
+
+    <string name="remove_ads" translatable="false">프리미엄 버전을 시도하고 광고 제거</string>
+    <string name="made_in_india" translatable="false">인도 제조</string>
+    <string name="recuringanytime" translatable="false">자동 갱신, 언제든지 취소 가능.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3일 무료 체험</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">테마</string>
+    <string name="themes_description1" translatable="false">앱을 수정할 수 있는 20개 이상의 프리미엄 테마.</string>
+    <string name="themes_description2" translatable="false">앱의 외관과 느낌을 개인화할 수 있습니다.</string>
+    <string name="themes_description3" translatable="false">그라데이션 또는 다크 모드 테마를 사용하여 눈의 피로를 줄이세요.</string>
+
+    <string name="trash_title" translatable="false">휴지통</string>
+    <string name="trash_description1" translatable="false">사진이나 비디오와 같은 원하지 않는 파일을 쉽게 삭제하세요.</string>
+    <string name="trash_description2" translatable="false">저장 공간을 정리하고 혼잡을 방지합니다.</string>
+    <string name="trash_description3" translatable="false">안전 장치를 제공하여 실수로 삭제된 파일을 방지합니다.</string>
+
+    <string name="ad_free_title" translatable="false">광고 없음</string>
+    <string name="ad_free_description1" translatable="false">광고 없이 주요 기능을 즐기세요.</string>
+    <string name="ad_free_description2" translatable="false">페이지 로딩 시간이 빨라지고 전반적인 성능이 향상됩니다.</string>
+    <string name="ad_free_description3" translatable="false">데이터 사용량을 줄이고 모바일 데이터를 절약할 수 있습니다.</string>
+
+    <string name="crop_title" translatable="false">자르기</string>
+    <string name="crop_description1" translatable="false">이미지나 비디오의 크기와 비율을 조정하세요.</string>
+    <string name="crop_description2" translatable="false">사진이나 비디오에서 원하지 않는 요소를 제거하고 구성을 개선합니다.</string>
+    <string name="crop_description3" translatable="false">큰 이미지나 비디오의 파일 크기를 줄여 저장 공간을 절약합니다.</string>
+
+    <string name="lyrics_title" translatable="false">가사</string>
+    <string name="lyrics_description1" translatable="false">온라인 가사와 함께 무제한 음악 재생</string>
+    <string name="lyrics_description2" translatable="false">좋아하는 곡의 가사를 쉽게 따라 할 수 있습니다.</string>
+    <string name="lyrics_description3" translatable="false">온라인 및 오프라인 음악 경험을 향상시킵니다.</string>
+
+    <string name="filter_duplicate_title" translatable="false">중복 필터</string>
+    <string name="filter_duplicate_description1" translatable="false">중복 파일로부터 장치를 보호하는 평생 무제한 사용</string>
+    <string name="filter_duplicate_description2" translatable="false">중복 파일을 식별하고 제거하여 시간과 혼란을 줄입니다</string>
+    <string name="filter_duplicate_description3" translatable="false">원하지 않는 파일의 복사본을 제거하여 저장 공간을 줄입니다.</string>
+
+    <string name="upcoming_feature_title" translatable="false">예정된 기능</string>
+    <string name="upcoming_feature_description" translatable="false">프리미엄 버전에서는 향후 독점 기능을 조기에 액세스하고 즐길 수 있습니다.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">프리미엄 기능이 기다리고 있습니다!
+    \n프리미엄 체험 잠금을 해제하세요
+    </string>
+
+    <string name="restore_purchase" translatable="false">구매 복원</string>
+
+    <string name="restore_purchase_success" translatable="false">성공적으로 복원되었습니다!
+    \n프리미엄 사용자로 뵙게 되어 기쁩니다</string>
+
+    <string name="restore_purchase_error" translatable="false">죄송합니다!
+    \n아직 프리미엄 버전으로 업그레이드하지 않았습니다</string>
+
+    <string name="continue_purchase" translatable="false">계속</string>
+    <string name="go_premium" translatable="false">프리미엄으로 전환</string>
+    <string name="update_to_premium" translatable="false">프리미엄으로 업데이트</string>
+    <string name="features_in_premium" translatable="false">프리미엄의 기능</string>
+    <string name="upcoming" translatable="false">예정</string>
+    <string name="new_update_to_premium" translatable="false">프리미엄 기능 잠금 해제</string>
+    <string name="new_features_in_premium" translatable="false">멋진 프리미엄 딜을 놓치지 마세요</string>
+    <string name="freeTrail">무료 3일 체험은 종료 후 자동으로 연간 구독으로 변환됩니다</string>
+    <string name="scan_doc_access_premium_features">문서 스캔 - 프리미엄 기능에 접근</string>
+    <string name="access_ads_free_usage">광고 없는 사용</string>
+    <string name="create_unlimited_notes">무제한 메모 작성</string>
+    <string name="continuew">계속</string>
+    <string name="terms_of_use">이용 약관</string>
+    <string name="restore">복원</string>
+    <string name="unlimited_high_quality_downloads">무제한 고품질 다운로드</string>
+    <string name="glad_to_see_you">만나서 반갑습니다!</string>
+    <string name="enjoy_premium">프리미엄을 즐기세요</string>
+</resources>

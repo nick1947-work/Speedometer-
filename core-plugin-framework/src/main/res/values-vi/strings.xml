@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Ưu đãi Premium</string>
+    <string name="billing_info">Dùng thử miễn phí của bạn sẽ tự động chuyển đổi thành đăng ký hàng năm khi kết thúc. Ngoài ra, khi chạm vào "Nâng cấp", đăng ký của bạn sẽ tự động gia hạn cho cùng một gói với cùng mức giá cho đến khi bạn hủy nó từ cài đặt trên Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Dùng thử miễn phí của bạn sẽ tự động chuyển đổi thành đăng ký hàng năm khi kết thúc. Ngoài ra, khi chạm vào "Đăng ký Ngay", gói của bạn sẽ tự động được gia hạn với cùng mức giá cho đến khi bạn hủy nó từ cài đặt trên Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Khi chạm vào "Tiếp tục", thanh toán của bạn sẽ được tính vào tài khoản Google Play của bạn và đăng ký của bạn sẽ tự động gia hạn cho cùng một gói với cùng mức giá cho đến khi bạn hủy nó từ cài đặt trên Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Thử phiên bản Premium và loại bỏ quảng cáo</string>
+    <string name="made_in_india" translatable="false">Sản xuất tại Ấn Độ</string>
+    <string name="recuringanytime" translatable="false">Thanh toán định kỳ, hủy bất cứ lúc nào.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Dùng thử miễn phí 3 ngày</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Chủ đề</string>
+    <string name="themes_description1" translatable="false">20+ chủ đề cao cấp để chỉnh sửa ứng dụng của bạn.</string>
+    <string name="themes_description2" translatable="false">Cá nhân hóa giao diện và cảm giác của ứng dụng của bạn.</string>
+    <string name="themes_description3" translatable="false">Giảm căng thẳng cho mắt với việc sử dụng các chủ đề gradient hoặc chế độ tối.</string>
+
+    <string name="trash_title" translatable="false">Thùng rác</string>
+    <string name="trash_description1" translatable="false">Dễ dàng xóa các tệp không mong muốn như ảnh hoặc video.</string>
+    <string name="trash_description2" translatable="false">Giữ cho không gian lưu trữ của bạn được tổ chức và không bị lộn xộn.</string>
+    <string name="trash_description3" translatable="false">Ngăn chặn các tệp bị xóa ngẫu nhiên bằng cách cung cấp một mạng lưới an toàn.</string>
+
+    <string name="ad_free_title" translatable="false">Không có quảng cáo</string>
+    <string name="ad_free_description1" translatable="false">Tận hưởng các tính năng chính mà không bị làm phiền bởi quảng cáo.</string>
+    <string name="ad_free_description2" translatable="false">Tăng tốc thời gian tải trang và cải thiện hiệu suất tổng thể.</string>
+    <string name="ad_free_description3" translatable="false">Giảm sử dụng dữ liệu và có thể tiết kiệm dữ liệu di động của bạn.</string>
+
+    <string name="crop_title" translatable="false">Cắt</string>
+    <string name="crop_description1" translatable="false">Điều chỉnh kích thước và tỷ lệ khung hình của hình ảnh hoặc video.</string>
+    <string name="crop_description2" translatable="false">Cải thiện bố cục và loại bỏ các yếu tố không mong muốn từ một bức ảnh hoặc video.</string>
+    <string name="crop_description3" translatable="false">Tiết kiệm không gian lưu trữ bằng cách giảm kích thước tệp của hình ảnh hoặc video lớn.</string>
+
+    <string name="lyrics_title" translatable="false">Lời bài hát</string>
+    <string name="lyrics_description1" translatable="false">Phát nhạc không giới hạn với lời bài hát trực tuyến</string>
+    <string name="lyrics_description2" translatable="false">Dễ dàng theo dõi lời của những bài hát yêu thích của bạn.</string>
+    <string name="lyrics_description3" translatable="false">Cải thiện trải nghiệm âm nhạc trực tuyến và ngoại tuyến của bạn.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Lọc trùng lặp</string>
+    <string name="filter_duplicate_description1" translatable="false">Sử dụng không giới hạn trọn đời để bảo vệ thiết bị của bạn khỏi các tệp trùng lặp</string>
+    <string name="filter_duplicate_description2" translatable="false">Giúp bạn tiết kiệm thời gian và tránh nhầm lẫn bằng cách xác định và xóa các tệp trùng lặp</string>
+    <string name="filter_duplicate_description3" translatable="false">Giảm lượng không gian lưu trữ cần thiết bằng cách loại bỏ các bản sao không mong muốn của các tệp.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Tính năng sắp tới</string>
+    <string name="upcoming_feature_description" translatable="false">Phiên bản Premium mang đến cho bạn lợi ích để khám phá và tận hưởng quyền truy cập sớm vào các tính năng độc quyền sắp tới.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Các tính năng Premium đang chờ đợi!
+    \nMở khóa trải nghiệm Premium
+    </string>
+
+    <string name="restore_purchase" translatable="false">Khôi phục mua hàng của bạn</string>
+
+    <string name="restore_purchase_success" translatable="false">Khôi phục thành công!
+    \nRất vui được thấy bạn là người dùng Premium</string>
+
+    <string name="restore_purchase_error" translatable="false">Ôi, xin lỗi!
+    \nBạn chưa nâng cấp lên phiên bản Premium</string>
+
+    <string name="continue_purchase" translatable="false">Tiếp tục</string>
+    <string name="go_premium" translatable="false">Đăng ký Premium</string>
+    <string name="update_to_premium" translatable="false">Cập nhật lên Premium</string>
+    <string name="features_in_premium" translatable="false">Các tính năng trong Premium</string>
+    <string name="upcoming" translatable="false">Sắp tới</string>
+    <string name="new_update_to_premium" translatable="false">Mở khóa \nTính năng Premium</string>
+    <string name="new_features_in_premium" translatable="false">Đừng bỏ lỡ các ưu đãi Premium tuyệt vời</string>
+    <string name="freeTrail">Dùng thử miễn phí 3 ngày của bạn sẽ tự động chuyển đổi thành \nđăng ký hàng năm sau khi kết thúc</string>
+    <string name="scan_doc_access_premium_features">Quét tài liệu - Truy cập các tính năng Premium</string>
+    <string name="access_ads_free_usage">Truy cập sử dụng không có quảng cáo</string>
+    <string name="create_unlimited_notes">Tạo ghi chú không giới hạn</string>
+    <string name="continuew">Tiếp tục</string>
+    <string name="terms_of_use">Điều khoản sử dụng</string>
+    <string name="restore">Khôi phục</string>
+    <string name="unlimited_high_quality_downloads">Tải xuống chất lượng cao không giới hạn</string>
+    <string name="glad_to_see_you">Rất vui được gặp bạn!</string>
+    <string name="enjoy_premium">Tận hưởng Premium</string>
+</resources>

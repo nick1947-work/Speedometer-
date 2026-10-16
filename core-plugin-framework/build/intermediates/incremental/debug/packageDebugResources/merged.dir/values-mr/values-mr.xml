@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">जाहिराती नसलेले वापर</string>
+    <string name="ad_free_description1" translatable="false">कोणत्याही अडथळ्याशिवाय प्रमुख वैशिष्ट्यांचा आनंद घ्या.</string>
+    <string name="ad_free_description2" translatable="false">पृष्ठ लोडिंग वेळ कमी होतो आणि एकूण कार्यक्षमता सुधारते.</string>
+    <string name="ad_free_description3" translatable="false">डेटा वापर कमी करा आणि तुमच्या मोबाइल डेटा वाचवू शकता.</string>
+    <string name="ad_free_title" translatable="false">जाहिराती नसलेले</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">तुमचा फ्री ट्रायल समाप्त झाल्यावर तो स्वयंचलितपणे वार्षिक सदस्यता मध्ये रूपांतरित होईल. "अपग्रेड" वर टॅप केल्यावर तुमची सदस्यता स्वयंचलितपणे समान पॅकेज लांबीसह आणि त्याच किंमतीसह नूतनीकरण होईल जोपर्यंत तुम्ही Google Play स्टोअरच्या सेटिंगमधून ते रद्द करत नाही.</string>
+    <string name="billing_info_config" translatable="false">"सुरू ठेव" वर टॅप केल्यावर तुमचा पेमेंट Google Play खात्यात चार्ज होईल आणि तुमची सदस्यता स्वयंचलितपणे समान पॅकेज लांबीसह आणि किंमतीसह नूतनीकरण होईल जोपर्यंत तुम्ही Google Play स्टोअरच्या सेटिंगमधून ते रद्द करत नाही.</string>
+    <string name="continue_purchase" translatable="false">सुरू ठेवा</string>
+    <string name="continuew">सुरू ठेवा</string>
+    <string name="create_unlimited_notes">अमर्यादित नोट्स तयार करा</string>
+    <string name="crop_description1" translatable="false">प्रतिमा किंवा व्हिडिओचे आकार आणि अनुपात समायोजित करा.</string>
+    <string name="crop_description2" translatable="false">फोटो किंवा व्हिडिओमधून नको असलेले घटक काढा आणि रचना सुधारित करा.</string>
+    <string name="crop_description3" translatable="false">मोठ्या प्रतिमा किंवा व्हिडिओंचे फाइल साईझ कमी करून स्टोरेज स्पेस वाचवा.</string>
+    <string name="crop_title" translatable="false">कापणे</string>
+    <string name="enjoy_premium">प्रीमियमचा आनंद घ्या</string>
+    <string name="features_in_premium" translatable="false">प्रीमियममधील वैशिष्ट्ये</string>
+    <string name="filter_duplicate_description1" translatable="false">डुप्लिकेट फाइल्सपासून तुमच्या उपकरणाचे संरक्षण करण्यासाठी 평생 अमर्याद वापर</string>
+    <string name="filter_duplicate_description2" translatable="false">डुप्लिकेट फाइल्स ओळखून आणि हटवून वेळ व गोंधळ टाळतो</string>
+    <string name="filter_duplicate_description3" translatable="false">अनावश्यक फाइल्सची प्रतिकृती काढून स्टोरेज स्पेस कमी करतो.</string>
+    <string name="filter_duplicate_title" translatable="false">डुप्लिकेट फिल्टर</string>
+    <string name="freeTrail">तुमची फ्री 3 दिवसांची ट्रायल समाप्त झाल्यावर स्वयंचलितपणे वार्षिक सदस्यता मध्ये रूपांतरित केली जाईल</string>
+    <string name="glad_to_see_you">तुम्हाला पाहून आनंद झाला!</string>
+    <string name="go_premium" translatable="false">प्रीमियममध्ये जा</string>
+    <string name="lyrics_description1" translatable="false">ऑनलाइन गाण्यांसह अमर्याद संगीत पुनरावलोकन</string>
+    <string name="lyrics_description2" translatable="false">तुमच्या आवडत्या गाण्यांच्या शब्दांनुसार सहजपणे अनुसरण करा.</string>
+    <string name="lyrics_description3" translatable="false">ऑनलाइन आणि ऑफलाइन संगीत अनुभव वाढवा.</string>
+    <string name="lyrics_title" translatable="false">गीत</string>
+    <string name="made_in_india" translatable="false">भारतामध्ये बनवलेले</string>
+    <string name="new_billing_info" translatable="false">तुमचा फ्री ट्रायल समाप्त झाल्यावर तो स्वयंचलितपणे वार्षिक सदस्यता मध्ये रूपांतरित होईल. "सदस्यता आता" वर टॅप केल्यावर तुमचा पॅकेज स्वयंचलितपणे समान किंमतीसह नूतनीकरण होईल जोपर्यंत तुम्ही Google Play स्टोअरच्या सेटिंगमधून ते रद्द करत नाही.</string>
+    <string name="new_features_in_premium" translatable="false">म्हणजेच शानदार प्रीमियम सौद्यांपासून वंचित राहू नका</string>
+    <string name="new_update_to_premium" translatable="false">प्रीमियम वैशिष्ट्य अनलॉक करा</string>
+    <string name="premium_offers" translatable="false">प्रीमियम ऑफर</string>
+    <string name="premium_text" translatable="false">प्रीमियम वैशिष्ट्ये तुमची वाट पाहत आहेत!
+    \nप्रीमियम अनुभव अनलॉक करा
+    </string>
+    <string name="recuringanytime" translatable="false">स्वयंचलित नूतनीकरण, कधीही रद्द करा.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 दिवसांची फ्री ट्रायल</string>
+    <string name="remove_ads" translatable="false">प्रीमियम आवृत्ती वापरून जाहिराती हटवा</string>
+    <string name="restore">पुनर्संचयित करा</string>
+    <string name="restore_purchase" translatable="false">खरेदी पुनर्संचयित करा</string>
+    <string name="restore_purchase_error" translatable="false">ओह, खेद!
+    \nतुम्ही अद्याप प्रीमियम आवृत्तीत उन्नत केलेले नाही</string>
+    <string name="restore_purchase_success" translatable="false">यशस्वीपणे पुनर्संचयित झाले!
+    \nतुम्हाला प्रीमियम वापरकर्त्या म्हणून पाहून आनंद झाला</string>
+    <string name="scan_doc_access_premium_features">डॉक्युमेंट स्कॅन - प्रीमियम वैशिष्ट्यांमध्ये प्रवेश करा</string>
+    <string name="terms_of_use">वापराच्या अटी</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">20+ प्रीमियम थीम्स आपल्या अ‍ॅपला बदलण्यासाठी.</string>
+    <string name="themes_description2" translatable="false">आपल्या अ‍ॅपचा लूक आणि फील वैयक्तिकृत करा.</string>
+    <string name="themes_description3" translatable="false">ग्रेडियंट किंवा डार्क मोड थीम्स वापरून डोळ्यांचा ताण कमी करा.</string>
+    <string name="themes_title" translatable="false">थीम्स</string>
+    <string name="trash_description1" translatable="false">फोटोज किंवा व्हिडिओसारख्या नको असलेल्या फाइल्स सहजपणे हटवा.</string>
+    <string name="trash_description2" translatable="false">तुमच्या स्टोरेज स्पेसला व्यवस्थित आणि गोंधळ-मुक्त ठेवा.</string>
+    <string name="trash_description3" translatable="false">चुकून हटवलेल्या फाइल्सपासून संरक्षणासाठी सुरक्षा जाळी प्रदान करते.</string>
+    <string name="trash_title" translatable="false">ट्रॅश</string>
+    <string name="unlimited_high_quality_downloads">अमर्यादित उच्च-गुणवत्तेचे डाउनलोड</string>
+    <string name="upcoming" translatable="false">उपलब्ध</string>
+    <string name="upcoming_feature_description" translatable="false">प्रीमियम आवृत्ती तुम्हाला आगामी विशेष वैशिष्ट्यांचे पूर्व-प्रवेश आणि आनंद घेण्याचे लाभ प्रदान करते.</string>
+    <string name="upcoming_feature_title" translatable="false">उपलब्ध वैशिष्ट्य</string>
+    <string name="update_to_premium" translatable="false">प्रीमियमवर अपडेट करा</string>
+</resources>

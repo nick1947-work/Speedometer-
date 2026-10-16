@@ -1,0 +1,106 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    // id 'maven-publish'
+}
+
+//group = 'com.github.jitpack'
+//version = '1.0'
+
+android {
+    compileSdkVersion 35
+    namespace 'com.creation.core_pulgin'
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 35
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+        freeCompilerArgs += ["-Xskip-metadata-version-check"]
+    }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+
+    //Gson : replace it with moshi later on
+    api 'com.google.code.gson:gson:2.10.1'
+
+    //Google Play Billing Library
+    def billing_version = "8.0.0"
+    api("com.android.billingclient:billing:$billing_version")
+
+    //Dagger - Hilt
+    def hilt_version = "2.51.1"
+    def room_version = "2.6.1"
+    api "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "androidx.hilt:hilt-compiler:1.2.0"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation 'androidx.activity:activity-ktx:1.6.1'
+
+    def lifecycle_version = "2.5.1"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    api platform('com.google.firebase:firebase-bom:32.7.0')
+    api 'com.google.firebase:firebase-config-ktx'
+    api 'com.google.firebase:firebase-analytics-ktx'
+    // Room
+    api "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // Kotlin Extensions and Coroutines support for Room
+    api "androidx.room:room-ktx:$room_version"
+
+
+
+
+
+    //  kapt "org.xerial:sqlite-jdbc:3.34.0"
+
+    api 'com.airbnb.android:lottie:6.0.0'
+
+
+}
+
+//For making lib as dependency
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.jitpack'
+//                artifactId = 'android-example'
+//                version = '1.0'
+//            }
+//        }
+//    }
+//}

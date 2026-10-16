@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Πρόσβαση σε χρήση χωρίς διαφημίσεις</string>
+    <string name="ad_free_description1" translatable="false">Απολαύστε βασικές δυνατότητες χωρίς ενοχλητικές διαφημίσεις.</string>
+    <string name="ad_free_description2" translatable="false">Επιταχύνει το χρόνο φόρτωσης σελίδων και βελτιώνει την συνολική απόδοση.</string>
+    <string name="ad_free_description3" translatable="false">Μειώνει τη χρήση δεδομένων και ενδεχομένως εξοικονομεί τα κινητά σας δεδομένα.</string>
+    <string name="ad_free_title" translatable="false">Χωρίς Διαφημίσεις</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">Η δωρεάν δοκιμή σας θα μετατραπεί αυτόματα σε ετήσια συνδρομή μετά την ολοκλήρωσή της. Επίσης, με την επιλογή "Αναβάθμιση", η συνδρομή σας θα ανανεώνεται αυτόματα για την ίδια διάρκεια με την ίδια τιμή, μέχρι να την ακυρώσετε από τις ρυθμίσεις στο Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Με την επιλογή "Συνέχεια", η πληρωμή σας θα χρεωθεί στον λογαριασμό σας Google Play και η συνδρομή σας θα ανανεώνεται αυτόματα για την ίδια διάρκεια με την ίδια τιμή μέχρι να την ακυρώσετε από τις ρυθμίσεις του Google Play Store.</string>
+    <string name="continue_purchase" translatable="false">Συνέχεια</string>
+    <string name="continuew">Συνέχεια</string>
+    <string name="create_unlimited_notes">Δημιουργία απεριόριστων σημειώσεων</string>
+    <string name="crop_description1" translatable="false">Προσαρμόστε το μέγεθος και την αναλογία πλευρών εικόνων ή βίντεο.</string>
+    <string name="crop_description2" translatable="false">Βελτιώστε τη σύνθεση και αφαιρέστε ανεπιθύμητα στοιχεία από μια φωτογραφία ή βίντεο.</string>
+    <string name="crop_description3" translatable="false">Εξοικονομήστε χώρο αποθήκευσης μειώνοντας το μέγεθος αρχείων εικόνας ή βίντεο.</string>
+    <string name="crop_title" translatable="false">Εκτύπωση</string>
+    <string name="enjoy_premium">Απολαύστε το Premium</string>
+    <string name="features_in_premium" translatable="false">Δυνατότητες στην Premium</string>
+    <string name="filter_duplicate_description1" translatable="false">Απεριόριστη χρήση για μια ζωή για να προστατεύσετε τη συσκευή σας από διπλότυπα αρχεία</string>
+    <string name="filter_duplicate_description2" translatable="false">Βοηθά να εξοικονομήσετε χρόνο και να αποφύγετε τη σύγχυση εντοπίζοντας και αφαιρώντας διπλότυπα αρχεία</string>
+    <string name="filter_duplicate_description3" translatable="false">Μειώνει τον απαιτούμενο χώρο αποθήκευσης αφαιρώντας ανεπιθύμητα αντίγραφα αρχείων.</string>
+    <string name="filter_duplicate_title" translatable="false">Φιλτράρισμα Διπλότυπων</string>
+    <string name="freeTrail">Η δωρεάν δοκιμή 3 ημερών σας θα μετατραπεί αυτόματα σε ετήσια συνδρομή μετά την ολοκλήρωσή της</string>
+    <string name="glad_to_see_you">Χαίρομαι που σας βλέπω!</string>
+    <string name="go_premium" translatable="false">Αναβάθμιση σε Premium</string>
+    <string name="lyrics_description1" translatable="false">Απεριόριστη αναπαραγωγή μουσικής με online στίχους</string>
+    <string name="lyrics_description2" translatable="false">Ακολουθήστε εύκολα τις λέξεις των αγαπημένων σας τραγουδιών.</string>
+    <string name="lyrics_description3" translatable="false">Βελτιώστε την εμπειρία μουσικής σας online και offline.</string>
+    <string name="lyrics_title" translatable="false">Στίχοι</string>
+    <string name="made_in_india" translatable="false">Κατασκευασμένο στην Ινδία</string>
+    <string name="new_billing_info" translatable="false">Η δωρεάν δοκιμή σας θα μετατραπεί αυτόματα σε ετήσια συνδρομή μετά την ολοκλήρωσή της. Επίσης, με την επιλογή "Συνδρομή Τώρα" το Πακέτο σας θα ανανεώνεται αυτόματα στην ίδια τιμή μέχρι να το ακυρώσετε από τις ρυθμίσεις του Google Play Store.</string>
+    <string name="new_features_in_premium" translatable="false">Μην χάσετε τις υπέροχες προσφορές Premium</string>
+    <string name="new_update_to_premium" translatable="false">Ξεκλειδώστε\n Premium Δυνατότητα</string>
+    <string name="premium_offers" translatable="false">Προσφορές Premium</string>
+    <string name="premium_text" translatable="false">Οι premium δυνατότητες σας περιμένουν!
+    \nΞεκλειδώστε την εμπειρία Premium
+    </string>
+    <string name="recuringanytime" translatable="false">Επαναλαμβανόμενη χρέωση, ακυρώστε οποιαδήποτε στιγμή.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Δωρεάν δοκιμή 3 ημερών</string>
+    <string name="remove_ads" translatable="false">Δοκιμάστε την Premium έκδοση και αφαιρέστε τις διαφημίσεις</string>
+    <string name="restore">Ανάκτηση</string>
+    <string name="restore_purchase" translatable="false">Ανάκτηση αγοράς</string>
+    <string name="restore_purchase_error" translatable="false">Oops, συγνώμη!
+    \nΔεν έχετε αναβαθμίσει ακόμα στην premium έκδοση</string>
+    <string name="restore_purchase_success" translatable="false">Ανακτήθηκε επιτυχώς!
+    \nΧαίρομαι που σας βλέπω ως Premium χρήστη</string>
+    <string name="scan_doc_access_premium_features">Σάρωση εγγράφου - Πρόσβαση σε premium δυνατότητες</string>
+    <string name="terms_of_use">Όροι χρήσης</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Πάνω από 20 premium θέματα για να τροποποιήσετε την εφαρμογή σας.</string>
+    <string name="themes_description2" translatable="false">Εξατομικεύστε την εμφάνιση και την αίσθηση της εφαρμογής σας.</string>
+    <string name="themes_description3" translatable="false">Μειώστε την καταπόνηση των ματιών με τη χρήση θεμάτων gradient ή σκοτεινού mode.</string>
+    <string name="themes_title" translatable="false">Θέματα</string>
+    <string name="trash_description1" translatable="false">Διαγράψτε εύκολα ανεπιθύμητα αρχεία όπως φωτογραφίες ή βίντεο.</string>
+    <string name="trash_description2" translatable="false">Διατηρεί οργανωμένο τον αποθηκευτικό σας χώρο και απαλλαγμένο από ακαταστασία.</string>
+    <string name="trash_description3" translatable="false">Αποτρέπει την τυχαία διαγραφή αρχείων παρέχοντας ένα δίχτυ ασφαλείας.</string>
+    <string name="trash_title" translatable="false">Κάδος Αχρήστων</string>
+    <string name="unlimited_high_quality_downloads">Απεριόριστες λήψεις υψηλής ποιότητας</string>
+    <string name="upcoming" translatable="false">Επερχόμενο</string>
+    <string name="upcoming_feature_description" translatable="false">Η Premium έκδοση σας προσφέρει τα οφέλη της εξερεύνησης και απόλαυσης πρώιμης πρόσβασης σε αποκλειστικές επερχόμενες λειτουργίες.</string>
+    <string name="upcoming_feature_title" translatable="false">Επερχόμενη Λειτουργία</string>
+    <string name="update_to_premium" translatable="false">Αναβάθμιση σε Premium</string>
+</resources>

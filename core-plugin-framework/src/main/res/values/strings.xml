@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name" >AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Premium offers</string>
+    <string name="billing_info"> Your free trial will be automatically converted to a yearly subscription after it ends.
+Also, by tapping "Upgrade", your subscription will automatically renew for the same package length at the same price until you cancel it from the settings in Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Your free trial will be automatically converted to a yearly subscription after it ends. Also, by tapping \"Subscription Now\" your Package will be renewed automatically at the same price until you cancel it from the setting in Google Play Store
+     </string>
+    <string name="billing_info_config" translatable="false">By tapping "Continue", your payment will be charged to your Google Play account and your subscription will automatically renew for the same package length at the same price until you cancel it from the Google Play store settings.</string>
+
+
+    <string name="remove_ads" translatable="false">Try Premium version and Remove Ad</string>
+    <string name="made_in_india" translatable="false">Made in India</string>
+    <string name="recuringanytime" translatable="false">Recurring billing, cancel anytime.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 Day Free Trial</string>
+
+    <!--Iap subscription string constants-->
+
+    <string name="themes_title" translatable="false">Themes</string>
+    <string name="themes_description1" translatable="false">20+ premium themes to modify your app.</string>
+    <string name="themes_description2" translatable="false">Personalize the look and feel of your app.</string>
+    <string name="themes_description3" translatable="false">Reduce eye strain with the use of gradient or dark mode themes.</string>
+
+    <string name="trash_title" translatable="false">Trash</string>
+    <string name="trash_description1" translatable="false">Easily delete unwanted files like photos or videos.</string>
+    <string name="trash_description2" translatable="false">Keeps your storage space organized and clutter-free.</string>
+    <string name="trash_description3" translatable="false">Prevents accidentally deleted files by providing a safety net.</string>
+
+    <string name="ad_free_title" translatable="false">Ad-free</string>
+    <string name="ad_free_description1" translatable="false">Enjoy prime features without any disturbing ads.</string>
+    <string name="ad_free_description2" translatable="false">Speeds up page loading time and improves overall performance.</string>
+    <string name="ad_free_description3" translatable="false">Reduce data usage and potentially save your mobile data.</string>
+
+    <string name="crop_title" translatable="false">Crop</string>
+    <string name="crop_description1" translatable="false">Adjust the size and aspect ratio of images or videos.</string>
+    <string name="crop_description2" translatable="false">Improve composition and remove unwanted elements from a photo or video.</string>
+    <string name="crop_description3" translatable="false">Saves storage space by reducing the file size of large images or videos.</string>
+
+    <string name="lyrics_title" translatable="false">Lyrics</string>
+    <string name="lyrics_description1" translatable="false">Unlimited music playback with online lyrics</string>
+    <string name="lyrics_description2" translatable="false">Easily follow along with the words to your favorite songs.</string>
+    <string name="lyrics_description3" translatable="false">Boost your online and offline music experience.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Filter duplicate</string>
+    <string name="filter_duplicate_description1" translatable="false">Unlimited usage for a lifetime to secure your device from duplicate files</string>
+    <string name="filter_duplicate_description2" translatable="false">Helps you save time, and avoid confusion by identifying &amp; removing duplicate files</string>
+    <string name="filter_duplicate_description3" translatable="false">Reduces the amount of storage space needed by eliminating unwanted copies of files.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Upcoming Feature</string>
+    <string name="upcoming_feature_description" translatable="false">Premium version offers you the benefits to explore and enjoy early access to upcoming exclusive features.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Premium features are awaiting !
+    \nUnlock the premium experience
+    </string>
+
+    <string name="restore_purchase" translatable="false">Restore your purchase</string>
+
+    <string name="restore_purchase_success" translatable="false">Successfully restored!
+    \nGlad to see you as a Premium user</string>
+
+    <string name="restore_purchase_error" translatable="false">Oops Sorry!
+    \nYou\'ve not upgraded to premium version yet</string>
+
+    <string name="continue_purchase" translatable="false">Continue</string>
+    <string name="go_premium" translatable="false">Go Premium</string>
+    <string name="update_to_premium" translatable="false">Update to Premium</string>
+    <string name="features_in_premium" translatable="false">Features in premium</string>
+    <string name="upcoming" translatable="false">Upcoming</string>
+    <string name="new_update_to_premium" translatable="false">Unlock \nPremium Feature</string>
+    <string name="new_features_in_premium" translatable="false">Don\'t miss out on Great Premium deals</string>
+    <string name="freeTrail">Your Free 3 Day Trial will be automatically converted to \nyearly Subscription after it ends</string>
+    <string name="scan_doc_access_premium_features">Scan Doc- Access premium features</string>
+    <string name="access_ads_free_usage">Enjoy Ad-free app</string>
+    <string name="create_unlimited_notes">Create Unlimited Notes</string>
+    <string name="continuew">Continue</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="terms_and_condition">Terms and condition</string>
+    <string name="restore">Restore</string>
+    <string name="unlimited_high_quality_downloads">Unlimited High-quality Downloads</string>
+    <string name="glad_to_see_you">Enjoy Your Premium!</string>
+    <string name="enjoy_premium">Enjoy Premium</string>
+    <string name="access_all_premium_features">Access all Premium features</string>
+    <string name="access_all_feature">Access All Feature</string>
+    <string name="use_all_premium_features_without_any_restriction">use all premium features without any restriction</string>
+
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">اشہارات سے پاک استعمال تک رسائی حاصل کریں</string>
+    <string name="ad_free_description1" translatable="false">بے مزاحمت اشتہارات کے ساتھ اعلیٰ خصوصیات سے لطف اندوز ہوں۔</string>
+    <string name="ad_free_description2" translatable="false">صفحے کے لوڈ ہونے کے وقت کو تیز کرتا ہے اور مجموعی کارکردگی کو بہتر بناتا ہے۔</string>
+    <string name="ad_free_description3" translatable="false">ڈیٹا کا استعمال کم کرتا ہے اور ممکنہ طور پر آپ کے موبائل ڈیٹا کو بچاتا ہے۔</string>
+    <string name="ad_free_title" translatable="false">اشہارات سے پاک</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">آپ کی مفت آزمائش کے ختم ہونے کے بعد اسے خودبخود ایک سالانہ رکنیت میں تبدیل کر دیا جائے گا۔ نیز، "اپ گریڈ" پر ٹیپ کرکے، آپ کی رکنیت خودبخود اسی پیکج کی مدت کے لئے تجدید ہو جائے گی اسی قیمت پر جب تک کہ آپ اسے Google Play Store کی ترتیبات سے منسوخ نہ کریں۔</string>
+    <string name="billing_info_config" translatable="false">"جاری رکھیں" پر ٹیپ کرکے، آپ کی ادائیگی آپ کے Google Play اکاؤنٹ سے چارج کی جائے گی اور آپ کی رکنیت خودبخود اسی پیکج کی مدت کے لئے تجدید ہو جائے گی اسی قیمت پر جب تک کہ آپ اسے Google Play Store کی ترتیبات سے منسوخ نہ کریں۔</string>
+    <string name="continue_purchase" translatable="false">جاری رکھیں</string>
+    <string name="continuew">جاری رکھیں</string>
+    <string name="create_unlimited_notes">لامحدود نوٹس بنائیں</string>
+    <string name="crop_description1" translatable="false">تصاویر یا ویڈیوز کے سائز اور پہلو کے تناسب کو ایڈجسٹ کریں۔</string>
+    <string name="crop_description2" translatable="false">تصویر یا ویڈیو سے غیر ضروری عناصر کو ہٹا کر کمپوزیشن کو بہتر بنائیں۔</string>
+    <string name="crop_description3" translatable="false">بڑی تصاویر یا ویڈیوز کی فائل کے حجم کو کم کرکے اسٹوریج کی جگہ بچاتا ہے۔</string>
+    <string name="crop_title" translatable="false">کٹائی</string>
+    <string name="enjoy_premium">پریمیم کا لطف اٹھائیں</string>
+    <string name="features_in_premium" translatable="false">پریمیم میں خصوصیات</string>
+    <string name="filter_duplicate_description1" translatable="false">ڈپلیکیٹ فائلوں سے اپنے آلہ کی حفاظت کے لئے زندگی بھر کی لامحدود استعمال</string>
+    <string name="filter_duplicate_description2" translatable="false">وقت کی بچت کرتا ہے اور فائلوں کے ڈپلیکیٹس کو شناخت کر کے اور ہٹا کر الجھن سے بچاتا ہے</string>
+    <string name="filter_duplicate_description3" translatable="false">غیر ضروری فائلوں کی کاپیوں کو ختم کرکے ذخیرہ کرنے کی جگہ کم کرتا ہے۔</string>
+    <string name="filter_duplicate_title" translatable="false">ڈپلیکیٹ فلٹر</string>
+    <string name="freeTrail">آپ کی مفت 3 دن کی آزمائش کے اختتام پر اسے خودبخود سالانہ رکنیت میں تبدیل کر دیا جائے گا</string>
+    <string name="glad_to_see_you">آپ کو دیکھ کر خوشی ہوئی!</string>
+    <string name="go_premium" translatable="false">پریمیم پر جائیں</string>
+    <string name="lyrics_description1" translatable="false">آن لائن بول کے ساتھ لامحدود موسیقی پلے بیک</string>
+    <string name="lyrics_description2" translatable="false">اپنی پسندیدہ گانوں کے الفاظ کے ساتھ آسانی سے پیچھے چلیں۔</string>
+    <string name="lyrics_description3" translatable="false">آپ کے آن لائن اور آف لائن موسیقی کے تجربے کو بہتر بناتا ہے۔</string>
+    <string name="lyrics_title" translatable="false">گانے کے بول</string>
+    <string name="made_in_india" translatable="false">ہندوستان میں بنایا گیا</string>
+    <string name="new_billing_info" translatable="false">آپ کی مفت آزمائش کے ختم ہونے کے بعد اسے خودبخود ایک سالانہ رکنیت میں تبدیل کر دیا جائے گا۔ نیز، "سبسکرپشن ناؤ" پر ٹیپ کرکے، آپ کا پیکج خودبخود اسی قیمت پر تجدید ہو جائے گا جب تک کہ آپ اسے Google Play Store کی ترتیبات سے منسوخ نہ کریں۔</string>
+    <string name="new_features_in_premium" translatable="false">عمدہ پریمیم ڈیلز کو مت چھوڑیں</string>
+    <string name="new_update_to_premium" translatable="false">پریمیم خصوصیات کو انلاک کریں</string>
+    <string name="premium_offers" translatable="false">پریمیم آفرز</string>
+    <string name="premium_text" translatable="false">پریمیم خصوصیات کا انتظار ہے!
+    \nپریمیم تجربے کو انلاک کریں
+    </string>
+    <string name="recuringanytime" translatable="false">دوران بلنگ، کسی بھی وقت منسوخ کریں۔</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 دن کی مفت آزمائش</string>
+    <string name="remove_ads" translatable="false">پریمیم ورژن آزمائیں اور اشتہارات ہٹائیں</string>
+    <string name="restore">بحال کریں</string>
+    <string name="restore_purchase" translatable="false">اپنی خریداری کو بحال کریں</string>
+    <string name="restore_purchase_error" translatable="false">افسوس!
+    \nآپ نے ابھی تک پریمیم ورژن میں اپ گریڈ نہیں کیا ہے</string>
+    <string name="restore_purchase_success" translatable="false">کامیابی کے ساتھ بحال کیا گیا!
+    \nآپ کو پریمیم صارف دیکھ کر خوشی ہوئی</string>
+    <string name="scan_doc_access_premium_features">دستاویز سکین کریں - پریمیم خصوصیات تک رسائی حاصل کریں</string>
+    <string name="terms_of_use">استعمال کی شرائط</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">20+ پریمیم تھیمز آپ کی ایپ کو ترمیم کرنے کے لئے۔</string>
+    <string name="themes_description2" translatable="false">اپنی ایپ کی شکل اور احساس کو ذاتی بنائیں۔</string>
+    <string name="themes_description3" translatable="false">گرادیئنٹ یا ڈارک موڈ تھیمز کا استعمال کرکے آنکھوں پر دباؤ کم کریں۔</string>
+    <string name="themes_title" translatable="false">تھیمز</string>
+    <string name="trash_description1" translatable="false">بے کار فائلوں جیسے فوٹوز یا ویڈیوز کو آسانی سے حذف کریں۔</string>
+    <string name="trash_description2" translatable="false">آپ کی اسٹوریج کی جگہ کو منظم اور بے ترتیبی سے پاک رکھتا ہے۔</string>
+    <string name="trash_description3" translatable="false">حادثاتی طور پر حذف شدہ فائلوں کو روکنے کے لئے ایک حفاظتی نیٹ فراہم کرتا ہے۔</string>
+    <string name="trash_title" translatable="false">کچرا</string>
+    <string name="unlimited_high_quality_downloads">لامحدود اعلیٰ معیار کی ڈاؤن لوڈز</string>
+    <string name="upcoming" translatable="false">آنے والا</string>
+    <string name="upcoming_feature_description" translatable="false">پریمیم ورژن آپ کو آنے والی خصوصی خصوصیات تک رسائی حاصل کرنے اور لطف اندوز ہونے کے فوائد فراہم کرتا ہے۔</string>
+    <string name="upcoming_feature_title" translatable="false">آنے والی خصوصیت</string>
+    <string name="update_to_premium" translatable="false">پریمیم میں اپ ڈیٹ کریں</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">גש לשימוש ללא פרסומות</string>
+    <string name="ad_free_description1" translatable="false">תהנה מתכונות עיקריות ללא פרסומות מטרידות.</string>
+    <string name="ad_free_description2" translatable="false">מאיץ את זמן טעינת הדפים ומשפר את הביצועים הכוללים.</string>
+    <string name="ad_free_description3" translatable="false">מקטין את השימוש בנתונים ועשוי לחסוך את הנתונים הניידים שלך.</string>
+    <string name="ad_free_title" translatable="false">ללא פרסומות</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">הניסיון החינמי שלך יתוגמל אוטומטית למנוי שנתי לאחר סיומו. בנוסף, על ידי לחיצה על "שדרג", המנוי שלך יתחדש אוטומטית באותו מחיר ובאותו אורך חבילה עד שתבטל אותו מההגדרות בחנות Google Play.</string>
+    <string name="billing_info_config" translatable="false">בלחיצה על "המשך", החיוב ייגבה מחשבון Google Play שלך והמנוי שלך יתחדש אוטומטית באותו מחיר ובאותו אורך חבילה עד שתבטל אותו מההגדרות בחנות Google Play.</string>
+    <string name="continue_purchase" translatable="false">המשך</string>
+    <string name="continuew">המשך</string>
+    <string name="create_unlimited_notes">צור הערות בלתי מוגבלות</string>
+    <string name="crop_description1" translatable="false">התאם את הגודל ואת יחס התמונה של תמונות או סרטונים.</string>
+    <string name="crop_description2" translatable="false">שפר את הקומפוזיציה והסר אלמנטים לא רצויים מתמונה או סרטון.</string>
+    <string name="crop_description3" translatable="false">חסוך מקום אחסון על ידי הפחתת גודל הקובץ של תמונות או סרטונים גדולים.</string>
+    <string name="crop_title" translatable="false">חיתוך</string>
+    <string name="enjoy_premium">תהנה מהגרסה הפרימיום</string>
+    <string name="features_in_premium" translatable="false">תכונות בפרימיום</string>
+    <string name="filter_duplicate_description1" translatable="false">שימוש בלתי מוגבל לכל החיים כדי להגן על המכשיר שלך מקבצים כפולים</string>
+    <string name="filter_duplicate_description2" translatable="false">עוזר לך לחסוך זמן ולהימנע מבלבול על ידי זיהוי והסרה של קבצים כפולים</string>
+    <string name="filter_duplicate_description3" translatable="false">מפחית את כמות מקום האחסון הנדרש על ידי הסרת עותקים לא רצויים של קבצים.</string>
+    <string name="filter_duplicate_title" translatable="false">סנן כפילויות</string>
+    <string name="freeTrail">הניסיון החינמי שלך ל-3 ימים יומר אוטומטית למנוי שנתי לאחר סיומו</string>
+    <string name="glad_to_see_you">שמחים לראותך!</string>
+    <string name="go_premium" translatable="false">עבור לפרימיום</string>
+    <string name="lyrics_description1" translatable="false">ניגון בלתי מוגבל עם מילים באינטרנט</string>
+    <string name="lyrics_description2" translatable="false">עקוב בקלות אחרי המילים לשירים האהובים עליך.</string>
+    <string name="lyrics_description3" translatable="false">שפר את חווית המוזיקה שלך באינטרנט ובאוף-ליין.</string>
+    <string name="lyrics_title" translatable="false">מילים לשיר</string>
+    <string name="made_in_india" translatable="false">תוצרת הודו</string>
+    <string name="new_billing_info" translatable="false">הניסיון החינמי שלך יתוגמל אוטומטית למנוי שנתי לאחר סיומו. בנוסף, על ידי לחיצה על "הירשם עכשיו", החבילה שלך תתחדש אוטומטית באותו מחיר עד שתבטל אותה מהגדרות חנות Google Play.</string>
+    <string name="new_features_in_premium" translatable="false">אל תפספס את העסקאות הפרימיום הגדולות</string>
+    <string name="new_update_to_premium" translatable="false">פתח \nתכונת פרימיום</string>
+    <string name="premium_offers" translatable="false">הצעות פרימיום</string>
+    <string name="premium_text" translatable="false">תכונות פרימיום מחכות לך!
+    \nפתח את חווית הפרימיום
+    </string>
+    <string name="recuringanytime" translatable="false">חיוב חוזר, ביטול בכל עת.</string>
+    <string name="recuringanytime_with_trial" translatable="false">ניסיון חינמי של 3 ימים</string>
+    <string name="remove_ads" translatable="false">נסה את הגרסה הפרימיום והסר את הפרסומות</string>
+    <string name="restore">שחזר</string>
+    <string name="restore_purchase" translatable="false">שחזר את הרכישה שלך</string>
+    <string name="restore_purchase_error" translatable="false">אופס סליחה!
+    \nלא שדרגת לגרסה פרימיום עדיין</string>
+    <string name="restore_purchase_success" translatable="false">שוחזר בהצלחה!
+    \nשמחים לראותך כמשתמש פרימיום</string>
+    <string name="scan_doc_access_premium_features">סרוק את המסמך - גש לתכונות פרימיום</string>
+    <string name="terms_of_use">תנאי שימוש</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">מעל 20 נושאים פרימיום לשינוי המראה של האפליקציה שלך.</string>
+    <string name="themes_description2" translatable="false">התאמה אישית של המראה והתחושה של האפליקציה שלך.</string>
+    <string name="themes_description3" translatable="false">הפחתת עייפות עיניים באמצעות נושאים עם גרדיאנט או מצב כהה.</string>
+    <string name="themes_title" translatable="false">נושאים</string>
+    <string name="trash_description1" translatable="false">מחק בקלות קבצים לא רצויים כמו תמונות או סרטונים.</string>
+    <string name="trash_description2" translatable="false">שומר על שטח האחסון שלך מאורגן וללא בלגן.</string>
+    <string name="trash_description3" translatable="false">מונע מחיקה בטעות של קבצים על ידי מתן רשת ביטחון.</string>
+    <string name="trash_title" translatable="false">פח אשפה</string>
+    <string name="unlimited_high_quality_downloads">הורדות באיכות גבוהה ללא הגבלה</string>
+    <string name="upcoming" translatable="false">בעתיד</string>
+    <string name="upcoming_feature_description" translatable="false">הגרסה הפרימיום מציעה לך את היתרונות של גישה מוקדמת לתכונות בלעדיות שעתידות להגיע.</string>
+    <string name="upcoming_feature_title" translatable="false">תכונה עתידית</string>
+    <string name="update_to_premium" translatable="false">שדרג לפרימיום</string>
+</resources>

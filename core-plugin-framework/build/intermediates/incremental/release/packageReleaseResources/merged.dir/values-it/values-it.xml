@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Accedi all\'uso senza pubblicità</string>
+    <string name="ad_free_description1" translatable="false">Goditi le funzionalità principali senza pubblicità fastidiose.</string>
+    <string name="ad_free_description2" translatable="false">Accelera i tempi di caricamento delle pagine e migliora le prestazioni complessive.</string>
+    <string name="ad_free_description3" translatable="false">Riduci l\'uso dei dati e risparmia potenzialmente i tuoi dati mobili.</string>
+    <string name="ad_free_title" translatable="false">Senza pubblicità</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">La tua prova gratuita verrà automaticamente convertita in un abbonamento annuale al termine. Inoltre, toccando "Aggiorna", il tuo abbonamento si rinnoverà automaticamente per la stessa durata del pacchetto allo stesso prezzo fino a quando non lo annullerai dalle impostazioni di Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Toccando "Continua", il tuo pagamento sarà addebitato sul tuo account Google Play e il tuo abbonamento si rinnoverà automaticamente per la stessa durata del pacchetto allo stesso prezzo fino a quando non lo annullerai dalle impostazioni del Google Play Store.</string>
+    <string name="continue_purchase" translatable="false">Continua</string>
+    <string name="continuew">Continua</string>
+    <string name="create_unlimited_notes">Crea note illimitate</string>
+    <string name="crop_description1" translatable="false">Regola le dimensioni e il rapporto di aspetto di immagini o video.</string>
+    <string name="crop_description2" translatable="false">Migliora la composizione e rimuovi elementi indesiderati da una foto o un video.</string>
+    <string name="crop_description3" translatable="false">Risparmia spazio di archiviazione riducendo la dimensione del file di immagini o video grandi.</string>
+    <string name="crop_title" translatable="false">Ritaglio</string>
+    <string name="enjoy_premium">Goditi il Premium</string>
+    <string name="features_in_premium" translatable="false">Funzionalità in premium</string>
+    <string name="filter_duplicate_description1" translatable="false">Utilizzo illimitato a vita per proteggere il tuo dispositivo dai file duplicati</string>
+    <string name="filter_duplicate_description2" translatable="false">Aiuta a risparmiare tempo e ad evitare confusione identificando e rimuovendo file duplicati</string>
+    <string name="filter_duplicate_description3" translatable="false">Riduce la quantità di spazio di archiviazione necessario eliminando copie non desiderate di file.</string>
+    <string name="filter_duplicate_title" translatable="false">Filtra duplicati</string>
+    <string name="freeTrail">La tua prova gratuita di 3 giorni verrà automaticamente convertita in \nabbonamento annuale al termine</string>
+    <string name="glad_to_see_you">Felice di vederti!</string>
+    <string name="go_premium" translatable="false">Passa a Premium</string>
+    <string name="lyrics_description1" translatable="false">Riproduzione musicale illimitata con testi online</string>
+    <string name="lyrics_description2" translatable="false">Segui facilmente le parole delle tue canzoni preferite.</string>
+    <string name="lyrics_description3" translatable="false">Migliora la tua esperienza musicale online e offline.</string>
+    <string name="lyrics_title" translatable="false">Testi</string>
+    <string name="made_in_india" translatable="false">Prodotto in India</string>
+    <string name="new_billing_info" translatable="false">La tua prova gratuita verrà automaticamente convertita in un abbonamento annuale al termine. Inoltre, toccando "Abbonati ora" il tuo pacchetto verrà rinnovato automaticamente allo stesso prezzo fino a quando non lo annullerai dalle impostazioni di Google Play Store.</string>
+    <string name="new_features_in_premium" translatable="false">Non perdere le fantastiche offerte Premium</string>
+    <string name="new_update_to_premium" translatable="false">Sblocca \nFunzionalità Premium</string>
+    <string name="premium_offers" translatable="false">Offerte premium</string>
+    <string name="premium_text" translatable="false">Le funzionalità premium ti stanno aspettando!
+    \nSblocca l\'esperienza premium
+    </string>
+    <string name="recuringanytime" translatable="false">Fatturazione ricorrente, annulla in qualsiasi momento.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Prova gratuita di 3 giorni</string>
+    <string name="remove_ads" translatable="false">Prova la versione premium e rimuovi gli annunci</string>
+    <string name="restore">Ripristina</string>
+    <string name="restore_purchase" translatable="false">Ripristina il tuo acquisto</string>
+    <string name="restore_purchase_error" translatable="false">Oops Scusa!
+    \nNon hai ancora effettuato l\'upgrade alla versione Premium</string>
+    <string name="restore_purchase_success" translatable="false">Ripristinato con successo!
+    \nFelice di vederti come utente Premium</string>
+    <string name="scan_doc_access_premium_features">Scansiona il documento - Accedi alle funzionalità premium</string>
+    <string name="terms_of_use">Termini di utilizzo</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Oltre 20 temi premium per modificare la tua app.</string>
+    <string name="themes_description2" translatable="false">Personalizza l\'aspetto e la sensazione della tua app.</string>
+    <string name="themes_description3" translatable="false">Riduci l\'affaticamento degli occhi utilizzando temi a gradiente o modalità scura.</string>
+    <string name="themes_title" translatable="false">Temi</string>
+    <string name="trash_description1" translatable="false">Elimina facilmente file indesiderati come foto o video.</string>
+    <string name="trash_description2" translatable="false">Mantiene il tuo spazio di archiviazione organizzato e privo di ingombri.</string>
+    <string name="trash_description3" translatable="false">Prevenire la cancellazione accidentale dei file offrendo una rete di sicurezza.</string>
+    <string name="trash_title" translatable="false">Cestino</string>
+    <string name="unlimited_high_quality_downloads">Download illimitati ad alta qualità</string>
+    <string name="upcoming" translatable="false">In arrivo</string>
+    <string name="upcoming_feature_description" translatable="false">La versione premium ti offre i vantaggi di esplorare e godere dell\'accesso anticipato a funzionalità esclusive in arrivo.</string>
+    <string name="upcoming_feature_title" translatable="false">Funzionalità in arrivo</string>
+    <string name="update_to_premium" translatable="false">Aggiorna a Premium</string>
+</resources>

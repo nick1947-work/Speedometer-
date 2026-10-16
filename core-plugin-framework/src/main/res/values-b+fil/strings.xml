@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Mga Premium na Alok</string>
+    <string name="billing_info">Ang iyong libreng pagsubok ay awtomatikong magiging isang taunang subscription pagkatapos nitong matapos. Gayundin, sa pamamagitan ng pag-tap sa "I-upgrade", ang iyong subscription ay awtomatikong magre-renew para sa parehong package length sa parehong presyo hanggang sa kanselahin mo ito mula sa mga setting sa Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Ang iyong libreng pagsubok ay awtomatikong magiging isang taunang subscription pagkatapos nitong matapos. Gayundin, sa pamamagitan ng pag-tap sa "Subscription Now" ang iyong Package ay awtomatikong magre-renew sa parehong presyo hanggang sa kanselahin mo ito mula sa setting sa Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Sa pamamagitan ng pag-tap sa "Magpatuloy", ang iyong bayad ay sisingilin sa iyong Google Play account at ang iyong subscription ay awtomatikong magre-renew para sa parehong package length sa parehong presyo hanggang sa kanselahin mo ito mula sa mga setting ng Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Subukan ang Premium na bersyon at alisin ang mga ad</string>
+    <string name="made_in_india" translatable="false">Gawa sa India</string>
+    <string name="recuringanytime" translatable="false">Paulit-ulit na pagsingil, kanselahin anumang oras.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 Araw na Libreng Pagsubok</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Mga Tema</string>
+    <string name="themes_description1" translatable="false">Higit sa 20 premium na tema upang baguhin ang iyong app.</string>
+    <string name="themes_description2" translatable="false">I-personalize ang hitsura at pakiramdam ng iyong app.</string>
+    <string name="themes_description3" translatable="false">Bawasan ang pagkapagod sa mata gamit ang gradient o dark mode na mga tema.</string>
+
+    <string name="trash_title" translatable="false">Basurahan</string>
+    <string name="trash_description1" translatable="false">Madaling tanggalin ang mga hindi nais na file tulad ng mga larawan o video.</string>
+    <string name="trash_description2" translatable="false">Panatilihing maayos at walang kalat ang iyong puwang sa imbakan.</string>
+    <string name="trash_description3" translatable="false">Pinipigilan ang aksidenteng pagtanggal ng mga file sa pamamagitan ng pagbibigay ng safety net.</string>
+
+    <string name="ad_free_title" translatable="false">Walang Ads</string>
+    <string name="ad_free_description1" translatable="false">Tamasahin ang mga pangunahing tampok nang walang nakakainis na ads.</string>
+    <string name="ad_free_description2" translatable="false">Pabilis ang oras ng pag-load ng pahina at pinahusay ang pangkalahatang pagganap.</string>
+    <string name="ad_free_description3" translatable="false">Bawasan ang paggamit ng data at posibleng makatipid sa iyong mobile data.</string>
+
+    <string name="crop_title" translatable="false">I-crop</string>
+    <string name="crop_description1" translatable="false">I-adjust ang laki at aspeto ng mga larawan o video.</string>
+    <string name="crop_description2" translatable="false">Pagbutihin ang komposisyon at alisin ang mga hindi nais na elemento mula sa isang larawan o video.</string>
+    <string name="crop_description3" translatable="false">Nag-i-save ng puwang sa imbakan sa pamamagitan ng pagbabawas ng laki ng file ng malalaking larawan o video.</string>
+
+    <string name="lyrics_title" translatable="false">Mga Liriko</string>
+    <string name="lyrics_description1" translatable="false">Walang limitasyong pag-playback ng musika na may online na liriko</string>
+    <string name="lyrics_description2" translatable="false">Madaling sundan ang mga salita ng iyong mga paboritong kanta.</string>
+    <string name="lyrics_description3" translatable="false">Palakasin ang iyong karanasan sa musika online at offline.</string>
+
+    <string name="filter_duplicate_title" translatable="false">I-filter ang mga Duplicado</string>
+    <string name="filter_duplicate_description1" translatable="false">Walang limitasyong paggamit sa habang buhay upang protektahan ang iyong aparato mula sa mga duplicate na file</string>
+    <string name="filter_duplicate_description2" translatable="false">Tumutulong sa iyo na makatipid ng oras at maiwasan ang kalituhan sa pamamagitan ng pagtukoy at pagtanggal ng mga duplicate na file</string>
+    <string name="filter_duplicate_description3" translatable="false">Binabawasan ang dami ng puwang sa imbakan na kinakailangan sa pamamagitan ng pagtanggal ng mga hindi nais na kopya ng mga file.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Susunod na Tampok</string>
+    <string name="upcoming_feature_description" translatable="false">Nag-aalok ang bersyon ng Premium ng mga benepisyo upang mag-explore at tamasahin ang maagang pag-access sa mga eksklusibong tampok na darating.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Naghihintay ang mga premium na tampok!
+    \nI-unlock ang karanasang Premium
+    </string>
+
+    <string name="restore_purchase" translatable="false">Ibalik ang iyong pagbili</string>
+
+    <string name="restore_purchase_success" translatable="false">Matagumpay na naibalik!
+    \nMasaya kaming makita ka bilang isang Premium user</string>
+
+    <string name="restore_purchase_error" translatable="false">Ay, Pasensya na!
+    \nHindi ka pa nag-upgrade sa premium na bersyon</string>
+
+    <string name="continue_purchase" translatable="false">Magpatuloy</string>
+    <string name="go_premium" translatable="false">Pumunta sa Premium</string>
+    <string name="update_to_premium" translatable="false">Mag-update sa Premium</string>
+    <string name="features_in_premium" translatable="false">Mga Tampok sa Premium</string>
+    <string name="upcoming" translatable="false">Susunod</string>
+    <string name="new_update_to_premium" translatable="false">I-unlock\nTampok ng Premium</string>
+    <string name="new_features_in_premium" translatable="false">Huwag palampasin ang Magagandang Alok sa Premium</string>
+    <string name="freeTrail">Ang iyong Libreng 3 Araw na Pagsubok ay awtomatikong magiging taunang Subscription pagkatapos nitong matapos</string>
+    <string name="scan_doc_access_premium_features">I-scan ang Dokumento - Ma-access ang mga premium na tampok</string>
+    <string name="access_ads_free_usage">Ma-access ang paggamit na walang ads</string>
+    <string name="create_unlimited_notes">Lumikha ng Walang Limitasyong Tala</string>
+    <string name="continuew">Magpatuloy</string>
+    <string name="terms_of_use">Mga Tuntunin ng Paggamit</string>
+    <string name="restore">Ibalik</string>
+    <string name="unlimited_high_quality_downloads">Walang limitasyong Pag-download ng Mataas na Kalidad</string>
+    <string name="glad_to_see_you">Masaya kaming makita ka!</string>
+    <string name="enjoy_premium">Tamasahin ang Premium</string>
+</resources>

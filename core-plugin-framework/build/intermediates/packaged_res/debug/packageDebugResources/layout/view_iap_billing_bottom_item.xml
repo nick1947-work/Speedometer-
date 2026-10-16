@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent_white">
+
+
+        <LinearLayout
+            android:id="@+id/backgroundll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llTopHeader">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:id="@+id/llPacksContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/pack_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:animateLayoutChanges="false"
+                            android:clipToPadding="false"
+                            android:paddingVertical="@dimen/dimen_30_dp"
+                            android:paddingStart="0dp" />
+
+                        <Button
+                            android:id="@+id/btn_continue"
+                            android:layout_width="200dp"
+                            android:layout_height="@dimen/dimen_48_dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/dimen_16_dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_marginEnd="@dimen/dimen_16_dp"
+                            android:background="@drawable/shape_gradient_btn_bg_enabled"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:text="UPGRADE NOW"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_16_sp"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvContinueWithAds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/dimen_24_dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/dimen_6_dp"
+                            android:textStyle="bold"
+                            android:text="Restore"
+                            android:textColor="#A8A5A5"
+                            android:textSize="@dimen/dimen_18_sp" />
+
+                        <TextView
+                            android:paddingStart="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Terms of use"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:layout_marginTop="18dp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/billing_info"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:lineSpacingExtra="4dp"
+
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginTop="10dp"
+                            android:textStyle="bold"/>
+
+
+
+
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressBarCyclic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:indeterminateTint="#F1BF8A"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/dimen_100_dp"
+                        android:minWidth="50dp"
+                        android:minHeight="50dp" />
+
+                </FrameLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</merge>
+

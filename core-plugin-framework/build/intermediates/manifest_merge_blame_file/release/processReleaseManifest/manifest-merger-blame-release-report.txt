@@ -1,0 +1,58 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.creation.core_pulgin" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+6
+7    <uses-permission android:name="android.permission.INTERNET" />
+7-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:5:5-67
+7-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:5:22-64
+8    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+8-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:6:5-79
+8-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:6:22-76
+9    <uses-permission android:name="android.permission.WAKE_LOCK" />
+9-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:7:5-68
+9-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:7:22-65
+10
+11    <!-- Required only if your app needs to access in app products (IAP) -->
+12    <uses-permission android:name="com.android.vending.BILLING" />
+12-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:10:5-67
+12-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:10:22-64
+13
+14    <!-- <application android:name=".core.base.BaseApplication"> -->
+15    <application>
+15-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:13:5-37:19
+16
+17        <!-- Core Plugin test components registration begins -->
+18
+19
+20        <!-- In app Billing components registration begins -->
+21        <activity
+21-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:18:9-23:15
+22            android:name="com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingActivity"
+22-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:19:13-108
+23            android:label="IAP_Purchase"
+23-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:20:13-41
+24            android:screenOrientation="portrait"
+24-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:21:13-49
+25            android:theme="@style/Theme.AppFramework.Xml.Based" />
+25-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:22:13-64
+26        <activity
+26-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:25:9-30:15
+27            android:name="com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingPurchaseRestoreActivity"
+27-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:26:13-123
+28            android:label="IAP_Restore"
+28-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:27:13-40
+29            android:screenOrientation="portrait"
+29-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:28:13-49
+30            android:theme="@style/Theme.AppFramework.Xml.Based" />
+30-->/Users/nikhilrana/VideoPlayerApp/core-plugin-framework/src/main/AndroidManifest.xml:29:13-64
+31
+32        <!-- In app Billing components registration ends -->
+33
+34
+35        <!-- Core Plugin test components registration ends -->
+36
+37    </application>
+38
+39</manifest>

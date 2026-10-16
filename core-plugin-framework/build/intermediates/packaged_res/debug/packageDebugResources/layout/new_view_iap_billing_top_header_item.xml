@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+       >
+
+
+       <!-- <ImageView
+            android:layout_marginTop="@dimen/dimen_15_dp"
+            android:id="@+id/noAdImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_no_ads"
+            app:layout_constraintTop_toTopOf="parent" />
+
+-->
+
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:id="@+id/noAdImage"
+            android:elevation="2dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/crown_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+            android:layout_marginTop="@dimen/dimen_15_dp"
+             android:layout_width="50dp"
+            android:layout_height="50dp"
+        android:layout_marginEnd="@dimen/dimen_2_dp"
+        android:elevation="@dimen/dimen_1_dp"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+             app:layout_constraintStart_toEndOf="@+id/title"
+            android:src="@drawable/diamond"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+            app:layout_constraintTop_toTopOf="@+id/title" />
+
+
+
+
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/dimen_44_dp"
+            android:layout_height="@dimen/dimen_44_dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:layout_marginTop="@dimen/dimen_12_dp"
+            android:layout_marginLeft="@dimen/dimen_12_dp"
+            android:layoutDirection="ltr"
+            android:padding="@dimen/dimen_8_dp"
+            android:scaleType="centerCrop"
+            android:tint="@color/white"
+            android:src="@drawable/ic_cross_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/blur_black"
+            android:layout_marginEnd="@dimen/dimen_30_dp"
+            android:layout_marginTop="@dimen/dimen_36_dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/update_to_premium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_22_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose" />
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="@dimen/dimen_30_dp"
+            android:layout_marginTop="@dimen/dimen_6_dp"
+            android:text="@string/new_features_in_premium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_14_dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <!--    <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:paddingStart="40dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/king_crown"
+            android:layoutDirection="ltr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subTitle"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="@dimen/dimen_10_dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/blue_tick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:padding="5dp"
+                    android:text="@string/scan_doc_access_premium_features"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/dimen_14_dp"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+<!--
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10_dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/blue_tick" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:padding="5dp"
+                    android:textSize="@dimen/dimen_14_dp"
+                    android:text="@string/unlimited_high_quality_downloads"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/white"
+                     />
+            </LinearLayout>
+-->
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10_dp"
+             >
+
+                <ImageView
+                    android:id="@+id/ivAds"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_no_ads" />
+
+                <TextView
+                    android:id="@+id/tvAdFree"
+                    app:layout_constraintStart_toEndOf="@+id/ivAds"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:padding="5dp"
+                     android:text="Remove Ads"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/dimen_14_dp"
+                    android:textColor="@color/white"
+                     />
+
+
+                <TextView
+                    app:layout_constraintStart_toEndOf="@+id/ivAds"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAdFree"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/access_ads_free_usage"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/dimen_12_dp"
+                    android:textColor="@color/white"
+                     />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10_dp"
+                >
+
+                <ImageView
+                    android:id="@+id/ivpremium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:src="@drawable/diamond" />
+
+                <TextView
+                    android:id="@+id/tvPremFeatures"
+                    app:layout_constraintStart_toEndOf="@+id/ivpremium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:padding="5dp"
+                    android:text="@string/access_all_feature"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/dimen_14_dp"
+                    android:textColor="@color/white"
+                    />
+
+
+                <TextView
+                    app:layout_constraintStart_toEndOf="@+id/ivpremium"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPremFeatures"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/use_all_premium_features_without_any_restriction"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/dimen_12_dp"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

@@ -413,14 +413,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.ivCrown.setOnClickListener {
-            AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
-                .setTitle("👑 Speedometer VIP")
-                .setMessage("Upgrade to VIP for the ultimate experience:\n\n• 100% Ad-Free\n• HUD Windshield Mirror Mode\n• Unlimited GPX/KML Route Export\n• Offline Topo & Satellite Maps\n• Custom Theme Colors")
-                .setPositiveButton("Get VIP") { _, _ ->
-                    Toast.makeText(this, "VIP unlocked for testing!", Toast.LENGTH_SHORT).show()
-                }
-                .setNegativeButton("Maybe Later", null)
-                .show()
+            com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingActivity.launchForResult(
+                this,
+                com.creation.core_pulgin.payment.in_app_purchase.presentation.IapBillingActivity.RequestCode
+            )
         }
 
         binding.ivFloatingWindow.setOnClickListener {

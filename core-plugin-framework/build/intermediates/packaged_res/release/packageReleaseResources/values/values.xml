@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="black">#000000</color>
+    <color name="notes_goldencolor">#ffaf43</color>
+    <color name="premium_theme_purple">#594495</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparent_white">#00ffffff</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="dimen_0_dp">0dp</dimen>
+    <dimen name="dimen_100_dp">100dp</dimen>
+    <dimen name="dimen_107_dp">107dp</dimen>
+    <dimen name="dimen_108_dp">108dp</dimen>
+    <dimen name="dimen_109_sp">109sp</dimen>
+    <dimen name="dimen_10_dp">10dp</dimen>
+    <dimen name="dimen_116_dp">116</dimen>
+    <dimen name="dimen_11_dp">11dp</dimen>
+    <dimen name="dimen_11_sp">11sp</dimen>
+    <dimen name="dimen_120_dp">120dp</dimen>
+    <dimen name="dimen_123_dp">123dp</dimen>
+    <dimen name="dimen_12_dp">12dp</dimen>
+    <dimen name="dimen_12_sp">12sp</dimen>
+    <dimen name="dimen_138_dp">138dp</dimen>
+    <dimen name="dimen_13_sp">13sp</dimen>
+    <dimen name="dimen_145_dp">145dp</dimen>
+    <dimen name="dimen_148_dp">148dp</dimen>
+    <dimen name="dimen_14_dp">14dp</dimen>
+    <dimen name="dimen_14_sp">14sp</dimen>
+    <dimen name="dimen_15_dp">15dp</dimen>
+    <dimen name="dimen_15_sp">15sp</dimen>
+    <dimen name="dimen_16_dp">16dp</dimen>
+    <dimen name="dimen_16_sp">16sp</dimen>
+    <dimen name="dimen_172_dp">172dp</dimen>
+    <dimen name="dimen_17_dp">26dp</dimen>
+    <dimen name="dimen_18_dp">18dp</dimen>
+    <dimen name="dimen_18_sp">18sp</dimen>
+    <dimen name="dimen_195_dp">195dp</dimen>
+    <dimen name="dimen_196_dp">196dp</dimen>
+    <dimen name="dimen_198_dp">198dp</dimen>
+    <dimen name="dimen_1_dp">1dp</dimen>
+    <dimen name="dimen_20_dp">20dp</dimen>
+    <dimen name="dimen_20_sp">20sp</dimen>
+    <dimen name="dimen_22_dp">22dp</dimen>
+    <dimen name="dimen_22_sp">22sp</dimen>
+    <dimen name="dimen_23_dp">23dp</dimen>
+    <dimen name="dimen_24_dp">24dp</dimen>
+    <dimen name="dimen_24_sp">24sp</dimen>
+    <dimen name="dimen_25_dp">25dp</dimen>
+    <dimen name="dimen_26_dp">26dp</dimen>
+    <dimen name="dimen_275_dp">275dp</dimen>
+    <dimen name="dimen_28_dp">28dp</dimen>
+    <dimen name="dimen_28_sp">28sp</dimen>
+    <dimen name="dimen_2_dp">2dp</dimen>
+    <dimen name="dimen_30_dp">30dp</dimen>
+    <dimen name="dimen_30_sp">30sp</dimen>
+    <dimen name="dimen_32_dp">32dp</dimen>
+    <dimen name="dimen_32_sp">32sp</dimen>
+    <dimen name="dimen_34_dp">34dp</dimen>
+    <dimen name="dimen_356_dp">356dp</dimen>
+    <dimen name="dimen_365_dp">365dp</dimen>
+    <dimen name="dimen_36_dp">36dp</dimen>
+    <dimen name="dimen_3_dp">3dp</dimen>
+    <dimen name="dimen_404_dp">404dp</dimen>
+    <dimen name="dimen_40_dp">40dp</dimen>
+    <dimen name="dimen_414_dp">414dp</dimen>
+    <dimen name="dimen_44_dp">44dp</dimen>
+    <dimen name="dimen_48_dp">48dp</dimen>
+    <dimen name="dimen_4_dp">4dp</dimen>
+    <dimen name="dimen_52_dp">52dp</dimen>
+    <dimen name="dimen_56_dp">56dp</dimen>
+    <dimen name="dimen_5_dp">5dp</dimen>
+    <dimen name="dimen_60_dp">60dp</dimen>
+    <dimen name="dimen_64_dp">64dp</dimen>
+    <dimen name="dimen_66_dp">66dp</dimen>
+    <dimen name="dimen_68_dp">68dp</dimen>
+    <dimen name="dimen_6_dp">6dp</dimen>
+    <dimen name="dimen_70_dp">70dp</dimen>
+    <dimen name="dimen_72_dp">72dp</dimen>
+    <dimen name="dimen_736_dp">736dp</dimen>
+    <dimen name="dimen_76_dp">76dp</dimen>
+    <dimen name="dimen_7_sp">7sp</dimen>
+    <dimen name="dimen_8_dp">8dp</dimen>
+    <dimen name="dimen_90_dp">90dp</dimen>
+    <dimen name="dimen_9_dp">9dp</dimen>
+    <string name="access_ads_free_usage">Enjoy Ad-free app</string>
+    <string name="access_all_feature">Access All Feature</string>
+    <string name="access_all_premium_features">Access all Premium features</string>
+    <string name="ad_free_description1" translatable="false">Enjoy prime features without any disturbing ads.</string>
+    <string name="ad_free_description2" translatable="false">Speeds up page loading time and improves overall performance.</string>
+    <string name="ad_free_description3" translatable="false">Reduce data usage and potentially save your mobile data.</string>
+    <string name="ad_free_title" translatable="false">Ad-free</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info"> Your free trial will be automatically converted to a yearly subscription after it ends.
+Also, by tapping "Upgrade", your subscription will automatically renew for the same package length at the same price until you cancel it from the settings in Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">By tapping "Continue", your payment will be charged to your Google Play account and your subscription will automatically renew for the same package length at the same price until you cancel it from the Google Play store settings.</string>
+    <string name="continue_purchase" translatable="false">Continue</string>
+    <string name="continuew">Continue</string>
+    <string name="create_unlimited_notes">Create Unlimited Notes</string>
+    <string name="crop_description1" translatable="false">Adjust the size and aspect ratio of images or videos.</string>
+    <string name="crop_description2" translatable="false">Improve composition and remove unwanted elements from a photo or video.</string>
+    <string name="crop_description3" translatable="false">Saves storage space by reducing the file size of large images or videos.</string>
+    <string name="crop_title" translatable="false">Crop</string>
+    <string name="enjoy_premium">Enjoy Premium</string>
+    <string name="features_in_premium" translatable="false">Features in premium</string>
+    <string name="filter_duplicate_description1" translatable="false">Unlimited usage for a lifetime to secure your device from duplicate files</string>
+    <string name="filter_duplicate_description2" translatable="false">Helps you save time, and avoid confusion by identifying &amp; removing duplicate files</string>
+    <string name="filter_duplicate_description3" translatable="false">Reduces the amount of storage space needed by eliminating unwanted copies of files.</string>
+    <string name="filter_duplicate_title" translatable="false">Filter duplicate</string>
+    <string name="freeTrail">Your Free 3 Day Trial will be automatically converted to \nyearly Subscription after it ends</string>
+    <string name="glad_to_see_you">Enjoy Your Premium!</string>
+    <string name="go_premium" translatable="false">Go Premium</string>
+    <string name="lyrics_description1" translatable="false">Unlimited music playback with online lyrics</string>
+    <string name="lyrics_description2" translatable="false">Easily follow along with the words to your favorite songs.</string>
+    <string name="lyrics_description3" translatable="false">Boost your online and offline music experience.</string>
+    <string name="lyrics_title" translatable="false">Lyrics</string>
+    <string name="made_in_india" translatable="false">Made in India</string>
+    <string name="new_billing_info" translatable="false">Your free trial will be automatically converted to a yearly subscription after it ends. Also, by tapping \"Subscription Now\" your Package will be renewed automatically at the same price until you cancel it from the setting in Google Play Store
+     </string>
+    <string name="new_features_in_premium" translatable="false">Don\'t miss out on Great Premium deals</string>
+    <string name="new_update_to_premium" translatable="false">Unlock \nPremium Feature</string>
+    <string name="premium_offers" translatable="false">Premium offers</string>
+    <string name="premium_text" translatable="false">Premium features are awaiting !
+    \nUnlock the premium experience
+    </string>
+    <string name="recuringanytime" translatable="false">Recurring billing, cancel anytime.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 Day Free Trial</string>
+    <string name="remove_ads" translatable="false">Try Premium version and Remove Ad</string>
+    <string name="restore">Restore</string>
+    <string name="restore_purchase" translatable="false">Restore your purchase</string>
+    <string name="restore_purchase_error" translatable="false">Oops Sorry!
+    \nYou\'ve not upgraded to premium version yet</string>
+    <string name="restore_purchase_success" translatable="false">Successfully restored!
+    \nGlad to see you as a Premium user</string>
+    <string name="scan_doc_access_premium_features">Scan Doc- Access premium features</string>
+    <string name="terms_and_condition">Terms and condition</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">20+ premium themes to modify your app.</string>
+    <string name="themes_description2" translatable="false">Personalize the look and feel of your app.</string>
+    <string name="themes_description3" translatable="false">Reduce eye strain with the use of gradient or dark mode themes.</string>
+    <string name="themes_title" translatable="false">Themes</string>
+    <string name="trash_description1" translatable="false">Easily delete unwanted files like photos or videos.</string>
+    <string name="trash_description2" translatable="false">Keeps your storage space organized and clutter-free.</string>
+    <string name="trash_description3" translatable="false">Prevents accidentally deleted files by providing a safety net.</string>
+    <string name="trash_title" translatable="false">Trash</string>
+    <string name="unlimited_high_quality_downloads">Unlimited High-quality Downloads</string>
+    <string name="upcoming" translatable="false">Upcoming</string>
+    <string name="upcoming_feature_description" translatable="false">Premium version offers you the benefits to explore and enjoy early access to upcoming exclusive features.</string>
+    <string name="upcoming_feature_title" translatable="false">Upcoming Feature</string>
+    <string name="update_to_premium" translatable="false">Update to Premium</string>
+    <string name="use_all_premium_features_without_any_restriction">use all premium features without any restriction</string>
+    <style name="CornerCut" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">16%</item>
+        <item name="cornerSizeBottomRight">16%</item>
+    </style>
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="Theme.AppFramework.Compose.Based" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:statusBarColor">@color/purple_700</item>
+    </style>
+    <style name="Theme.AppFramework.Xml.Based" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/premium_theme_purple</item>
+
+    </style>
+    <style name="Theme.ShapableImageView" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">@color/purple_500</item>
+        
+    </style>
+</resources>

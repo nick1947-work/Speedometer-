@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Oferte Premium</string>
+    <string name="billing_info">Perioada de probă gratuită va fi automat convertită într-o abonare anuală după ce se încheie. De asemenea, apăsând pe „Actualizare”, abonamentul tău va fi reînnoit automat pentru aceeași durată și același preț până când îl vei anula din setările din Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Perioada de probă gratuită va fi automat convertită într-o abonare anuală după ce se încheie. De asemenea, apăsând pe „Abonare Acum”, pachetul tău va fi reînnoit automat pentru același preț până când îl vei anula din setările din Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Apăsând pe „Continuare”, plata va fi debitată din contul tău Google Play și abonamentul tău va fi reînnoit automat pentru aceeași durată și același preț până când îl vei anula din setările din Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Încearcă versiunea Premium și elimină reclamele</string>
+    <string name="made_in_india" translatable="false">Fabricat în India</string>
+    <string name="recuringanytime" translatable="false">Facturare recurentă, anulează oricând.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Test gratuit de 3 zile</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Teme</string>
+    <string name="themes_description1" translatable="false">Peste 20 de teme premium pentru a-ți personaliza aplicația.</string>
+    <string name="themes_description2" translatable="false">Personalizează aspectul și senzația aplicației tale.</string>
+    <string name="themes_description3" translatable="false">Reduce oboseala ochilor folosind teme cu gradient sau modul întunecat.</string>
+
+    <string name="trash_title" translatable="false">Coș de gunoi</string>
+    <string name="trash_description1" translatable="false">Șterge cu ușurință fișierele nedorite, cum ar fi fotografii sau videoclipuri.</string>
+    <string name="trash_description2" translatable="false">Menține spațiul de stocare organizat și fără aglomerare.</string>
+    <string name="trash_description3" translatable="false">Previne ștergerea accidentală a fișierelor oferind o plasă de siguranță.</string>
+
+    <string name="ad_free_title" translatable="false">Fără reclame</string>
+    <string name="ad_free_description1" translatable="false">Bucură-te de funcții premium fără reclame deranjante.</string>
+    <string name="ad_free_description2" translatable="false">Accelerează timpul de încărcare al paginilor și îmbunătățește performanța generală.</string>
+    <string name="ad_free_description3" translatable="false">Reduce utilizarea datelor și poate economisi datele mobile.</string>
+
+    <string name="crop_title" translatable="false">Decupare</string>
+    <string name="crop_description1" translatable="false">Ajustează dimensiunea și raportul de aspect al imaginilor sau videoclipurilor.</string>
+    <string name="crop_description2" translatable="false">Îmbunătățește compoziția și elimină elementele nedorite dintr-o fotografie sau videoclip.</string>
+    <string name="crop_description3" translatable="false">Economisește spațiu de stocare prin reducerea dimensiunii fișierului imaginilor sau videoclipurilor mari.</string>
+
+    <string name="lyrics_title" translatable="false">Versuri</string>
+    <string name="lyrics_description1" translatable="false">Redare nelimitată a muzicii cu versuri online</string>
+    <string name="lyrics_description2" translatable="false">Ușor de urmărit cuvintele melodiilor tale preferate.</string>
+    <string name="lyrics_description3" translatable="false">Îmbunătățește experiența muzicală online și offline.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Filtrează duplicatele</string>
+    <string name="filter_duplicate_description1" translatable="false">Utilizare nelimitată pe viață pentru a-ți proteja dispozitivul de fișiere duplicate</string>
+    <string name="filter_duplicate_description2" translatable="false">Ajută să economisești timp și să eviți confuzia prin identificarea și eliminarea fișierelor duplicate</string>
+    <string name="filter_duplicate_description3" translatable="false">Reducerea cantității de spațiu de stocare necesar prin eliminarea copiilor nedorite ale fișierelor.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Funcție viitoare</string>
+    <string name="upcoming_feature_description" translatable="false">Versiunea premium îți oferă beneficiile explorării și accesului anticipat la funcții exclusive viitoare.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Funcții premium te așteaptă!
+    \nDeblochează experiența premium
+    </string>
+
+    <string name="restore_purchase" translatable="false">Restabilește achiziția</string>
+
+    <string name="restore_purchase_success" translatable="false">Restaurat cu succes!
+    \nNe bucurăm să te vedem ca utilizator Premium</string>
+
+    <string name="restore_purchase_error" translatable="false">Ups, ne pare rău!
+    \nNu ai actualizat încă la versiunea premium</string>
+
+    <string name="continue_purchase" translatable="false">Continuă</string>
+    <string name="go_premium" translatable="false">Treci la Premium</string>
+    <string name="update_to_premium" translatable="false">Actualizează la Premium</string>
+    <string name="features_in_premium" translatable="false">Funcții în premium</string>
+    <string name="upcoming" translatable="false">Viitoare</string>
+    <string name="new_update_to_premium" translatable="false">Deblochează \nFuncția Premium</string>
+    <string name="new_features_in_premium" translatable="false">Nu rata oferte excelente Premium</string>
+    <string name="freeTrail">Perioada ta de probă gratuită de 3 zile va fi automat convertită în \nabonament anual după ce se încheie</string>
+    <string name="scan_doc_access_premium_features">Scanare document - Acces la funcții premium</string>
+    <string name="access_ads_free_usage">Acces la utilizare fără reclame</string>
+    <string name="create_unlimited_notes">Creează note nelimitate</string>
+    <string name="continuew">Continuă</string>
+    <string name="terms_of_use">Termeni de utilizare</string>
+    <string name="restore">Restaurare</string>
+    <string name="unlimited_high_quality_downloads">Descărcări nelimitate de înaltă calitate</string>
+    <string name="glad_to_see_you">Ne bucurăm să te vedem!</string>
+    <string name="enjoy_premium">Bucură-te de Premium</string>
+</resources>

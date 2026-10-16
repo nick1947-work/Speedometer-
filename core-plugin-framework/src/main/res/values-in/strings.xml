@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Penawaran Premium</string>
+    <string name="billing_info">Uji coba gratis Anda akan secara otomatis diubah menjadi langganan tahunan setelah berakhir. Juga, dengan mengetuk "Upgrade", langganan Anda akan secara otomatis diperbarui untuk durasi paket yang sama dengan harga yang sama hingga Anda membatalkannya dari pengaturan di Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Uji coba gratis Anda akan secara otomatis diubah menjadi langganan tahunan setelah berakhir. Juga, dengan mengetuk "Langganan Sekarang", paket Anda akan diperbarui secara otomatis dengan harga yang sama hingga Anda membatalkannya dari pengaturan di Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Dengan mengetuk "Lanjutkan", pembayaran Anda akan dibebankan ke akun Google Play Anda dan langganan Anda akan secara otomatis diperbarui untuk durasi paket yang sama dengan harga yang sama hingga Anda membatalkannya dari pengaturan Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Coba versi Premium dan Hapus Iklan</string>
+    <string name="made_in_india" translatable="false">Dibuat di India</string>
+    <string name="recuringanytime" translatable="false">Penagihan berulang, batalkan kapan saja.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Uji Coba Gratis 3 Hari</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Tema</string>
+    <string name="themes_description1" translatable="false">Lebih dari 20 tema premium untuk memodifikasi aplikasi Anda.</string>
+    <string name="themes_description2" translatable="false">Personalisasikan tampilan dan nuansa aplikasi Anda.</string>
+    <string name="themes_description3" translatable="false">Kurangi ketegangan mata dengan menggunakan tema gradien atau mode gelap.</string>
+
+    <string name="trash_title" translatable="false">Tempat Sampah</string>
+    <string name="trash_description1" translatable="false">Hapus file yang tidak diinginkan seperti foto atau video dengan mudah.</string>
+    <string name="trash_description2" translatable="false">Menjaga ruang penyimpanan Anda tetap terorganisir dan bebas dari kekacauan.</string>
+    <string name="trash_description3" translatable="false">Mencegah file yang terhapus secara tidak sengaja dengan menyediakan jaring pengaman.</string>
+
+    <string name="ad_free_title" translatable="false">Tanpa Iklan</string>
+    <string name="ad_free_description1" translatable="false">Nikmati fitur premium tanpa iklan yang mengganggu.</string>
+    <string name="ad_free_description2" translatable="false">Mempercepat waktu pemuatan halaman dan meningkatkan kinerja keseluruhan.</string>
+    <string name="ad_free_description3" translatable="false">Mengurangi penggunaan data dan berpotensi menghemat data seluler Anda.</string>
+
+    <string name="crop_title" translatable="false">Potong</string>
+    <string name="crop_description1" translatable="false">Sesuaikan ukuran dan rasio aspek gambar atau video.</string>
+    <string name="crop_description2" translatable="false">Meningkatkan komposisi dan menghapus elemen yang tidak diinginkan dari foto atau video.</string>
+    <string name="crop_description3" translatable="false">Menghemat ruang penyimpanan dengan mengurangi ukuran file gambar atau video yang besar.</string>
+
+    <string name="lyrics_title" translatable="false">Lirik</string>
+    <string name="lyrics_description1" translatable="false">Pemutaran musik tanpa batas dengan lirik online</string>
+    <string name="lyrics_description2" translatable="false">Ikuti kata-kata lagu favorit Anda dengan mudah.</string>
+    <string name="lyrics_description3" translatable="false">Tingkatkan pengalaman musik online dan offline Anda.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Saring Duplikat</string>
+    <string name="filter_duplicate_description1" translatable="false">Penggunaan tanpa batas seumur hidup untuk melindungi perangkat Anda dari file duplikat</string>
+    <string name="filter_duplicate_description2" translatable="false">Membantu Anda menghemat waktu dan menghindari kebingungan dengan mengidentifikasi &amp; menghapus file duplikat</string>
+    <string name="filter_duplicate_description3" translatable="false">Mengurangi jumlah ruang penyimpanan yang diperlukan dengan menghilangkan salinan file yang tidak diinginkan.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Fitur Mendatang</string>
+    <string name="upcoming_feature_description" translatable="false">Versi premium menawarkan manfaat untuk menjelajahi dan menikmati akses awal ke fitur eksklusif mendatang.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Fitur premium menanti!
+    \nRaih pengalaman premium
+    </string>
+
+    <string name="restore_purchase" translatable="false">Pulihkan pembelian Anda</string>
+
+    <string name="restore_purchase_success" translatable="false">Berhasil dipulihkan!
+    \nSenang melihat Anda sebagai pengguna Premium</string>
+
+    <string name="restore_purchase_error" translatable="false">Ups Maaf!
+    \nAnda belum melakukan upgrade ke versi premium</string>
+
+    <string name="continue_purchase" translatable="false">Lanjutkan</string>
+    <string name="go_premium" translatable="false">Jadi Premium</string>
+    <string name="update_to_premium" translatable="false">Perbarui ke Premium</string>
+    <string name="features_in_premium" translatable="false">Fitur dalam premium</string>
+    <string name="upcoming" translatable="false">Mendatang</string>
+    <string name="new_update_to_premium" translatable="false">Buka\nFitur Premium</string>
+    <string name="new_features_in_premium" translatable="false">Jangan lewatkan penawaran Premium yang hebat</string>
+    <string name="freeTrail">Uji coba gratis 3 hari Anda akan secara otomatis diubah menjadi\nLangganan tahunan setelah berakhir</string>
+    <string name="scan_doc_access_premium_features">Pindai Dokumen - Akses fitur premium</string>
+    <string name="access_ads_free_usage">Akses penggunaan tanpa iklan</string>
+    <string name="create_unlimited_notes">Buat Catatan Tanpa Batas</string>
+    <string name="continuew">Lanjutkan</string>
+    <string name="terms_of_use">Syarat Penggunaan</string>
+    <string name="restore">Pulihkan</string>
+    <string name="unlimited_high_quality_downloads">Unduhan berkualitas tinggi tanpa batas</string>
+    <string name="glad_to_see_you">Senang melihat Anda!</string>
+    <string name="enjoy_premium">Nikmati Premium</string>
+</resources>

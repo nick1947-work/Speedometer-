@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Premium aanbiedingen</string>
+    <string name="billing_info">Je gratis proefperiode wordt automatisch omgezet in een jaarlijkse abonnementsvorm zodra deze eindigt. Ook, door op "Upgraden" te tikken, wordt je abonnement automatisch verlengd voor dezelfde pakketduur tegen dezelfde prijs totdat je deze annuleert via de instellingen in de Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Je gratis proefperiode wordt automatisch omgezet in een jaarlijkse abonnementsvorm zodra deze eindigt. Ook, door op "Nu Abonneren" te tikken, wordt je pakket automatisch verlengd tegen dezelfde prijs totdat je deze annuleert via de instellingen in de Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Door op "Doorgaan" te tikken, wordt je betaling in rekening gebracht bij je Google Play-account en wordt je abonnement automatisch verlengd voor dezelfde pakketduur tegen dezelfde prijs totdat je deze annuleert via de instellingen in de Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Probeer de Premium-versie en Verwijder Advertenties</string>
+    <string name="made_in_india" translatable="false">Gemaakt in India</string>
+    <string name="recuringanytime" translatable="false">Herhalende facturering, op elk moment annuleren.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 Dagen Gratis Proefperiode</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Thema\'s</string>
+    <string name="themes_description1" translatable="false">20+ premium thema\'s om je app aan te passen.</string>
+    <string name="themes_description2" translatable="false">Personaliseer de uitstraling en het gevoel van je app.</string>
+    <string name="themes_description3" translatable="false">Verminder oogvermoeidheid met gradient- of donkere modus thema\'s.</string>
+
+    <string name="trash_title" translatable="false">Prullenbak</string>
+    <string name="trash_description1" translatable="false">Verwijder ongewenste bestanden zoals foto\'s of video\'s eenvoudig.</string>
+    <string name="trash_description2" translatable="false">Houd je opslagruimte georganiseerd en zonder rommel.</string>
+    <string name="trash_description3" translatable="false">Voorkom per ongeluk verwijderde bestanden door een vangnet te bieden.</string>
+
+    <string name="ad_free_title" translatable="false">Advertentievrij</string>
+    <string name="ad_free_description1" translatable="false">Geniet van premium functies zonder storende advertenties.</string>
+    <string name="ad_free_description2" translatable="false">Versnelt de laadtijd van pagina\'s en verbetert de algehele prestaties.</string>
+    <string name="ad_free_description3" translatable="false">Vermindert datagebruik en bespaart mogelijk je mobiele data.</string>
+
+    <string name="crop_title" translatable="false">Bijsnijden</string>
+    <string name="crop_description1" translatable="false">Pas de grootte en het beeldverhouding van afbeeldingen of video\'s aan.</string>
+    <string name="crop_description2" translatable="false">Verbeter de compositie en verwijder ongewenste elementen uit een foto of video.</string>
+    <string name="crop_description3" translatable="false">Bespaart opslagruimte door de bestandsgrootte van grote afbeeldingen of video\'s te verkleinen.</string>
+
+    <string name="lyrics_title" translatable="false">Lyrics</string>
+    <string name="lyrics_description1" translatable="false">Onbeperkte muziekafspelen met online lyrics</string>
+    <string name="lyrics_description2" translatable="false">Volg eenvoudig de woorden van je favoriete nummers.</string>
+    <string name="lyrics_description3" translatable="false">Verhoog je muziekervaring online en offline.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Duplicaten filteren</string>
+    <string name="filter_duplicate_description1" translatable="false">Onbeperkt gebruik voor een leven lang om je apparaat te beschermen tegen dubbele bestanden</string>
+    <string name="filter_duplicate_description2" translatable="false">Helpt je tijd te besparen en verwarring te voorkomen door dubbele bestanden te identificeren &amp; verwijderen</string>
+    <string name="filter_duplicate_description3" translatable="false">Vermindert de hoeveelheid benodigde opslagruimte door ongewenste kopieën van bestanden te verwijderen.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Komende Kenmerk</string>
+    <string name="upcoming_feature_description" translatable="false">De premium versie biedt je de voordelen om te verkennen en te genieten van vroege toegang tot exclusieve toekomstige functies.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Premium functies wachten op je!
+    \nOntgrendel de premium ervaring
+    </string>
+
+    <string name="restore_purchase" translatable="false">Herstel je aankoop</string>
+
+    <string name="restore_purchase_success" translatable="false">Met succes hersteld!
+    \nFijn je als Premium gebruiker te zien</string>
+
+    <string name="restore_purchase_error" translatable="false">Oh, sorry!
+    \nJe hebt nog niet geüpgraded naar de premium versie</string>
+
+    <string name="continue_purchase" translatable="false">Doorgaan</string>
+    <string name="go_premium" translatable="false">Ga Premium</string>
+    <string name="update_to_premium" translatable="false">Update naar Premium</string>
+    <string name="features_in_premium" translatable="false">Kenmerken in premium</string>
+    <string name="upcoming" translatable="false">Komend</string>
+    <string name="new_update_to_premium" translatable="false">Ontgrendel \nPremium Kenmerk</string>
+    <string name="new_features_in_premium" translatable="false">Mis geweldige Premium-aanbiedingen niet</string>
+    <string name="freeTrail">Je gratis 3-daagse proefperiode wordt automatisch omgezet in \njaarlijks abonnement nadat deze eindigt</string>
+    <string name="scan_doc_access_premium_features">Scan Doc - Toegang tot premium functies</string>
+    <string name="access_ads_free_usage">Toegang tot advertentievrije gebruik</string>
+    <string name="create_unlimited_notes">Maak Onbeperkte Notities</string>
+    <string name="continuew">Doorgaan</string>
+    <string name="terms_of_use">Gebruiksvoorwaarden</string>
+    <string name="restore">Herstellen</string>
+    <string name="unlimited_high_quality_downloads">Onbeperkte Downloads van Hoge Kwaliteit</string>
+    <string name="glad_to_see_you">Fijn je te zien!</string>
+    <string name="enjoy_premium">Geniet van Premium</string>
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Offres Premium</string>
+    <string name="billing_info">Votre essai gratuit sera automatiquement converti en un abonnement annuel une fois terminé. De plus, en appuyant sur "Passer à Premium", votre abonnement se renouvellera automatiquement pour la même durée et au même prix jusqu\'à ce que vous l\'annuliez depuis les paramètres dans le Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Votre essai gratuit sera automatiquement converti en un abonnement annuel une fois terminé. De plus, en appuyant sur "Abonnement maintenant", votre package sera renouvelé automatiquement au même prix jusqu\'à ce que vous l\'annuliez depuis les paramètres du Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">En appuyant sur "Continuer", votre paiement sera prélevé sur votre compte Google Play et votre abonnement se renouvellera automatiquement pour la même durée et au même prix jusqu\'à ce que vous l\'annuliez depuis les paramètres du Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Essayez la version Premium et supprimez les annonces</string>
+    <string name="made_in_india" translatable="false">Fabriqué en Inde</string>
+    <string name="recuringanytime" translatable="false">Facturation récurrente, annulez à tout moment.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Essai gratuit de 3 jours</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Thèmes</string>
+    <string name="themes_description1" translatable="false">Plus de 20 thèmes premium pour modifier votre application.</string>
+    <string name="themes_description2" translatable="false">Personnalisez l\'apparence et la convivialité de votre application.</string>
+    <string name="themes_description3" translatable="false">Réduisez la fatigue oculaire grâce à l\'utilisation de thèmes en dégradé ou en mode sombre.</string>
+
+    <string name="trash_title" translatable="false">Corbeille</string>
+    <string name="trash_description1" translatable="false">Supprimez facilement les fichiers indésirables comme les photos ou les vidéos.</string>
+    <string name="trash_description2" translatable="false">Gardez votre espace de stockage organisé et sans encombrement.</string>
+    <string name="trash_description3" translatable="false">Évite la suppression accidentelle de fichiers en fournissant une sécurité supplémentaire.</string>
+
+    <string name="ad_free_title" translatable="false">Sans Publicité</string>
+    <string name="ad_free_description1" translatable="false">Profitez des fonctionnalités principales sans publicités dérangeantes.</string>
+    <string name="ad_free_description2" translatable="false">Accélère le temps de chargement des pages et améliore les performances globales.</string>
+    <string name="ad_free_description3" translatable="false">Réduit l\'utilisation des données et peut potentiellement économiser vos données mobiles.</string>
+
+    <string name="crop_title" translatable="false">Recadrer</string>
+    <string name="crop_description1" translatable="false">Ajustez la taille et le rapport d\'aspect des images ou des vidéos.</string>
+    <string name="crop_description2" translatable="false">Améliorez la composition et supprimez les éléments indésirables d\'une photo ou d\'une vidéo.</string>
+    <string name="crop_description3" translatable="false">Économisez de l\'espace de stockage en réduisant la taille des fichiers d\'images ou de vidéos volumineux.</string>
+
+    <string name="lyrics_title" translatable="false">Paroles</string>
+    <string name="lyrics_description1" translatable="false">Lecture musicale illimitée avec paroles en ligne</string>
+    <string name="lyrics_description2" translatable="false">Suivez facilement les paroles de vos chansons préférées.</string>
+    <string name="lyrics_description3" translatable="false">Améliorez votre expérience musicale en ligne et hors ligne.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Filtrer les Doublons</string>
+    <string name="filter_duplicate_description1" translatable="false">Utilisation illimitée à vie pour protéger votre appareil des fichiers en double</string>
+    <string name="filter_duplicate_description2" translatable="false">Vous aide à gagner du temps et à éviter les confusions en identifiant et en supprimant les fichiers en double</string>
+    <string name="filter_duplicate_description3" translatable="false">Réduit la quantité d\'espace de stockage nécessaire en éliminant les copies non désirées de fichiers.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Fonctionnalité à Venir</string>
+    <string name="upcoming_feature_description" translatable="false">La version Premium vous offre les avantages d\'explorer et de profiter d\'un accès anticipé aux fonctionnalités exclusives à venir.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Les fonctionnalités premium vous attendent !
+    \nDéverrouillez l\'expérience Premium
+    </string>
+
+    <string name="restore_purchase" translatable="false">Restaurer votre achat</string>
+
+    <string name="restore_purchase_success" translatable="false">Restauré avec succès !
+    \nHeureux de vous voir en tant qu\'utilisateur Premium</string>
+
+    <string name="restore_purchase_error" translatable="false">Oups, désolé !
+    \nVous n\'avez pas encore mis à niveau vers la version premium</string>
+
+    <string name="continue_purchase" translatable="false">Continuer</string>
+    <string name="go_premium" translatable="false">Passer au Premium</string>
+    <string name="update_to_premium" translatable="false">Mettre à jour vers Premium</string>
+    <string name="features_in_premium" translatable="false">Fonctionnalités en Premium</string>
+    <string name="upcoming" translatable="false">À Venir</string>
+    <string name="new_update_to_premium" translatable="false">Déverrouillez\nFonctionnalité Premium</string>
+    <string name="new_features_in_premium" translatable="false">Ne manquez pas les excellentes offres Premium</string>
+    <string name="freeTrail">Votre essai gratuit de 3 jours sera automatiquement converti en abonnement annuel après son expiration</string>
+    <string name="scan_doc_access_premium_features">Scanner Doc - Accéder aux fonctionnalités Premium</string>
+    <string name="access_ads_free_usage">Accédez à une utilisation sans publicité</string>
+    <string name="create_unlimited_notes">Créer des notes illimitées</string>
+    <string name="continuew">Continuer</string>
+    <string name="terms_of_use">Conditions d\'utilisation</string>
+    <string name="restore">Restaurer</string>
+    <string name="unlimited_high_quality_downloads">Téléchargements illimités en haute qualité</string>
+    <string name="glad_to_see_you">Heureux de vous voir !</string>
+    <string name="enjoy_premium">Profitez du Premium</string>
+</resources>

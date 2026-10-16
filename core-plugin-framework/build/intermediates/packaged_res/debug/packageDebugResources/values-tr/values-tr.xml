@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Reklamsız Kullanıma Erişim</string>
+    <string name="ad_free_description1" translatable="false">Rahatsız edici reklamsız temel özelliklerin tadını çıkarın.</string>
+    <string name="ad_free_description2" translatable="false">Sayfa yükleme süresini hızlandırır ve genel performansı artırır.</string>
+    <string name="ad_free_description3" translatable="false">Veri kullanımını azaltır ve mobil veri tasarrufu sağlar.</string>
+    <string name="ad_free_title" translatable="false">Reklamsız</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">Ücretsiz denemeniz sona erdikten sonra otomatik olarak yıllık bir aboneliğe dönüşecektir. Ayrıca, "Yükselt" seçeneğine dokunduğunuzda, aboneliğiniz aynı paket süresi ve aynı fiyatla otomatik olarak yenilenecektir, ta ki Google Play Store\'daki ayarlardan iptal edene kadar.</string>
+    <string name="billing_info_config" translatable="false">"Devam Et" seçeneğine dokunduğunuzda, ödemeniz Google Play hesabınızdan tahsil edilecektir ve aboneliğiniz aynı paket süresi ve aynı fiyatla otomatik olarak yenilenecektir, ta ki Google Play Store\'daki ayarlardan iptal edene kadar.</string>
+    <string name="continue_purchase" translatable="false">Devam Et</string>
+    <string name="continuew">Devam Et</string>
+    <string name="create_unlimited_notes">Sınırsız Notlar Oluşturun</string>
+    <string name="crop_description1" translatable="false">Görüntülerin veya videoların boyutunu ve en boy oranını ayarlayın.</string>
+    <string name="crop_description2" translatable="false">Kompozisyonu iyileştirin ve bir fotoğraftan veya videodan istenmeyen unsurları kaldırın.</string>
+    <string name="crop_description3" translatable="false">Büyük fotoğrafların veya videoların dosya boyutunu azaltarak depolama alanı tasarrufu sağlar.</string>
+    <string name="crop_title" translatable="false">Kırp</string>
+    <string name="enjoy_premium">Premium\'un Tadını Çıkarın</string>
+    <string name="features_in_premium" translatable="false">Premium\'daki Özellikler</string>
+    <string name="filter_duplicate_description1" translatable="false">Cihazınızı yinelenen dosyalardan korumak için ömür boyu sınırsız kullanım</string>
+    <string name="filter_duplicate_description2" translatable="false">Yinelenen dosyaları belirleyerek ve kaldırarak zaman tasarrufu sağlar ve kafa karışıklığını önler</string>
+    <string name="filter_duplicate_description3" translatable="false">İstenmeyen dosyaların kopyalarını kaldırarak gereken depolama alanını azaltır.</string>
+    <string name="filter_duplicate_title" translatable="false">Yinelenenleri Filtrele</string>
+    <string name="freeTrail">Ücretsiz 3 günlük denemeniz sona erdikten sonra yıllık aboneliğe otomatik olarak dönüşecektir</string>
+    <string name="glad_to_see_you">Sizi görmekten mutluluk duyuyoruz!</string>
+    <string name="go_premium" translatable="false">Premium\'a Geç</string>
+    <string name="lyrics_description1" translatable="false">Sınırsız müzik dinleme ve çevrimiçi şarkı sözleri</string>
+    <string name="lyrics_description2" translatable="false">Favori şarkılarınızın sözlerini kolayca takip edin.</string>
+    <string name="lyrics_description3" translatable="false">Çevrimiçi ve çevrimdışı müzik deneyiminizi geliştirin.</string>
+    <string name="lyrics_title" translatable="false">Şarkı Sözleri</string>
+    <string name="made_in_india" translatable="false">Hindistan\'da Üretildi</string>
+    <string name="new_billing_info" translatable="false">Ücretsiz denemeniz sona erdikten sonra otomatik olarak yıllık bir aboneliğe dönüşecektir. Ayrıca, "Şimdi Abone Ol" seçeneğine dokunduğunuzda, paketiniz aynı fiyatla otomatik olarak yenilenecektir, ta ki Google Play Store\'daki ayarlardan iptal edene kadar.</string>
+    <string name="new_features_in_premium" translatable="false">Büyük Premium fırsatlarını kaçırmayın</string>
+    <string name="new_update_to_premium" translatable="false">Premium Özelliğini Aç</string>
+    <string name="premium_offers" translatable="false">Premium Teklifler</string>
+    <string name="premium_text" translatable="false">Premium özellikler sizi bekliyor!
+    \nPremium deneyimini açın
+    </string>
+    <string name="recuringanytime" translatable="false">Tekrarlayan faturalama, istediğiniz zaman iptal edin.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 Günlük Ücretsiz Deneme</string>
+    <string name="remove_ads" translatable="false">Premium sürümü deneyin ve Reklamları Kaldırın</string>
+    <string name="restore">Geri Yükle</string>
+    <string name="restore_purchase" translatable="false">Satın alımınızı geri yükleyin</string>
+    <string name="restore_purchase_error" translatable="false">Üzgünüz!
+    \nHenüz premium sürüme yükseltmediniz</string>
+    <string name="restore_purchase_success" translatable="false">Başarıyla geri yüklendi!
+    \nPremium kullanıcı olarak sizi görmekten mutluluk duyuyoruz</string>
+    <string name="scan_doc_access_premium_features">Belge Tarama - Premium özelliklere erişim</string>
+    <string name="terms_of_use">Kullanım Şartları</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Uygulamanızı değiştirmek için 20\'den fazla premium tema.</string>
+    <string name="themes_description2" translatable="false">Uygulamanızın görünümünü ve hissini kişiselleştirin.</string>
+    <string name="themes_description3" translatable="false">Göz yorgunluğunu azaltmak için gradient veya karanlık mod temaları kullanın.</string>
+    <string name="themes_title" translatable="false">Temalar</string>
+    <string name="trash_description1" translatable="false">İstenmeyen dosyaları, fotoğrafları veya videoları kolayca silin.</string>
+    <string name="trash_description2" translatable="false">Depolama alanınızı düzenli ve temiz tutar.</string>
+    <string name="trash_description3" translatable="false">Yanlışlıkla silinen dosyaları önler, güvenlik sağlar.</string>
+    <string name="trash_title" translatable="false">Çöp</string>
+    <string name="unlimited_high_quality_downloads">Sınırsız Yüksek Kalite İndirmeler</string>
+    <string name="upcoming" translatable="false">Gelecek</string>
+    <string name="upcoming_feature_description" translatable="false">Premium sürüm, size gelecek özel özelliklere erken erişim fırsatını sunar.</string>
+    <string name="upcoming_feature_title" translatable="false">Gelecek Özellik</string>
+    <string name="update_to_premium" translatable="false">Premium\'a Güncelle</string>
+</resources>

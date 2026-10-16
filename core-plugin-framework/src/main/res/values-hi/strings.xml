@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string name="app_name">ऐपफ्रेमवर्क</string>
+        <!--Iap String constants-->
+        <string name="premium_offers">प्रीमियम ऑफ़र</string>
+        <string name="billing_info"> आपका नि:शुल्क परीक्षण समाप्त होने के बाद स्वतः ही वार्षिक सदस्यता में परिवर्तित हो जाएगा।
+    इसके अलावा, "अपग्रेड" पर टैप करके, आपकी सदस्यता स्वतः ही उसी पैकेज अवधि के लिए उसी कीमत पर नवीनीकृत हो जाएगी जब तक आप इसे Google Play स्टोर की सेटिंग्स से रद्द नहीं कर देते।</string>
+        <string name="billing_info_config">"जारी रखें" पर टैप करके, आपका भुगतान आपके Google Play खाते से लिया जाएगा और आपकी सदस्यता उसी पैकेज अवधि के लिए उसी कीमत पर स्वतः ही नवीनीकृत हो जाएगी जब तक आप इसे Google Play स्टोर सेटिंग्स से रद्द नहीं कर देते।</string>
+        <string name="remove_ads">प्रीमियम संस्करण आज़माएं और विज्ञापन हटाएं</string>
+        <string name="made_in_india">भारत में निर्मित</string>
+        <string name="recuringanytime">पुनरावृत्ति बिलिंग, कभी भी रद्द करें।</string>
+        <string name="recuringanytime_with_trial">3 दिन का मुफ्त परीक्षण</string>
+
+        <!--Iap subscription string constants-->
+        <string name="themes_title">थीम्स</string>
+        <string name="themes_description1">आपके ऐप को संशोधित करने के लिए 20+ प्रीमियम थीम्स।</string>
+        <string name="themes_description2">अपने ऐप का रूप और अनुभव व्यक्तिगत बनाएं।</string>
+        <string name="themes_description3">ग्रेडिएंट या डार्क मोड थीम्स के उपयोग से आंखों का तनाव कम करें।</string>
+
+        <string name="trash_title">ट्रैश</string>
+        <string name="trash_description1">फोटो या वीडियो जैसी अनचाही फ़ाइलों को आसानी से हटा दें।</string>
+        <string name="trash_description2">आपके स्टोरेज स्पेस को संगठित और अव्यवस्था-मुक्त रखता है।</string>
+        <string name="trash_description3">सुरक्षा जाल प्रदान करके गलती से हटाई गई फ़ाइलों को रोकता है।</string>
+
+        <string name="ad_free_title">विज्ञापन-मुक्त</string>
+        <string name="ad_free_description1">बिना किसी बाधा के प्रमुख विशेषताओं का आनंद लें।</string>
+        <string name="ad_free_description2">पृष्ठ लोडिंग समय को गति देता है और समग्र प्रदर्शन में सुधार करता है।</string>
+        <string name="ad_free_description3">डेटा उपयोग को कम करें और अपने मोबाइल डेटा को संभावित रूप से बचाएं।</string>
+
+        <string name="crop_title">क्रॉप</string>
+        <string name="crop_description1">छवियों या वीडियो का आकार और पहलू अनुपात समायोजित करें।</string>
+        <string name="crop_description2">रचना में सुधार करें और फ़ोटो या वीडियो से अवांछित तत्वों को हटाएं।</string>
+        <string name="crop_description3">बड़ी छवियों या वीडियो के फ़ाइल आकार को कम करके स्टोरेज स्पेस बचाता है।</string>
+
+        <string name="lyrics_title">गीत</string>
+        <string name="lyrics_description1">ऑनलाइन गीतों के साथ असीमित संगीत प्लेबैक</string>
+        <string name="lyrics_description2">अपने पसंदीदा गीतों के शब्दों के साथ आसानी से अनुसरण करें।</string>
+        <string name="lyrics_description3">ऑनलाइन और ऑफलाइन संगीत अनुभव को बढ़ावा दें।</string>
+
+        <string name="filter_duplicate_title">डुप्लिकेट फ़िल्टर करें</string>
+        <string name="filter_duplicate_description1">डुप्लिकेट फ़ाइलों से आपके डिवाइस को सुरक्षित करने के लिए असीमित उपयोग</string>
+        <string name="filter_duplicate_description2">समय बचाने में मदद करता है, और डुप्लिकेट फ़ाइलों की पहचान और हटाने के द्वारा भ्रम से बचता है</string>
+        <string name="filter_duplicate_description3">अनावश्यक फ़ाइलों को हटाकर आवश्यक स्टोरेज स्पेस को कम करता है।</string>
+
+        <string name="upcoming_feature_title">आगामी विशेषता</string>
+        <string name="upcoming_feature_description">प्रीमियम संस्करण आपको आगामी विशेषताओं का अन्वेषण और आनंद लेने के लाभ प्रदान करता है।</string>
+
+        <!--Fonts-->
+        <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+        <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+        <string name="premium_text">प्रीमियम सुविधाएँ प्रतीक्षारत हैं!
+    \nप्रीमियम अनुभव को अनलॉक करें
+    </string>
+
+        <string name="restore_purchase">अपनी खरीदारी पुनर्स्थापित करें</string>
+        <string name="restore_purchase_success">सफलतापूर्वक पुनर्स्थापित!
+    \nप्रीमियम उपयोगकर्ता के रूप में आपको देखकर खुशी हुई</string>
+        <string name="restore_purchase_error">ओह क्षमा करें!
+    \nआपने अभी तक प्रीमियम संस्करण में अपग्रेड नहीं किया है</string>
+        <string name="continue_purchase">जारी रखें</string>
+        <string name="go_premium">प्रीमियम बनें</string>
+        <string name="update_to_premium">प्रीमियम में अपडेट करें</string>
+        <string name="features_in_premium">प्रीमियम में सुविधाएँ</string>
+        <string name="upcoming">आगामी</string>
+        <string name="new_update_to_premium">अनलॉक करें
+    \nप्रीमियम सुविधा</string>
+        <string name="new_features_in_premium">शानदार प्रीमियम डील्स को मिस न करें</string>
+        <string name="freeTrail">आपका नि:शुल्क 3 दिवसीय परीक्षण समाप्त होने के बाद स्वतः वार्षिक सदस्यता में बदल जाएगा</string>
+        <string name="scan_doc_access_premium_features">स्कैन डोक- प्रीमियम सुविधाओं तक पहुंचें</string>
+        <string name="access_ads_free_usage">विज्ञापन-मुक्त उपयोग तक पहुंचें</string>
+        <string name="create_unlimited_notes">असीमित नोट्स बनाएं</string>
+        <string name="continuew">जारी रखें</string>
+        <string name="terms_of_use">उपयोग की शर्तें</string>
+        <string name="restore">पुनर्स्थापित करें</string>
+        <string name="unlimited_high_quality_downloads">असीमित उच्च गुणवत्ता वाली डाउनलोड</string>
+
+    <string name="glad_to_see_you">आपको देखकर खुशी हुई!</string>
+    <string name="enjoy_premium">प्रीमियम का आनंद लें</string>
+
+
+
+</resources>
+
+

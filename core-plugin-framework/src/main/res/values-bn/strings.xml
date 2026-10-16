@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">AppFramework</string>
+
+    <!-- Iap String constants -->
+    <string name="premium_offers" translatable="false">পremium অফারগুলি</string>
+    <string name="billing_info">আপনার ফ্রি ট্রায়াল শেষ হলে এটি স্বয়ংক্রিয়ভাবে একটি বার্ষিক সাবস্ক্রিপশনে রূপান্তরিত হবে। এছাড়াও, "আপগ্রেড" ট্যাপ করলে, আপনার সাবস্ক্রিপশন একই মূল্যে একই প্যাকেজ দৈর্ঘ্যের জন্য স্বয়ংক্রিয়ভাবে পুনর্নবীকরণ হবে যতক্ষণ না আপনি Google Play Store-এ সেটিংস থেকে এটি বাতিল করেন।</string>
+    <string name="new_billing_info" translatable="false">আপনার ফ্রি ট্রায়াল শেষ হলে এটি স্বয়ংক্রিয়ভাবে একটি বার্ষিক সাবস্ক্রিপশনে রূপান্তরিত হবে। এছাড়াও, "সাবস্ক্রিপশন এখন" ট্যাপ করলে, আপনার প্যাকেজ একই মূল্যে স্বয়ংক্রিয়ভাবে নবায়ন হবে যতক্ষণ না আপনি Google Play Store-এ সেটিংস থেকে এটি বাতিল করেন।</string>
+    <string name="billing_info_config" translatable="false">"চালিয়ে যান" ট্যাপ করলে, আপনার অর্থ Google Play অ্যাকাউন্টে চার্জ হবে এবং আপনার সাবস্ক্রিপশন স্বয়ংক্রিয়ভাবে একই প্যাকেজ দৈর্ঘ্যের জন্য একই মূল্যে পুনর্নবীকরণ হবে যতক্ষণ না আপনি Google Play Store সেটিংস থেকে এটি বাতিল করেন।</string>
+
+    <string name="remove_ads" translatable="false">পremium সংস্করণ চেষ্টা করুন এবং বিজ্ঞাপন মুছুন</string>
+    <string name="made_in_india" translatable="false">ভারতে তৈরি</string>
+    <string name="recuringanytime" translatable="false">নিয়মিত বিলিং, যে কোনো সময় বাতিল করুন।</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 দিনের ফ্রি ট্রায়াল</string>
+
+    <!-- Iap subscription string constants -->
+    <string name="themes_title" translatable="false">থিমস</string>
+    <string name="themes_description1" translatable="false">আপনার অ্যাপটি পরিবর্তন করতে ২০+ premium থিম।</string>
+    <string name="themes_description2" translatable="false">আপনার অ্যাপের চেহারা এবং অনুভূতি ব্যক্তিগতকরণ করুন।</string>
+    <string name="themes_description3" translatable="false">গ্রেডিয়েন্ট বা অন্ধকার মোড থিম ব্যবহার করে চোখের চাপ কমান।</string>
+
+    <string name="trash_title" translatable="false">ট্র্যাশ</string>
+    <string name="trash_description1" translatable="false">ছবি বা ভিডিওর মতো অপ্রয়োজনীয় ফাইলগুলি সহজেই মুছুন।</string>
+    <string name="trash_description2" translatable="false">আপনার স্টোরেজ স্পেস সংগঠিত এবং অগোছালো-মুক্ত রাখে।</string>
+    <string name="trash_description3" translatable="false">এক্সিডেন্টালভাবে মুছে ফেলা ফাইলগুলি প্রতিরোধ করতে একটি নিরাপত্তা নেট প্রদান করে।</string>
+
+    <string name="ad_free_title" translatable="false">বিজ্ঞাপন মুক্ত</string>
+    <string name="ad_free_description1" translatable="false">কোনও বিরক্তিকর বিজ্ঞাপন ছাড়াই প্রধান বৈশিষ্ট্যগুলি উপভোগ করুন।</string>
+    <string name="ad_free_description2" translatable="false">পেজ লোডিং সময় দ্রুত করে এবং সামগ্রিক পারফরম্যান্স উন্নত করে।</string>
+    <string name="ad_free_description3" translatable="false">ডেটা ব্যবহারের পরিমাণ কমায় এবং সম্ভবত আপনার মোবাইল ডেটা সংরক্ষণ করে।</string>
+
+    <string name="crop_title" translatable="false">ক্রপ</string>
+    <string name="crop_description1" translatable="false">ছবি বা ভিডিওর আকার এবং আসপেক্ট রেশিও সামঞ্জস্য করুন।</string>
+    <string name="crop_description2" translatable="false">ছবি বা ভিডিও থেকে অপ্রয়োজনীয় উপাদানগুলি সরিয়ে ফেলুন এবং গঠন উন্নত করুন।</string>
+    <string name="crop_description3" translatable="false">বড় ছবি বা ভিডিওগুলির ফাইল আকার কমিয়ে স্টোরেজ স্পেস সংরক্ষণ করে।</string>
+
+    <string name="lyrics_title" translatable="false">গান</string>
+    <string name="lyrics_description1" translatable="false">অনলাইন লিরিকস সহ সীমাহীন সঙ্গীত প্লেব্যাক</string>
+    <string name="lyrics_description2" translatable="false">আপনার প্রিয় গানগুলির কথাগুলি সহজেই অনুসরণ করুন।</string>
+    <string name="lyrics_description3" translatable="false">আপনার অনলাইন এবং অফলাইন সঙ্গীত অভিজ্ঞতা বাড়ান।</string>
+
+    <string name="filter_duplicate_title" translatable="false">ডুপ্লিকেট ফিল্টার</string>
+    <string name="filter_duplicate_description1" translatable="false">ডুপ্লিকেট ফাইলগুলি থেকে আপনার ডিভাইস নিরাপদ রাখার জন্য জীবনব্যাপী সীমাহীন ব্যবহার</string>
+    <string name="filter_duplicate_description2" translatable="false">ডুপ্লিকেট ফাইল চিহ্নিত করে এবং মুছে ফেলে সময় সঞ্চয় করতে এবং বিভ্রান্তি এড়াতে সাহায্য করে</string>
+    <string name="filter_duplicate_description3" translatable="false">অপ্রয়োজনীয় কপিগুলি সরিয়ে স্টোরেজ স্পেসের পরিমাণ কমায়।</string>
+
+    <string name="upcoming_feature_title" translatable="false">আসন্ন বৈশিষ্ট্য</string>
+    <string name="upcoming_feature_description" translatable="false">পremium সংস্করণ আপনাকে আসন্ন এক্সক্লুসিভ বৈশিষ্ট্যগুলি খুঁজে বের করার এবং উপভোগ করার সুবিধা প্রদান করে।</string>
+
+    <!-- Fonts -->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">পremium বৈশিষ্ট্যগুলি অপেক্ষা করছে!
+    \nপremium অভিজ্ঞতা আনলক করুন
+    </string>
+
+    <string name="restore_purchase" translatable="false">আপনার ক্রয় পুনরুদ্ধার করুন</string>
+
+    <string name="restore_purchase_success" translatable="false">সফলভাবে পুনরুদ্ধার হয়েছে!
+    \nপremium ব্যবহারকারী হিসেবে আপনাকে দেখে ভালো লাগছে</string>
+
+    <string name="restore_purchase_error" translatable="false">ওহ! দুঃখিত!
+    \nআপনি এখনও premium সংস্করণে আপগ্রেড করেননি</string>
+
+    <string name="continue_purchase" translatable="false">চালিয়ে যান</string>
+    <string name="go_premium" translatable="false">পremium এ যান</string>
+    <string name="update_to_premium" translatable="false">পremium এ আপডেট করুন</string>
+    <string name="features_in_premium" translatable="false">পremium এ বৈশিষ্ট্যগুলি</string>
+    <string name="upcoming" translatable="false">আসন্ন</string>
+    <string name="new_update_to_premium" translatable="false">পremium বৈশিষ্ট্য আনলক করুন</string>
+    <string name="new_features_in_premium" translatable="false">বড় পremium অফারগুলি মিস করবেন না</string>
+    <string name="freeTrail">আপনার ফ্রি ৩ দিনের ট্রায়াল স্বয়ংক্রিয়ভাবে বার্ষিক সাবস্ক্রিপশনে রূপান্তরিত হবে</string>
+    <string name="scan_doc_access_premium_features">স্ক্যান ডক- premium বৈশিষ্ট্যগুলিতে অ্যাক্সেস করুন</string>
+    <string name="access_ads_free_usage">বিজ্ঞাপন-মুক্ত ব্যবহার অ্যাক্সেস করুন</string>
+    <string name="create_unlimited_notes">সীমাহীন নোট তৈরি করুন</string>
+    <string name="continuew">চালিয়ে যান</string>
+    <string name="terms_of_use">ব্যবহারের শর্তাবলী</string>
+    <string name="restore">পুনরুদ্ধার করুন</string>
+    <string name="unlimited_high_quality_downloads">সীমাহীন উচ্চ-গুণমান ডাউনলোড</string>
+    <string name="glad_to_see_you">আপনাকে দেখে ভালো লাগছে!</string>
+    <string name="enjoy_premium">পremium উপভোগ করুন</string>
+</resources>

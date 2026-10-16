@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+
+    <!-- Iap String constants -->
+    <string name="premium_offers" translatable="false">عروض متميزة</string>
+    <string name="billing_info">سيتم تحويل فترة التجربة المجانية الخاصة بك تلقائيًا إلى اشتراك سنوي بعد انتهائها. أيضًا، من خلال النقر على "ترقية"، سيتم تجديد اشتراكك تلقائيًا لنفس مدة الباقة بنفس السعر حتى تقوم بإلغائه من إعدادات متجر Google Play.</string>
+    <string name="new_billing_info" translatable="false">سيتم تحويل فترة التجربة المجانية الخاصة بك تلقائيًا إلى اشتراك سنوي بعد انتهائها. أيضًا، من خلال النقر على "الاشتراك الآن"، سيتم تجديد باقتك تلقائيًا بنفس السعر حتى تقوم بإلغائه من إعدادات متجر Google Play.</string>
+    <string name="billing_info_config" translatable="false">من خلال النقر على "متابعة"، سيتم خصم الدفع من حسابك في Google Play وسيتجدد اشتراكك تلقائيًا لنفس مدة الباقة بنفس السعر حتى تقوم بإلغائه من إعدادات متجر Google Play.</string>
+
+    <string name="remove_ads" translatable="false">جرب النسخة المميزة وأزل الإعلانات</string>
+    <string name="made_in_india" translatable="false">صُنع في الهند</string>
+    <string name="recuringanytime" translatable="false">فواتير متكررة، إلغاء في أي وقت.</string>
+    <string name="recuringanytime_with_trial" translatable="false">تجربة مجانية لمدة 3 أيام</string>
+
+    <!-- Iap subscription string constants -->
+    <string name="themes_title" translatable="false">ثيمات</string>
+    <string name="themes_description1" translatable="false">20+ ثيمة متميزة لتعديل تطبيقك.</string>
+    <string name="themes_description2" translatable="false">خصص مظهر وتنسيق تطبيقك.</string>
+    <string name="themes_description3" translatable="false">قلل من إجهاد العين باستخدام الثيمات المتدرجة أو وضع الظلام.</string>
+
+    <string name="trash_title" translatable="false">سلة المهملات</string>
+    <string name="trash_description1" translatable="false">احذف الملفات غير المرغوب فيها مثل الصور أو الفيديوهات بسهولة.</string>
+    <string name="trash_description2" translatable="false">يحافظ على تنظيم مساحة التخزين الخاصة بك وخالية من الفوضى.</string>
+    <string name="trash_description3" translatable="false">يمنع حذف الملفات عن طريق الخطأ من خلال توفير شبكة أمان.</string>
+
+    <string name="ad_free_title" translatable="false">خالي من الإعلانات</string>
+    <string name="ad_free_description1" translatable="false">استمتع بالميزات الرئيسية بدون إعلانات مزعجة.</string>
+    <string name="ad_free_description2" translatable="false">يقلل من وقت تحميل الصفحات ويُحسن الأداء العام.</string>
+    <string name="ad_free_description3" translatable="false">يقلل من استخدام البيانات وقد يوفر بيانات هاتفك المحمولة.</string>
+
+    <string name="crop_title" translatable="false">قص</string>
+    <string name="crop_description1" translatable="false">تعديل حجم ونسبة عرض الصورة أو الفيديو.</string>
+    <string name="crop_description2" translatable="false">تحسين التركيب وإزالة العناصر غير المرغوب فيها من الصورة أو الفيديو.</string>
+    <string name="crop_description3" translatable="false">يوفر مساحة التخزين عن طريق تقليل حجم الملف للصور أو الفيديوهات الكبيرة.</string>
+
+    <string name="lyrics_title" translatable="false">كلمات الأغاني</string>
+    <string name="lyrics_description1" translatable="false">تشغيل موسيقى غير محدود مع كلمات الأغاني عبر الإنترنت</string>
+    <string name="lyrics_description2" translatable="false">تابع الكلمات لأغانيك المفضلة بسهولة.</string>
+    <string name="lyrics_description3" translatable="false">عزز تجربة الموسيقى عبر الإنترنت وغير المتصلة بالإنترنت.</string>
+
+    <string name="filter_duplicate_title" translatable="false">تصفية التكرارات</string>
+    <string name="filter_duplicate_description1" translatable="false">استخدام غير محدود مدى الحياة لحماية جهازك من الملفات المكررة</string>
+    <string name="filter_duplicate_description2" translatable="false">يساعدك على توفير الوقت وتجنب الالتباس من خلال تحديد وإزالة الملفات المكررة</string>
+    <string name="filter_duplicate_description3" translatable="false">يقلل من مقدار مساحة التخزين المطلوبة عن طريق القضاء على النسخ غير المرغوب فيها من الملفات.</string>
+
+    <string name="upcoming_feature_title" translatable="false">ميزة قادمة</string>
+    <string name="upcoming_feature_description" translatable="false">تتيح لك النسخة المميزة الاستفادة من الوصول المبكر إلى الميزات الحصرية القادمة.</string>
+
+    <!-- Fonts -->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">الميزات المتميزة في انتظارك!
+    \nافتح تجربة متميزة
+    </string>
+
+    <string name="restore_purchase" translatable="false">استعادة عملية الشراء</string>
+
+    <string name="restore_purchase_success" translatable="false">تم الاستعادة بنجاح!
+    \nسعداء برؤيتك كمستخدم مميز</string>
+
+    <string name="restore_purchase_error" translatable="false">عذرًا!
+    \nلم تقم بترقية النسخة إلى المميزة بعد</string>
+
+    <string name="continue_purchase" translatable="false">متابعة</string>
+    <string name="go_premium" translatable="false">انتقل إلى المميز</string>
+    <string name="update_to_premium" translatable="false">تحديث إلى المميز</string>
+    <string name="features_in_premium" translatable="false">ميزات في النسخة المميزة</string>
+    <string name="upcoming" translatable="false">قادم</string>
+    <string name="new_update_to_premium" translatable="false">افتح \nميزة متميزة</string>
+    <string name="new_features_in_premium" translatable="false">لا تفوت العروض المميزة الرائعة</string>
+    <string name="freeTrail">تجربتك المجانية لمدة 3 أيام ستتحول تلقائيًا إلى \nاشتراك سنوي بعد انتهائها</string>
+    <string name="scan_doc_access_premium_features">مسح مستند - الوصول إلى الميزات المتميزة</string>
+    <string name="access_ads_free_usage">الوصول إلى الاستخدام بدون إعلانات</string>
+    <string name="create_unlimited_notes">إنشاء ملاحظات غير محدودة</string>
+    <string name="continuew">متابعة</string>
+    <string name="terms_of_use">شروط الاستخدام</string>
+    <string name="restore">استعادة</string>
+    <string name="unlimited_high_quality_downloads">تنزيلات عالية الجودة غير محدودة</string>
+    <string name="glad_to_see_you">سعيد برؤيتك!</string>
+    <string name="enjoy_premium">استمتع بالمميز</string>
+</resources>

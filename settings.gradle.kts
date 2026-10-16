@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpeedPro"
 include(":app")
+include(":core-plugin-framework")

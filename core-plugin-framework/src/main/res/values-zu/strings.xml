@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Izipesheli Zokubhalisela Okukhokhelwayo</string>
+    <string name="billing_info">Isivivinyo sakho samahhala sizoguqulwa ngokuzenzakalelayo sibe ukubhaliswa konyaka uma sesiqedile. Futhi, ngokuchofoza "Thuthukisa", ukubhaliswa kwakho kuzokwenziwa ngokuzenzakalela ngesenzo esifanayo ngamanani afanayo kuze kube usukukhansela kusuka kuzilungiselelo ku-Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Isivivinyo sakho samahhala sizoguqulwa ngokuzenzakalela sibe ukubhaliswa konyaka uma sesiqedile. Futhi, ngokuchofoza "Izinsuku Zokubhaliswa", iphakheji yakho izokwenziwa ngokuzenzakalela ngamanani afanayo kuze kube usukukhansela kusuka kuzilungiselelo ku-Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Ngokuchofoza "Qhubeka", ukukhokha kwakho kuzokhokhwa ku-akhawunti yakho ye-Google Play futhi ukubhaliswa kwakho kuzokwenziwa ngokuzenzakalela ngesenzo esifanayo ngamanani afanayo kuze kube usukukhansela kusuka kuzilungiselelo ku-Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Zama inguqulo yokukhokhelwa bese ususa izikhangiso</string>
+    <string name="made_in_india" translatable="false">Yenziwe e-India</string>
+    <string name="recuringanytime" translatable="false">Ukubhaliswa okuqhubekayo, kukhanselwa nganoma yisiphi isikhathi.</string>
+    <string name="recuringanytime_with_trial" translatable="false">Izinsuku ezintathu zokuvivinya mahhala</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Izindikimba</string>
+    <string name="themes_description1" translatable="false">Izindikimba eziningi zokukhokhelwayo ukuze ushintshe uhlelo lwakho.</string>
+    <string name="themes_description2" translatable="false">Hlonipha ukubukeka nokuzizwa kohlelo lwakho.</string>
+    <string name="themes_description3" translatable="false">Nciphisa ukucindezeleka kwamehlo ngokusebenzisa izindikimba ze-gradient noma izindikimba ezimnyama.</string>
+
+    <string name="trash_title" translatable="false">Ithokheni</string>
+    <string name="trash_description1" translatable="false">Sula kalula amafayela ongawadingi, njengezithombe noma amavidiyo.</string>
+    <string name="trash_description2" translatable="false">Gcina isikhala sokugcina sikahle futhi singanqamuki.</string>
+    <string name="trash_description3" translatable="false">Vimbela amafayela asusiwe ngokungafanele ngokuhlinzeka ngengxenye yokuphepha.</string>
+
+    <string name="ad_free_title" translatable="false">Ngaphandle Kwezikhangiso</string>
+    <string name="ad_free_description1" translatable="false">Jabulela izici eziphambili ngaphandle kwezikhangiso eziphazamisayo.</string>
+    <string name="ad_free_description2" translatable="false">Sheshisa isikhathi sokulayisha amakhasi futhi uthuthukise ukusebenza jikelele.</string>
+    <string name="ad_free_description3" translatable="false">Nciphisa ukusetshenziswa kwedatha futhi mhlawumbe ugcine idatha yakho ephathekayo.</string>
+
+    <string name="crop_title" translatable="false">Sika</string>
+    <string name="crop_description1" translatable="false">Lungisa usayizi nobubanzi be-izithombe noma amavidiyo.</string>
+    <string name="crop_description2" translatable="false">Thuthukisa ukubekwa komfanekiso bese ususa izinto ezingafuneki kusuka esithombeni noma ividiyo.</string>
+    <string name="crop_description3" translatable="false">Gcina isikhala sokugcina ngokunciphisa usayizi wefayela lezithombe noma amavidiyo amakhulu.</string>
+
+    <string name="lyrics_title" translatable="false">Izinkondlo</string>
+    <string name="lyrics_description1" translatable="false">Ukudlalwa kwemusic okungapheli ngama-lyrics aku-inthanethi</string>
+    <string name="lyrics_description2" translatable="false">Kulula ukuhamba ngezwi lezinkondlo zomculo wakho owuthandayo.</string>
+    <string name="lyrics_description3" translatable="false">Thuthukisa ulwazi lwakho lomculo ku-inthanethi nakwi-offline.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Hlunga Izinkopi Eziphindaphindayo</string>
+    <string name="filter_duplicate_description1" translatable="false">Ukusetshenziswa okungapheli ngokuphila ukuze uvikele idivayisi yakho ezinkopini eziphindaphindayo</string>
+    <string name="filter_duplicate_description2" translatable="false">Kusiza ukonga isikhathi, nokugwema ukudideka ngokuhlonza &amp; ukususa izinkopi eziphindaphindayo zamafayela</string>
+    <string name="filter_duplicate_description3" translatable="false">Kwehlisa isikhala sokugcina esidingekayo ngokususa izinkopi ezingafuneki zamafayela.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Izici Ezizayo</string>
+    <string name="upcoming_feature_description" translatable="false">Inguqulo yokukhokhelwa ikunika izinzuzo zokuhlola nokujabulela ukufinyelela kwangaphambi kwezici ezikhethekile ezizayo.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Izici ezikhethekile zilindile!
+    \nVula isipiliyoni esikhethekile
+    </string>
+
+    <string name="restore_purchase" translatable="false">Buyisela ukuthenga</string>
+
+    <string name="restore_purchase_success" translatable="false">Kuphumelele!
+    \nSiyajabula ukukubona njengomsebenzisi ophakeme</string>
+
+    <string name="restore_purchase_error" translatable="false">Ouch, Ngiyaxolisa!
+    \nAwukakathuthukisi inguqulo yokukhokhelwa</string>
+
+    <string name="continue_purchase" translatable="false">Qhubeka</string>
+    <string name="go_premium" translatable="false">Hamba Premium</string>
+    <string name="update_to_premium" translatable="false">Thuthukisa ku-Premium</string>
+    <string name="features_in_premium" translatable="false">Izici ku-Premium</string>
+    <string name="upcoming" translatable="false">Ezizayo</string>
+    <string name="new_update_to_premium" translatable="false">Vula \nIzici Premium</string>
+    <string name="new_features_in_premium" translatable="false">Ungaphuthelwa izinhlinzeko ezinhle ze-Premium</string>
+    <string name="freeTrail">Isivivinyo sakho samahhala sezinsuku ezi-3 sizoguqulwa ngokuzenzakalela sibe \nUkubhaliswa konyaka uma sesiqedile</string>
+    <string name="scan_doc_access_premium_features">Skena Idokhumenti - Finyelela izici zokukhokhelwa</string>
+    <string name="access_ads_free_usage">Finyelela Ukusetshenziswa Okungaphandle Kwezikhangiso</string>
+    <string name="create_unlimited_notes">Dala Izinothi Ezingapheli</string>
+    <string name="continuew">Qhubeka</string>
+    <string name="terms_of_use">Imibandela Yokusebenzisa</string>
+    <string name="restore">Buyisela</string>
+    <string name="unlimited_high_quality_downloads">Ukulanda Okungapheli Kwekhwalithi Ephezulu</string>
+    <string name="glad_to_see_you">Siyajabula ukukubona!</string>
+    <string name="enjoy_premium">Jabulela i-Premium</string>
+</resources>

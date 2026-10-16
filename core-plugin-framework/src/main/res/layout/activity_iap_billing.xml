@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_gradient_screen_bg"
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--Top header view-->
+        <include
+            android:id="@+id/topHeaderView"
+            layout="@layout/view_iap_billing_top_header_item" />
+
+        <!--Bottom  view-->
+        <include
+            android:id="@+id/bottomView"
+            layout="@layout/view_iap_billing_bottom_item" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">Tillgång till användning utan annonser</string>
+    <string name="ad_free_description1" translatable="false">Njut av grundfunktionerna utan störande annonser.</string>
+    <string name="ad_free_description2" translatable="false">Snabbar upp laddningstiden för sidor och förbättrar den övergripande prestandan.</string>
+    <string name="ad_free_description3" translatable="false">Minskar dataanvändningen och kan spara dina mobildata.</string>
+    <string name="ad_free_title" translatable="false">Reklamfri</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">Din gratis provperiod kommer automatiskt att omvandlas till ett årsabonnemang efter att den tar slut. Dessutom, genom att trycka på "Uppgradera" kommer ditt abonnemang automatiskt att förnyas för samma paketlängd till samma pris tills du avbryter det i inställningarna i Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Genom att trycka på "Fortsätt" kommer din betalning att debiteras från ditt Google Play-konto och ditt abonnemang kommer automatiskt att förnyas för samma paketlängd till samma pris tills du avbryter det i inställningarna i Google Play Store.</string>
+    <string name="continue_purchase" translatable="false">Fortsätt</string>
+    <string name="continuew">Fortsätt</string>
+    <string name="create_unlimited_notes">Skapa obegränsade anteckningar</string>
+    <string name="crop_description1" translatable="false">Justera storlek och bildförhållande för bilder eller videor.</string>
+    <string name="crop_description2" translatable="false">Förbättra kompositionen och ta bort oönskade element från ett foto eller video.</string>
+    <string name="crop_description3" translatable="false">Sparar lagringsutrymme genom att minska filstorleken på stora bilder eller videor.</string>
+    <string name="crop_title" translatable="false">Beskär</string>
+    <string name="enjoy_premium">Njut av Premium</string>
+    <string name="features_in_premium" translatable="false">Funktioner i premium</string>
+    <string name="filter_duplicate_description1" translatable="false">Obegränsad användning för livet för att skydda din enhet från dubblettfiler</string>
+    <string name="filter_duplicate_description2" translatable="false">Hjälper dig att spara tid och undvika förvirring genom att identifiera och ta bort dubblettfiler</string>
+    <string name="filter_duplicate_description3" translatable="false">Minskar mängden lagringsutrymme som behövs genom att eliminera oönskade kopior av filer.</string>
+    <string name="filter_duplicate_title" translatable="false">Filtrera dubbletter</string>
+    <string name="freeTrail">Din gratis 3-dagars provperiod kommer automatiskt att omvandlas till \nårsabonnemang efter att den tar slut</string>
+    <string name="glad_to_see_you">Roligt att se dig!</string>
+    <string name="go_premium" translatable="false">Gå Premium</string>
+    <string name="lyrics_description1" translatable="false">Obegränsad musikuppspelning med online-texter</string>
+    <string name="lyrics_description2" translatable="false">Följ enkelt med i texten till dina favoritlåtar.</string>
+    <string name="lyrics_description3" translatable="false">Förbättra din musikupplevelse online och offline.</string>
+    <string name="lyrics_title" translatable="false">Text</string>
+    <string name="made_in_india" translatable="false">Tillverkad i Indien</string>
+    <string name="new_billing_info" translatable="false">Din gratis provperiod kommer automatiskt att omvandlas till ett årsabonnemang efter att den tar slut. Dessutom, genom att trycka på "Prenumerera nu" kommer ditt paket automatiskt att förnyas till samma pris tills du avbryter det i inställningarna i Google Play Store.</string>
+    <string name="new_features_in_premium" translatable="false">Miss inte de fantastiska Premium-erbjudandena</string>
+    <string name="new_update_to_premium" translatable="false">Lås upp \nPremium-funktion</string>
+    <string name="premium_offers" translatable="false">Premium-erbjudanden</string>
+    <string name="premium_text" translatable="false">Premium-funktioner väntar!
+    \nLås upp premiumupplevelsen
+    </string>
+    <string name="recuringanytime" translatable="false">Återkommande fakturering, avbryt när som helst.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3 dagars gratis provperiod</string>
+    <string name="remove_ads" translatable="false">Prova premiumversionen och ta bort annonser</string>
+    <string name="restore">Återställ</string>
+    <string name="restore_purchase" translatable="false">Återställ ditt köp</string>
+    <string name="restore_purchase_error" translatable="false">Oj, förlåt!
+    \nDu har ännu inte uppgraderat till premiumversionen</string>
+    <string name="restore_purchase_success" translatable="false">Framgångsrikt återställt!
+    \nRoligt att se dig som Premium-användare</string>
+    <string name="scan_doc_access_premium_features">Skanna dokument - Få tillgång till premiumfunktioner</string>
+    <string name="terms_of_use">Användarvillkor</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">Över 20 premium-teman för att anpassa din app.</string>
+    <string name="themes_description2" translatable="false">Personalisera utseendet och känslan av din app.</string>
+    <string name="themes_description3" translatable="false">Minska ögontrötthet med hjälp av gradient- eller mörkt läge-teman.</string>
+    <string name="themes_title" translatable="false">Teman</string>
+    <string name="trash_description1" translatable="false">Enkelt ta bort oönskade filer som foton eller videor.</string>
+    <string name="trash_description2" translatable="false">Håller din lagringsutrymme organiserad och utan skräp.</string>
+    <string name="trash_description3" translatable="false">Förhindrar oavsiktligt borttagna filer genom att tillhandahålla ett skyddsnät.</string>
+    <string name="trash_title" translatable="false">Papperskorg</string>
+    <string name="unlimited_high_quality_downloads">Oändliga högkvalitativa nedladdningar</string>
+    <string name="upcoming" translatable="false">Kommande</string>
+    <string name="upcoming_feature_description" translatable="false">Premium-versionen erbjuder dig förmånerna att utforska och njuta av tidig åtkomst till exklusiva kommande funktioner.</string>
+    <string name="upcoming_feature_title" translatable="false">Kommande funktion</string>
+    <string name="update_to_premium" translatable="false">Uppdatera till Premium</string>
+</resources>

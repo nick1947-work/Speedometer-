@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">Prémiové nabídky</string>
+    <string name="billing_info">Vaše bezplatná zkušební verze bude automaticky převedena na roční předplatné po jejím skončení. Také, kliknutím na „Upgradovat“, se vaše předplatné automaticky obnoví na stejnou délku balíčku za stejnou cenu, dokud jej nezrušíte v nastavení Google Play Store.</string>
+    <string name="new_billing_info" translatable="false">Vaše bezplatná zkušební verze bude automaticky převedena na roční předplatné po jejím skončení. Také, kliknutím na „Předplatit nyní“, bude váš balíček automaticky obnoven za stejnou cenu, dokud jej nezrušíte v nastavení Google Play Store.</string>
+    <string name="billing_info_config" translatable="false">Kliknutím na „Pokračovat“ bude vaše platba účtována na váš účet Google Play a vaše předplatné se automaticky obnoví na stejnou délku balíčku za stejnou cenu, dokud jej nezrušíte v nastavení Google Play Store.</string>
+
+    <string name="remove_ads" translatable="false">Vyzkoušejte prémiovou verzi a odstraňte reklamy</string>
+    <string name="made_in_india" translatable="false">Vyrobeno v Indii</string>
+    <string name="recuringanytime" translatable="false">Opakované účtování, zrušit kdykoliv.</string>
+    <string name="recuringanytime_with_trial" translatable="false">3denní bezplatná zkušební verze</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">Motivy</string>
+    <string name="themes_description1" translatable="false">Více než 20 prémiových motivů pro úpravu vaší aplikace.</string>
+    <string name="themes_description2" translatable="false">Personalizujte vzhled a pocit vaší aplikace.</string>
+    <string name="themes_description3" translatable="false">Snižte únavu očí použitím gradientních nebo tmavých motivů.</string>
+
+    <string name="trash_title" translatable="false">Koš</string>
+    <string name="trash_description1" translatable="false">Snadno odstraňte nežádoucí soubory, jako jsou fotografie nebo videa.</string>
+    <string name="trash_description2" translatable="false">Udržuje vaši úložnou kapacitu organizovanou a bez nepořádku.</string>
+    <string name="trash_description3" translatable="false">Zabraňuje náhodnému odstranění souborů tím, že poskytuje bezpečnostní síť.</string>
+
+    <string name="ad_free_title" translatable="false">Bez reklam</string>
+    <string name="ad_free_description1" translatable="false">Užijte si hlavní funkce bez rušivých reklam.</string>
+    <string name="ad_free_description2" translatable="false">Zrychluje dobu načítání stránky a zlepšuje celkový výkon.</string>
+    <string name="ad_free_description3" translatable="false">Snižuje používání dat a potenciálně šetří mobilní data.</string>
+
+    <string name="crop_title" translatable="false">Oříznout</string>
+    <string name="crop_description1" translatable="false">Upravte velikost a poměr stran obrázků nebo videí.</string>
+    <string name="crop_description2" translatable="false">Vylepšete kompozici a odstraňte nežádoucí prvky z fotografie nebo videa.</string>
+    <string name="crop_description3" translatable="false">Šetří úložný prostor snížením velikosti souboru velkých obrázků nebo videí.</string>
+
+    <string name="lyrics_title" translatable="false">Texty</string>
+    <string name="lyrics_description1" translatable="false">Neomezené přehrávání hudby s online texty</string>
+    <string name="lyrics_description2" translatable="false">Snadno sledujte texty svých oblíbených písní.</string>
+    <string name="lyrics_description3" translatable="false">Zvyšte svou hudební zkušenost online i offline.</string>
+
+    <string name="filter_duplicate_title" translatable="false">Filtr duplicit</string>
+    <string name="filter_duplicate_description1" translatable="false">Neomezené použití na celý život k ochraně vašeho zařízení před duplicitními soubory</string>
+    <string name="filter_duplicate_description2" translatable="false">Pomáhá vám šetřit čas a vyhnout se zmatku tím, že identifikuje a odstraňuje duplicitní soubory</string>
+    <string name="filter_duplicate_description3" translatable="false">Snižuje množství potřebného úložného prostoru tím, že odstraňuje nežádoucí kopie souborů.</string>
+
+    <string name="upcoming_feature_title" translatable="false">Nadcházející funkce</string>
+    <string name="upcoming_feature_description" translatable="false">Prémiová verze vám nabízí výhody prozkoumat a užívat si předčasný přístup k nadcházejícím exkluzivním funkcím.</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">Prémiové funkce čekají!
+    \nOdemkněte prémiový zážitek
+    </string>
+
+    <string name="restore_purchase" translatable="false">Obnovit váš nákup</string>
+
+    <string name="restore_purchase_success" translatable="false">Úspěšně obnoveno!
+    \nRádi vás vidíme jako prémiového uživatele</string>
+
+    <string name="restore_purchase_error" translatable="false">Omlouváme se!
+    \nJeště jste nepřešli na prémiovou verzi</string>
+
+    <string name="continue_purchase" translatable="false">Pokračovat</string>
+    <string name="go_premium" translatable="false">Přejít na Premium</string>
+    <string name="update_to_premium" translatable="false">Aktualizovat na Premium</string>
+    <string name="features_in_premium" translatable="false">Funkce v prémiové verzi</string>
+    <string name="upcoming" translatable="false">Nadcházející</string>
+    <string name="new_update_to_premium" translatable="false">Odemknout\nPrémiovou funkci</string>
+    <string name="new_features_in_premium" translatable="false">Nepropásněte skvělé prémiové nabídky</string>
+    <string name="freeTrail">Vaše bezplatná 3denní zkušební verze bude automaticky převedena na roční předplatné po jejím skončení</string>
+    <string name="scan_doc_access_premium_features">Skenujte dokumenty - Získejte prémiové funkce</string>
+    <string name="access_ads_free_usage">Získejte používání bez reklam</string>
+    <string name="create_unlimited_notes">Vytvářejte neomezené poznámky</string>
+    <string name="continuew">Pokračovat</string>
+    <string name="terms_of_use">Podmínky používání</string>
+    <string name="restore">Obnovit</string>
+    <string name="unlimited_high_quality_downloads">Neomezené stahování vysoké kvality</string>
+    <string name="glad_to_see_you">Rádi vás vidíme!</string>
+    <string name="enjoy_premium">Užijte si Premium</string>
+</resources>

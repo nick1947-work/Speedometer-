@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppFramework</string>
+    <!--Iap String constants-->
+    <string name="premium_offers" translatable="false">ข้อเสนอพรีเมียม</string>
+    <string name="billing_info">การทดลองใช้ฟรีของคุณจะถูกแปลงเป็นการสมัครสมาชิกประจำปีโดยอัตโนมัติหลังจากสิ้นสุด นอกจากนี้ โดยการแตะที่ "อัปเกรด" การสมัครสมาชิกของคุณจะต่ออายุโดยอัตโนมัติสำหรับความยาวแพ็คเกจเดียวกันในราคาเดียวกันจนกว่าคุณจะยกเลิกจากการตั้งค่าใน Google Play Store</string>
+    <string name="new_billing_info" translatable="false">การทดลองใช้ฟรีของคุณจะถูกแปลงเป็นการสมัครสมาชิกประจำปีโดยอัตโนมัติหลังจากสิ้นสุด นอกจากนี้ โดยการแตะที่ "สมัครสมาชิกตอนนี้" แพ็คเกจของคุณจะต่ออายุโดยอัตโนมัติในราคาเดียวกันจนกว่าคุณจะยกเลิกจากการตั้งค่าใน Google Play Store</string>
+    <string name="billing_info_config" translatable="false">โดยการแตะที่ "ดำเนินการต่อ" การชำระเงินของคุณจะถูกเรียกเก็บจากบัญชี Google Play ของคุณและการสมัครสมาชิกของคุณจะต่ออายุโดยอัตโนมัติสำหรับความยาวแพ็คเกจเดียวกันในราคาเดียวกันจนกว่าคุณจะยกเลิกจากการตั้งค่า Google Play Store</string>
+
+    <string name="remove_ads" translatable="false">ลองใช้เวอร์ชันพรีเมียมและลบโฆษณา</string>
+    <string name="made_in_india" translatable="false">ผลิตในอินเดีย</string>
+    <string name="recuringanytime" translatable="false">การเรียกเก็บเงินซ้ำ ยกเลิกได้ตลอดเวลา</string>
+    <string name="recuringanytime_with_trial" translatable="false">ทดลองใช้ฟรี 3 วัน</string>
+
+    <!--Iap subscription string constants-->
+    <string name="themes_title" translatable="false">ธีม</string>
+    <string name="themes_description1" translatable="false">ธีมพรีเมียมกว่า 20 รายการเพื่อปรับแต่งแอพของคุณ</string>
+    <string name="themes_description2" translatable="false">ปรับแต่งรูปลักษณ์และความรู้สึกของแอพของคุณ</string>
+    <string name="themes_description3" translatable="false">ลดความตึงเครียดของตาด้วยการใช้ธีมโทนสีหรือโหมดมืด</string>
+
+    <string name="trash_title" translatable="false">ถังขยะ</string>
+    <string name="trash_description1" translatable="false">ลบไฟล์ที่ไม่ต้องการเช่นรูปภาพหรือวิดีโอได้อย่างง่ายดาย</string>
+    <string name="trash_description2" translatable="false">ทำให้พื้นที่เก็บข้อมูลของคุณเป็นระเบียบและปลอดโปร่ง</string>
+    <string name="trash_description3" translatable="false">ป้องกันไฟล์ที่ลบโดยไม่ได้ตั้งใจโดยการให้ความปลอดภัย</string>
+
+    <string name="ad_free_title" translatable="false">ไม่มีโฆษณา</string>
+    <string name="ad_free_description1" translatable="false">เพลิดเพลินกับฟีเจอร์พรีเมียมโดยไม่มีโฆษณาที่รบกวน</string>
+    <string name="ad_free_description2" translatable="false">เพิ่มความเร็วในการโหลดหน้าและปรับปรุงประสิทธิภาพโดยรวม</string>
+    <string name="ad_free_description3" translatable="false">ลดการใช้ข้อมูลและอาจประหยัดข้อมูลมือถือของคุณ</string>
+
+    <string name="crop_title" translatable="false">ครอบตัด</string>
+    <string name="crop_description1" translatable="false">ปรับขนาดและอัตราส่วนภาพของรูปภาพหรือวิดีโอ</string>
+    <string name="crop_description2" translatable="false">ปรับปรุงการจัดองค์ประกอบและลบองค์ประกอบที่ไม่ต้องการออกจากรูปภาพหรือวิดีโอ</string>
+    <string name="crop_description3" translatable="false">ประหยัดพื้นที่เก็บข้อมูลโดยการลดขนาดไฟล์ของรูปภาพหรือวิดีโอขนาดใหญ่</string>
+
+    <string name="lyrics_title" translatable="false">เนื้อเพลง</string>
+    <string name="lyrics_description1" translatable="false">การเล่นเพลงไม่จำกัดพร้อมเนื้อเพลงออนไลน์</string>
+    <string name="lyrics_description2" translatable="false">ติดตามคำร้องของเพลงโปรดของคุณได้อย่างง่ายดาย</string>
+    <string name="lyrics_description3" translatable="false">เพิ่มประสบการณ์เพลงออนไลน์และออฟไลน์ของคุณ</string>
+
+    <string name="filter_duplicate_title" translatable="false">กรองไฟล์ซ้ำ</string>
+    <string name="filter_duplicate_description1" translatable="false">ใช้งานได้ไม่จำกัดตลอดชีพเพื่อปกป้องอุปกรณ์ของคุณจากไฟล์ซ้ำ</string>
+    <string name="filter_duplicate_description2" translatable="false">ช่วยประหยัดเวลาและหลีกเลี่ยงความสับสนโดยการระบุ &amp; ลบไฟล์ซ้ำ</string>
+    <string name="filter_duplicate_description3" translatable="false">ลดปริมาณพื้นที่เก็บข้อมูลที่ต้องการโดยการลบไฟล์สำเนาที่ไม่ต้องการ</string>
+
+    <string name="upcoming_feature_title" translatable="false">ฟีเจอร์ที่กำลังจะมา</string>
+    <string name="upcoming_feature_description" translatable="false">เวอร์ชันพรีเมียมมอบประโยชน์ในการสำรวจและเพลิดเพลินกับการเข้าถึงฟีเจอร์พิเศษล่วงหน้า</string>
+
+    <!--Fonts-->
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+
+    <string name="premium_text" translatable="false">ฟีเจอร์พรีเมียมรออยู่!
+    \nปลดล็อกประสบการณ์พรีเมียม
+    </string>
+
+    <string name="restore_purchase" translatable="false">กู้คืนการซื้อของคุณ</string>
+
+    <string name="restore_purchase_success" translatable="false">กู้คืนสำเร็จ!
+    \nดีใจที่ได้เห็นคุณเป็นผู้ใช้พรีเมียม</string>
+
+    <string name="restore_purchase_error" translatable="false">อุ๊ปส์ ขอโทษ!
+    \nคุณยังไม่ได้อัปเกรดเป็นเวอร์ชันพรีเมียม</string>
+
+    <string name="continue_purchase" translatable="false">ดำเนินการต่อ</string>
+    <string name="go_premium" translatable="false">สมัครพรีเมียม</string>
+    <string name="update_to_premium" translatable="false">อัปเดตเป็นพรีเมียม</string>
+    <string name="features_in_premium" translatable="false">ฟีเจอร์ในพรีเมียม</string>
+    <string name="upcoming" translatable="false">ที่กำลังจะมา</string>
+    <string name="new_update_to_premium" translatable="false">ปลดล็อก\nฟีเจอร์พรีเมียม</string>
+    <string name="new_features_in_premium" translatable="false">อย่าพลาดข้อเสนอพรีเมียมที่ยอดเยี่ยม</string>
+    <string name="freeTrail">การทดลองใช้ฟรี 3 วันของคุณจะถูกแปลงเป็น\nการสมัครสมาชิกประจำปีโดยอัตโนมัติหลังจากสิ้นสุด</string>
+    <string name="scan_doc_access_premium_features">สแกนเอกสาร - เข้าถึงฟีเจอร์พรีเมียม</string>
+    <string name="access_ads_free_usage">เข้าถึงการใช้งานที่ไม่มีโฆษณา</string>
+    <string name="create_unlimited_notes">สร้างโน้ตไม่จำกัด</string>
+    <string name="continuew">ดำเนินการต่อ</string>
+    <string name="terms_of_use">ข้อกำหนดการใช้งาน</string>
+    <string name="restore">กู้คืน</string>
+    <string name="unlimited_high_quality_downloads">การดาวน์โหลดคุณภาพสูงไม่จำกัด</string>
+    <string name="glad_to_see_you">ดีใจที่ได้เห็นคุณ!</string>
+    <string name="enjoy_premium">เพลิดเพลินกับพรีเมียม</string>
+</resources>

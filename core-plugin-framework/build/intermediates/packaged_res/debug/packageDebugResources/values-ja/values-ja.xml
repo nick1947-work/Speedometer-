@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="access_ads_free_usage">広告なしで利用</string>
+    <string name="ad_free_description1" translatable="false">広告なしで主要機能を楽しめます。</string>
+    <string name="ad_free_description2" translatable="false">ページの読み込み時間が短縮され、全体的なパフォーマンスが向上します。</string>
+    <string name="ad_free_description3" translatable="false">データ使用量を削減し、モバイルデータを節約できる可能性があります。</string>
+    <string name="ad_free_title" translatable="false">広告なし</string>
+    <string name="app_name">AppFramework</string>
+    <string name="billing_info">無料トライアルが終了すると、自動的に年間サブスクリプションに変換されます。また、「アップグレード」をタップすると、サブスクリプションは自動的に同じパッケージの長さで同じ価格で更新され、Google Play ストアの設定からキャンセルするまで継続します。</string>
+    <string name="billing_info_config" translatable="false">「続行」をタップすると、支払いは Google Play アカウントに請求され、サブスクリプションは自動的に同じパッケージの長さで同じ価格で更新され、Google Play ストアの設定からキャンセルするまで継続します。</string>
+    <string name="continue_purchase" translatable="false">続行</string>
+    <string name="continuew">続行</string>
+    <string name="create_unlimited_notes">無制限のメモを作成</string>
+    <string name="crop_description1" translatable="false">画像や動画のサイズとアスペクト比を調整。</string>
+    <string name="crop_description2" translatable="false">写真や動画から不要な要素を取り除き、構図を改善。</string>
+    <string name="crop_description3" translatable="false">大きな画像や動画のファイルサイズを削減し、ストレージスペースを節約。</string>
+    <string name="crop_title" translatable="false">トリミング</string>
+    <string name="enjoy_premium">プレミアムをお楽しみください</string>
+    <string name="features_in_premium" translatable="false">プレミアムの機能</string>
+    <string name="filter_duplicate_description1" translatable="false">重複ファイルからデバイスを保護するための生涯無制限使用</string>
+    <string name="filter_duplicate_description2" translatable="false">重複ファイルを特定し、削除して時間を節約し、混乱を防ぎます</string>
+    <string name="filter_duplicate_description3" translatable="false">不要なファイルのコピーを削除して、ストレージスペースを削減します。</string>
+    <string name="filter_duplicate_title" translatable="false">重複フィルター</string>
+    <string name="freeTrail">無料の3日間のトライアルは、終了後に自動的に年間サブスクリプションに変換されます</string>
+    <string name="glad_to_see_you">お会いできてうれしいです！</string>
+    <string name="go_premium" translatable="false">プレミアムに切り替え</string>
+    <string name="lyrics_description1" translatable="false">オンライン歌詞付きで無制限の音楽再生</string>
+    <string name="lyrics_description2" translatable="false">お気に入りの曲の歌詞を簡単に追跡できます。</string>
+    <string name="lyrics_description3" translatable="false">オンラインおよびオフラインの音楽体験を向上させます。</string>
+    <string name="lyrics_title" translatable="false">歌詞</string>
+    <string name="made_in_india" translatable="false">インド製</string>
+    <string name="new_billing_info" translatable="false">無料トライアルが終了すると、自動的に年間サブスクリプションに変換されます。また、「今すぐ登録」をタップすると、パッケージは自動的に同じ価格で更新され、Google Play ストアの設定からキャンセルするまで継続します。</string>
+    <string name="new_features_in_premium" translatable="false">素晴らしいプレミアムディールを見逃さないでください</string>
+    <string name="new_update_to_premium" translatable="false">プレミアム機能を解除する</string>
+    <string name="premium_offers" translatable="false">プレミアムオファー</string>
+    <string name="premium_text" translatable="false">プレミアム機能が待っています！
+    \nプレミアム体験を解除してください
+    </string>
+    <string name="recuringanytime" translatable="false">自動更新、いつでもキャンセル可能。</string>
+    <string name="recuringanytime_with_trial" translatable="false">3日間の無料トライアル</string>
+    <string name="remove_ads" translatable="false">プレミアムバージョンを試して広告を削除</string>
+    <string name="restore">復元</string>
+    <string name="restore_purchase" translatable="false">購入を復元する</string>
+    <string name="restore_purchase_error" translatable="false">申し訳ありません！
+    \nまだプレミアムバージョンにアップグレードしていません</string>
+    <string name="restore_purchase_success" translatable="false">正常に復元されました！
+    \nプレミアムユーザーとしてお迎えできてうれしいです</string>
+    <string name="scan_doc_access_premium_features">ドキュメントをスキャン - プレミアム機能にアクセス</string>
+    <string name="terms_of_use">利用規約</string>
+    <string name="text_1_path" translatable="false">fonts/OpenSans-Regular.ttf</string>
+    <string name="text_2_path" translatable="false">fonts/OpenSans-SemiBold.ttf</string>
+    <string name="themes_description1" translatable="false">アプリをカスタマイズするための20以上のプレミアムテーマ。</string>
+    <string name="themes_description2" translatable="false">アプリの外観と感触を個別化できます。</string>
+    <string name="themes_description3" translatable="false">グラデーションまたはダークモードテーマを使用して目の疲れを軽減。</string>
+    <string name="themes_title" translatable="false">テーマ</string>
+    <string name="trash_description1" translatable="false">写真や動画などの不要なファイルを簡単に削除。</string>
+    <string name="trash_description2" translatable="false">ストレージスペースを整理し、混乱を防ぎます。</string>
+    <string name="trash_description3" translatable="false">安全ネットを提供して、誤って削除したファイルを防ぎます。</string>
+    <string name="trash_title" translatable="false">ゴミ箱</string>
+    <string name="unlimited_high_quality_downloads">無制限の高品質ダウンロード</string>
+    <string name="upcoming" translatable="false">今後</string>
+    <string name="upcoming_feature_description" translatable="false">プレミアム版では、今後の限定機能を早期にアクセスして楽しむことができます。</string>
+    <string name="upcoming_feature_title" translatable="false">今後の機能</string>
+    <string name="update_to_premium" translatable="false">プレミアムに更新</string>
+</resources>
